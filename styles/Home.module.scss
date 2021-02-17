@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 100vh;
+  margin: auto;
+  padding: 0 3rem;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  
+  padding: 0 8%;
+  height: calc(100vh - 10rem);
+}
+
+.title {
+  line-height: 1;
+  font-size: 3rem;
+  margin: 0;
+}
+
+.description {
+  line-height: 1;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-top: 1rem;
+}
+
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  margin: 0 auto 0 auto;
+  min-width: 90%;
+  max-width: 1000px;
+}

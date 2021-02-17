@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    padding: 2rem 3rem;
+}
+
+.siteLogo {
+    justify-self: flex-start;
+
+    height: 4rem;
+}
+
+
+@media (prefers-color-scheme: light) {
+    .siteLogo {
+        filter: invert(100%);
+    }
+}
