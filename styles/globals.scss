@@ -11,6 +11,8 @@
   
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
+
+  background-color: var(--bg);
 }
 
 * {
@@ -21,8 +23,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-
-  background-color: var(--bg);
   color: var(--main-text);
 }
 
