@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 2rem 3rem;
+    text-align: right;
+    margin-left: 77%; /* 70rem/95 */
+    position: fixed;
+    top: 25%;
+    flex-basis: inherit;
+    display: flex;
+    
+
+}
+.bulletStyle {
+    list-style-type: none;
+}
+
+.button {     
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;   
+    font-size: 20px;  
+    text-align: right;   
+    color: white;
+    margin-right: initial;
+    width: 155px;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+    .button{
+        color: black;
+    }
+  }
+
+@media screen and (max-width: 2700px) {
+    .header {
+        margin-left: 78%;
+        font-size: 30px;
+        top: 40% ;
+    }
+  }
+  @media screen and (max-width: 2000px) {
+    .header {
+        margin-left: 75%;
+        font-size: 30px;
+        top: 40% ;
+    }
+  }
+
+  @media screen and (max-width: 1600px) {
+    .header {
+        margin-left: 75%;
+        font-size: 35px; 
+        top: 40% ;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .header {
+        margin-left: 80%;
+        font-size: 30px;
+        top: 30%;
+    }
+  }
+  
+  @media screen and (max-width: 960px) {
+    .header {
+        margin-left: 82%;
+        font-size: 30px; 
+        top: 20%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .header {
+        margin-left: 80%;
+        font-size: 30px;
+        top: 14% ;
+    }
+  }
+  
+  @media screen and (max-width: 360px) {
+    .header {
+        margin-left: 75%;
+        font-size: 30px;
+    }
+  }

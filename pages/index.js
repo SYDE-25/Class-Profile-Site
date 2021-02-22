@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../components/header";
 import styles from "../styles/Home.module.scss";
+import NavBar from '../components/NavBar';
 
 export default function Home() {
   return (
@@ -16,11 +17,11 @@ export default function Home() {
           <h1 className={styles.title}>Welcome to our class profile</h1>
 
           <p className={styles.description}>Keep scrolling to see more</p>
+          <NavBar/>
         </banner>
-
         <script type="module" src="/nodes.js"></script>
 
-        <div className={styles.content}>
+        <div className={styles.content}>       
           <h1>More Content Here</h1>
         </div>
       </div>
