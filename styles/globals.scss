@@ -30,17 +30,17 @@ p {
   font-size: 1.3rem;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-      --bg: #fff;
-      --primary: #56F2A7;
-      --secondary: #000;
-      --tertiary: #303040;
-      --main-text: #000;
-      --sub-text: #444;
-      --link: #1370f2;
-  }
-}
+// @media (prefers-color-scheme: light) {
+//   :root {
+//       --bg: #fff;
+//       --primary: #56F2A7;
+//       --secondary: #000;
+//       --tertiary: #303040;
+//       --main-text: #000;
+//       --sub-text: #444;
+//       --link: #1370f2;
+//   }
+// }
 
 @media screen and (max-width: 1600px) {
   :root {
