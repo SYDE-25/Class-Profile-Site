@@ -1,15 +1,16 @@
 import * as THREE from "./three.module.js";
 
+let canvas
 let camera, scene, renderer;
 let geometry, material, mesh;
 
 init();
 
 function init() {
-    const canvas = document.querySelector('#threejs-nodes');
+    canvas = document.querySelector('#threejs-nodes');
 	renderer = new THREE.WebGLRenderer( {canvas: canvas, alpha: true, antialias: true} );
-	renderer.setSize( window.innerWidth, window.innerHeight * 0.7 );
-	renderer.setAnimationLoop( animation );
+	renderer.setSize(window.innerWidth, 400);
+    renderer.setAnimationLoop(animation);
 
     // Creating the camera
     const fov = 75;
@@ -38,9 +39,13 @@ function init() {
     scene.add(mesh);
 }
 
-function animation( time ) {
+function animation(time) {
 	mesh.rotation.x = time / 2000;
 	mesh.rotation.y = time / 1000;
 
-	renderer.render( scene, camera );
+    renderer.setSize(window.innerWidth, 400);
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+    
+	renderer.render(scene, camera);
 }
