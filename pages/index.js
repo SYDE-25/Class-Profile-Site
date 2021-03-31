@@ -16,9 +16,9 @@ export default function Home() {
 
       <div className={styles.banner}>
         <h1 className={styles.title}>Welcome to our class profile</h1>
-        <h4 className={styles.description}>
+        <h3 className={styles.description}>
           Head over to the profile page to see more
-        </h4>
+        </h3>
       </div>
 
       <div className={styles.background}>
