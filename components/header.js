@@ -1,17 +1,19 @@
-import Link from "next/link";
-import SiteLogo from "./siteLogo";
-import styles from "./header.module.scss";
+import Link from 'next/link';
+import SiteLogo from './siteLogo';
+import styles from './header.module.scss';
 
 export default function Header() {
-   
   return (
     <div className={styles.header}>
-      <Link href = "/">
+      <Link href="/">
         <a>
           <SiteLogo className={styles.siteLogo} />
         </a>
-        </Link>
+      </Link>
 
+      <Link href="./profiles/Profile">
+          <a>Profile</a>
+      </Link>
     </div>
   );
 }

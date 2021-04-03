@@ -21,7 +21,11 @@
 }
 
 .background {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
+
+  z-index: 1;
   top: 0;
 
   display: block;
@@ -30,7 +34,4 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select:none;
-
-  width: 100vw;
-  height: 100vh;
 }

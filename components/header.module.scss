@@ -1,7 +1,9 @@
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
+
+    z-index: 2;
 
     padding: 2rem 3rem;
 }
