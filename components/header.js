@@ -2,7 +2,6 @@ import Link from "next/link";
 import SiteLogo from "./siteLogo";
 
 import styles from "./header.module.scss";
-import { db } from "../firebaseConfig";
 
 export default function Header() {
    
