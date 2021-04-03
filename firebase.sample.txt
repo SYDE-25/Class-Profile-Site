@@ -1,0 +1,16 @@
+ 
+This is the firebase template 
+    
+  const backup = db.collection("1A Data").doc("Backup");
+
+  async function anything() {
+    const doc = await backup.get();
+    if (!doc.exists) {
+      console.log("No such document!");
+    } else {
+      console.log("Document data:", doc.data());
+    }
+  }
+  anything();
+
+  

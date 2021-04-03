@@ -4,13 +4,14 @@ import SiteLogo from "./siteLogo";
 import styles from "./header.module.scss";
 
 export default function Header() {
+   
   return (
     <div className={styles.header}>
-      <Link href="/">
+      <Link href = "/">
         <a>
-          <SiteLogo className={styles.siteLogo}/>
+          <SiteLogo className={styles.siteLogo} />
         </a>
-      </Link>
+        </Link>
     </div>
   );
 }
