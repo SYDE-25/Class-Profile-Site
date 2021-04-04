@@ -1,0 +1,29 @@
+name: CD Cleanup on Branch Deletion
+
+on:
+  delete:
+    branches-ignore: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.ORG_ACCESS_TOKEN }}
+        repository: 'SYDE-25/Class-Profile-CI'
+        path: main
+        
+    - name: Repair File Paths
+      run: | 
+        sudo find ./out -type f -name "*.html" -exec sed -i 's/\/_next/.\/_next/g' {} +
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.ORG_ACCESS_TOKEN }}
+        external_repository: SYDE-25/Class-Profile-CI
+        publish_branch: main
+        publish_dir: ./
+        destination_dir: ./${GITHUB_REF##*/}
