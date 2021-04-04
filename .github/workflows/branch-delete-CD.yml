@@ -1,8 +1,8 @@
 name: CD Cleanup on Branch Deletion
 
 on:
-  delete:
-    branches-ignore: [ main ]
+  pull_request:
+    types: [closed]
 
 jobs:
   deploy:
