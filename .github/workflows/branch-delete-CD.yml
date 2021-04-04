@@ -20,16 +20,13 @@ jobs:
       run: |
         rm -rf ./${GITHUB_REF#refs/heads/}
 
-    - name: Purge Empty Folders
-      shell: bash
-      run: |
-        find . -type d -depth -empty -exec rmdir "{}" \;
-
     - name: Push Changes to CD Repo
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.CD_DEPLOY_KEY }}
         external_repository: SYDE-25/Class-Profile-CD
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
         publish_branch: main
         publish_dir: ./
         destination_dir: ./

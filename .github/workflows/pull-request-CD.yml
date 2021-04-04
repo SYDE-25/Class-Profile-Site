@@ -25,7 +25,7 @@ jobs:
         
     - name: Repair File Paths
       run: | 
-        sudo find ./out -type f -name "*.html" -exec sed -i 's/\/_next/.\/_next/g' {} +
+        sudo find ./out -type f -name "*.html" -exec sed -i 's/\/_next/_next/g' {} +
 
     - name: Get the current branch name
       shell: bash
@@ -37,6 +37,8 @@ jobs:
       with:
         deploy_key: ${{ secrets.CD_DEPLOY_KEY }}
         external_repository: SYDE-25/Class-Profile-CD
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
         publish_branch: main
         publish_dir: ./out
         destination_dir: ./${{ steps.branchname.outputs.branch }}
@@ -45,5 +47,5 @@ jobs:
     - name: Comment on PR
       uses: thollander/actions-comment-pull-request@master
       with:
-        message: Deployed at https://syde-25.github.io/Class-Profile-CD/${{ steps.branchname.outputs.branch }}
+        message: Deployed at https://syde-25.github.io/Class-Profile-CD/${{ steps.branchname.outputs.branch }}/index.html
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
