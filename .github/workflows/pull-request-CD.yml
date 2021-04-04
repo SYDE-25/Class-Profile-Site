@@ -23,9 +23,9 @@ jobs:
     - name: Yarn Export
       run: yarn export
         
-    - name: Repair File Paths
-      run: | 
-        sudo find ./out -type f -name "*.html" -exec sed -i 's/\/_next/.\/_next/g' {} +
+    # - name: Repair File Paths
+    #   run: | 
+    #     sudo find ./out -type f -name "*.html" -exec sed -i 's/\/_next/.\/_next/g' {} +
 
     - name: Get the current branch name
       shell: bash
