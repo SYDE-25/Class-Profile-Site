@@ -1,4 +1,4 @@
-name: Prod Deploy to Github Pages
+name: Deploy to Github Pages
 
 on:
   push:
@@ -11,26 +11,23 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
+    - name: Setup Node.js
+      uses: actions/setup-node@v2.1.5
+      
     - name: Install Dependencies
-      uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: install
+      run: yarn install
 
     - name: Yarn Build
-      uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: build
+      run: yarn build
 
     - name: Yarn Export
-      uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: export
+      run: yarn export
         
     - name: Repair File Paths
       run: | 
         sudo find ./out -type f -name "*.html" -exec sed -i 's/\/_next/.\/_next/g' {} +
 
-    - name: Deploying to gh-pages
+    - name: Deploying to Github Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
