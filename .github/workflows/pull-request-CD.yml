@@ -29,6 +29,9 @@ jobs:
     - name: Repair File Paths
       run: | 
         sudo find ./out -type f -name "*.html" -exec sed -i 's/\/_next/.\/_next/g' {} +
+        
+    - name: Inject slug/short variables
+      uses: rlespinasse/github-slug-action@v3.x
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
@@ -37,7 +40,7 @@ jobs:
         external_repository: SYDE-25/Class-Profile-CI
         publish_branch: main
         publish_dir: ./out
-        destination_dir: ./${{ secrets.GITHUB_HEAD_REF }}
+        destination_dir: ./${{ GITHUB_HEAD_REF_SLUG_URL }}
         keep_files: true
         
 #     - name: PR Comment
@@ -62,5 +65,5 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          msg: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ secrets.GITHUB_HEAD_REF }}
+          msg: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ GITHUB_HEAD_REF_SLUG_URL }}
 #           check_for_duplicate_msg: true
