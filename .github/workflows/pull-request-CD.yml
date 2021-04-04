@@ -1,7 +1,7 @@
 name: CD for Pull Requests
 
 on:
-  push:
+  pull_request:
     branches-ignore: [ main ]
 
 jobs:
@@ -10,38 +10,40 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v2.1.5
       
     - name: Install Dependencies
-      uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: install
+      run: yarn install
 
     - name: Yarn Build
-      uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: build
+      run: yarn build
 
     - name: Yarn Export
-      uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: export
+      run: yarn export
         
     - name: Repair File Paths
       run: | 
         sudo find ./out -type f -name "*.html" -exec sed -i 's/\/_next/.\/_next/g' {} +
 
-    - name: Deploy
+    - name: Get the current branch name
+      shell: bash
+      run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+      id: branchname
+
+    - name: Deploy to CD Repo
       uses: peaceiris/actions-gh-pages@v3
       with:
-        personal_token: ${{ secrets.ORG_ACCESS_TOKEN }}
-        external_repository: SYDE-25/Class-Profile-CI
+        deploy_key: ${{ secrets.CD_DEPLOY_KEY }}
+        external_repository: SYDE-25/Class-Profile-CD
         publish_branch: main
         publish_dir: ./out
-        destination_dir: ./${GITHUB_REF##*/}
+        destination_dir: ./${{ steps.branchname.outputs.branch }}
         keep_files: true
 
     - name: Comment on PR
-        uses: thollander/actions-comment-pull-request@master
-        with:
-          message: Deployed at https://syde-25.github.io/Class-Profile-CI/${GITHUB_REF##*/}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: thollander/actions-comment-pull-request@master
+      with:
+        message: Deployed at https://syde-25.github.io/Class-Profile-CD/${{ steps.branchname.outputs.branch }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
