@@ -15,7 +15,7 @@ jobs:
       shell: bash
       run: |
         echo "::set-output name=branch::${GITHUB_REF##*/}" && 
-        CURRENT_BRANCH = ${GITHUB_REF##*/}
+        CURRENT_BRANCH=${GITHUB_REF##*/}
       id: myref
       
     - name: Install Dependencies
