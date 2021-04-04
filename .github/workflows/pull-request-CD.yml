@@ -33,7 +33,7 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-        personal_token: ${{ secrets.ORG_ACCESS_TOKEN }}
+        deploy_key: ${{ secrets.CD_DEPLOY_KEY }}
         external_repository: SYDE-25/Class-Profile-CI
         publish_branch: main
         publish_dir: ./out
