@@ -37,7 +37,7 @@ jobs:
         external_repository: SYDE-25/Class-Profile-CI
         publish_branch: main
         publish_dir: ./out
-        destination_dir: ./${{ github.head_ref }}
+        destination_dir: ./${{ GITHUB_HEAD_REF }}
         keep_files: true
         
 #     - name: PR Comment
@@ -54,5 +54,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: ('Deployed at https://syde-25.github.io/Class-Profile-CI/' + ./${{ GITHUB_HEAD_REF }})
+              body: ('Deployed at https://syde-25.github.io/Class-Profile-CI/' + process.env.GITHUB_HEAD_REF)
             })
