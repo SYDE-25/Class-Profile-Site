@@ -10,6 +10,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Get the current branch name
+      shell: bash
+      run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+      id: myref
       
     - name: Install Dependencies
       uses: borales/actions-yarn@v2.0.0
@@ -29,9 +34,6 @@ jobs:
     - name: Repair File Paths
       run: | 
         sudo find ./out -type f -name "*.html" -exec sed -i 's/\/_next/.\/_next/g' {} +
-        
-    - name: Inject slug/short variables
-      uses: rlespinasse/github-slug-action@v3.x
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
@@ -40,30 +42,13 @@ jobs:
         external_repository: SYDE-25/Class-Profile-CI
         publish_branch: main
         publish_dir: ./out
-        destination_dir: ./${{ GITHUB_HEAD_REF_SLUG_URL }}
+        destination_dir: ./${{ ${{ steps.myref.outputs.branch }} }}
         keep_files: true
-        
-#     - name: PR Comment
-#       uses: github-actions-up-and-running/pr-comment@v1.0.1
-#       with:
-#         repo-token: ${{ secrets.GITHUB_TOKEN }}
-#         message: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ GITHUB_HEAD_REF }}
 
-#     - uses: actions/github-script@v3
-#       with:
-#           github-token: ${{secrets.GITHUB_TOKEN}}
-#           script: |
-#             github.issues.createComment({
-#               issue_number: context.issue.number,
-#               owner: context.repo.owner,
-#               repo: context.repo.repo,
-#               body: ('Deployed at https://syde-25.github.io/Class-Profile-CI/' + process.env.GITHUB_HEAD_REF)
-#             })
-
-    - name: comment PR
+    - name: Comment on PR
       uses: unsplash/comment-on-pr@master
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          msg: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ GITHUB_HEAD_REF_SLUG_URL }}
-#           check_for_duplicate_msg: true
+          msg: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ ${{ steps.myref.outputs.branch }} }}
+          check_for_duplicate_msg: true
