@@ -5,12 +5,11 @@ import Background from '../components/threejs/floatingRects';
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Head>
         <title>SYDE '25</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Header />
 
       <div className={styles.banner}>
@@ -18,11 +17,11 @@ export default function Home() {
         <h3 className={styles.description}>
           Head over to the profile page to see more
         </h3>
-      </div>
-
+        </div>
+        
       <div className={styles.background}>
         <Background />
       </div>
-    </>
+    </div>
   );
 }
