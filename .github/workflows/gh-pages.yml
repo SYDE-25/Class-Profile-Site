@@ -1,0 +1,32 @@
+name: Github Pages Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: install
+
+    - name: Yarn Build
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: build
+
+    - name: Yarn Export
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: export
+
+    - name: Deploy
+    uses: peaceiris/actions-gh-pages@v3
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      publish_dir: ./out
