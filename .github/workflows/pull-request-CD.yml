@@ -48,5 +48,5 @@ jobs:
     - name: Comment on PR
       uses: thollander/actions-comment-pull-request@master
       with:
-        message: Deployed at  https://syde-25.github.io/Class-Profile-CD/${{ steps.myref.outputs.branch }}
+        message: Deployed at  https://syde-25.github.io/Class-Profile-CD/${{ secrets.GITHUB_HEAD_REF }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
