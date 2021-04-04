@@ -40,8 +40,19 @@ jobs:
         destination_dir: ./${{ github.head_ref }}
         keep_files: true
         
-    - name: PR Comment
-      uses: github-actions-up-and-running/pr-comment@v1.0.1
+#     - name: PR Comment
+#       uses: github-actions-up-and-running/pr-comment@v1.0.1
+#       with:
+#         repo-token: ${{ secrets.GITHUB_TOKEN }}
+#         message: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ GITHUB_HEAD_REF }}
+
+    - uses: actions/github-script@v3
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        message: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ github.head_ref }}
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ('Deployed at https://syde-25.github.io/Class-Profile-CI/' + ./${{ GITHUB_HEAD_REF }})
+            })
