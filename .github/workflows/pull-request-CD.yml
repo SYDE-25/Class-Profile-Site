@@ -39,16 +39,14 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.CD_DEPLOY_KEY }}
-        external_repository: SYDE-25/Class-Profile-CI
+        external_repository: SYDE-25/Class-Profile-CD
         publish_branch: main
         publish_dir: ./out
         destination_dir: ./${{ steps.myref.outputs.branch }}
         keep_files: true
-
+          
     - name: Comment on PR
-      uses: unsplash/comment-on-pr@master
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: thollander/actions-comment-pull-request@master
       with:
-          msg: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ steps.myref.outputs.branch }}
-          check_for_duplicate_msg: true
+        message: Deployed at https://syde-25.github.io/Class-Profile-CD/${{ steps.myref.outputs.branch }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
