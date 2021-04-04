@@ -1,9 +1,9 @@
 import Link from "next/link";
-import styles from "./Igor.module.scss";
-import Header from "../../../components/header";
+import styles from "./Academics.module.scss";
+import Header from "../../../../components/header";
 
 
-export default function Igor() {
+export default function Academics() {
    
   return (
     <div className={styles.header}>
@@ -13,8 +13,11 @@ export default function Igor() {
       </Link>
         <link rel="icon" href="/favicon.ico" />
       </Header>
+      <h1> Academics</h1>
 
-      <h1> Igor</h1>
+      <Link href = "../../Profile">
+      <h2> Profile</h2>
+      </Link>
     </div>
 
   );

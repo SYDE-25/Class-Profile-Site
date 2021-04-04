@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./Highschool.module.scss";
-import Header from "../../../components/header";
+import Header from "../../../../components/header";
 
 
 export default function Highschool() {
@@ -15,6 +15,10 @@ export default function Highschool() {
       </Header>
 
       <h1> Highschool</h1>
+
+      <Link href = "../../Profile">
+      <h2> Profile</h2>
+      </Link>
     </div>
 
   );

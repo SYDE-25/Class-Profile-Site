@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./Coop.module.scss";
-import Header from "../../../components/header";
+import Header from "../../../../components/header";
 
 
 export default function Coop() {
@@ -15,6 +15,10 @@ export default function Coop() {
       </Header>
 
       <h1> Coop</h1>
+
+      <Link href = "../../Profile">
+      <h2> Profile</h2>
+      </Link>
     </div>
 
   );
