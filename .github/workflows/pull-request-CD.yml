@@ -41,7 +41,6 @@ jobs:
         keep_files: true
 
     - name: Comment on PR
-        uses: thollander/actions-comment-pull-request@master
-        with:
-          message: Deployed at https://syde-25.github.io/Class-Profile-CI/${GITHUB_REF##*/}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: KeisukeYamashita/create-comment@v1
+      with:
+        comment: Deployed at https://syde-25.github.io/Class-Profile-CI/${GITHUB_REF##*/}
