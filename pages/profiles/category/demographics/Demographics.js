@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./Demographics.module.scss";
-import Header from "../../../components/header";
+import Header from "../../../../components/header";
+
 
 
 export default function Demographic() {
@@ -13,8 +14,14 @@ export default function Demographic() {
       </Link>
         <link rel="icon" href="/favicon.ico" />
       </Header>
+     
     
       <h1> Demographics</h1>
+
+      <Link href = "../../Profile">
+      <h2> Profile</h2>
+      </Link>
+      
     </div>
 
   );

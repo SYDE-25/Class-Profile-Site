@@ -7,12 +7,11 @@ import Background from '../components/threejs/floatingRects';
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Head>
         <title>SYDE '25</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Header />
 
       <div className={styles.banner}>
@@ -20,39 +19,18 @@ export default function Home() {
         <h3 className={styles.description}>
           Head over to the profile page to see more
         </h3>
-      </div>
-
+        </div>
+        
       <div className={styles.background}>
-        <Background />
+      <Link href = "./profiles/Profile" >
+              <a>Profile</a>
+          </Link>
+          <Background/>
         <div className={styles.content}>
-          <h1>More Content Here</h1>
-          
-          <Link href = "./cards/demographics/Demographics">
-              Demographics
-          </Link>
-          
-          <Link href = "./cards/highschool/Highschool">
-            Highschool
-          </Link>
-
-          <Link href = "./cards/coop/Coop">
-              Coop
-          </Link>
-
-          <Link href = "./cards/lifestyle/Lifestyle">
-              Lifestyle
-          </Link>
-
-          <Link href = "./cards/academics/Academics">
-              Academics
-          </Link>
-
-          <Link href = "./cards/igor/Igor">
-              Igor
-          </Link>
-
+        
+         <h3>More Content Here</h3>
         </div>
       </div>
-    </>
+    </div>
   );
 }
