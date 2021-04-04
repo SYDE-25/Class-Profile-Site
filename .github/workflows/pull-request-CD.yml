@@ -37,10 +37,11 @@ jobs:
         external_repository: SYDE-25/Class-Profile-CI
         publish_branch: main
         publish_dir: ./out
-        destination_dir: ./${GITHUB_REF##*/}
+        destination_dir: ./${{ github.head_ref }}
         keep_files: true
-
-    - name: Comment on PR
-      uses: KeisukeYamashita/create-comment@v1
+        
+    - name: PR Comment
+      uses: github-actions-up-and-running/pr-comment@v1.0.1
       with:
-        comment: Deployed at https://syde-25.github.io/Class-Profile-CI/${GITHUB_REF##*/}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        message: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ github.head_ref }}
