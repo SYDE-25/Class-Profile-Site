@@ -37,7 +37,7 @@ jobs:
         external_repository: SYDE-25/Class-Profile-CI
         publish_branch: main
         publish_dir: ./out
-        destination_dir: ./${{ GITHUB_HEAD_REF }}
+        destination_dir: ./${{ secrets.GITHUB_HEAD_REF }}
         keep_files: true
         
 #     - name: PR Comment
@@ -46,13 +46,21 @@ jobs:
 #         repo-token: ${{ secrets.GITHUB_TOKEN }}
 #         message: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ GITHUB_HEAD_REF }}
 
-    - uses: actions/github-script@v3
+#     - uses: actions/github-script@v3
+#       with:
+#           github-token: ${{secrets.GITHUB_TOKEN}}
+#           script: |
+#             github.issues.createComment({
+#               issue_number: context.issue.number,
+#               owner: context.repo.owner,
+#               repo: context.repo.repo,
+#               body: ('Deployed at https://syde-25.github.io/Class-Profile-CI/' + process.env.GITHUB_HEAD_REF)
+#             })
+
+    - name: comment PR
+      uses: unsplash/comment-on-pr@master
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: ('Deployed at https://syde-25.github.io/Class-Profile-CI/' + process.env.GITHUB_HEAD_REF)
-            })
+          msg: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ secrets.GITHUB_HEAD_REF }}
+#           check_for_duplicate_msg: true
