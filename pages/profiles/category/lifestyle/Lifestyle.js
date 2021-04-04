@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./Lifestyle.module.scss";
-import Header from "../../../components/header";
+import Header from "../../../../components/header";
 
 
 export default function Lifestyle() {
@@ -16,6 +16,11 @@ export default function Lifestyle() {
 
     
       <h1> Lifestyle</h1>
+
+      <Link href = "../../Profile">
+      <h2> Profile</h2>
+      </Link>
+      
     </div>
 
   );

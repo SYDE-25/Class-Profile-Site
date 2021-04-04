@@ -1,6 +1,5 @@
 import Link from "next/link";
 import SiteLogo from "./siteLogo";
-
 import styles from "./header.module.scss";
 
 export default function Header() {
