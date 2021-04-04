@@ -42,7 +42,7 @@ jobs:
         external_repository: SYDE-25/Class-Profile-CI
         publish_branch: main
         publish_dir: ./out
-        destination_dir: ./${{ ${{ steps.myref.outputs.branch }} }}
+        destination_dir: ./${{ steps.myref.outputs.branch }}
         keep_files: true
 
     - name: Comment on PR
@@ -50,5 +50,5 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          msg: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ ${{ steps.myref.outputs.branch }} }}
+          msg: Deployed at https://syde-25.github.io/Class-Profile-CI/${{ steps.myref.outputs.branch }}
           check_for_duplicate_msg: true
