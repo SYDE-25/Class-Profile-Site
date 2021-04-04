@@ -1,4 +1,4 @@
-name: Github Pages Deploy
+name: Prod Deploy to Github Pages
 
 on:
   push:
@@ -10,7 +10,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      name: Install Dependencies
+      
+    - name: Install Dependencies
       uses: borales/actions-yarn@v2.0.0
       with:
         cmd: install
@@ -24,8 +25,12 @@ jobs:
       uses: borales/actions-yarn@v2.0.0
       with:
         cmd: export
+        
+    - name: Repair File Paths
+      run: | 
+        sudo find ./out -type f -name "*.html" -exec sed -i 's/\/_next/.\/_next/g' {} +
 
-    - name: Deploy
+    - name: Deploying to gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}

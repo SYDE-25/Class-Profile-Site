@@ -1,0 +1,47 @@
+name: CD for Pull Requests
+
+on:
+  push:
+    branches-ignore: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Install Dependencies
+      uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: install
+
+    - name: Yarn Build
+      uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: build
+
+    - name: Yarn Export
+      uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: export
+        
+    - name: Repair File Paths
+      run: | 
+        sudo find ./out -type f -name "*.html" -exec sed -i 's/\/_next/.\/_next/g' {} +
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.ORG_ACCESS_TOKEN }}
+        external_repository: SYDE-25/Class-Profile-CI
+        publish_branch: main
+        publish_dir: ./out
+        destination_dir: ./${GITHUB_REF##*/}
+        keep_files: true
+
+    - name: Comment on PR
+        uses: thollander/actions-comment-pull-request@master
+        with:
+          message: Deployed at https://syde-25.github.io/Class-Profile-CI/${GITHUB_REF##*/}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
