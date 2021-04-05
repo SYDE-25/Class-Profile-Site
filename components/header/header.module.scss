@@ -1,13 +1,20 @@
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
 
     padding: 2rem 3rem;
 }
 
 .siteLogo  {
     justify-self: flex-start;
+    z-index: 1;
+
     height: 3rem;
     fill: white;
+}
+
+.navLink {
+    z-index: 1;
+    color: #ffffff;
 }

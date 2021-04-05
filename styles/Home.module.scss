@@ -1,9 +1,11 @@
 .banner {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  top: 40%;
   
-  margin: 25% 0 10% 0;
   padding: 0 15%;
   width: 75%;
   max-width: 1200px;
@@ -11,17 +13,25 @@
 
 .title {
   margin: 0;
+
+  z-index: -1;
 }
 
 .description {
   margin-top: 1rem;
+
+  z-index: -1;
 
   font-weight: 400;
   letter-spacing: 0.1em;
 }
 
 .background {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
+
+  z-index: 0;
   top: 0;
 
   display: block;
@@ -30,7 +40,4 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select:none;
-
-  width: 100vw;
-  height: 100vh;
 }

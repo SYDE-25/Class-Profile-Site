@@ -58,6 +58,12 @@ caption {
   line-height: 25px;
 }
 
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--link);
+}
+
 @media screen and (max-width: 1600px) {
   :root {
       font-size: 16px;
