@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import SiteLogo from './siteLogo';
+import SiteLogo from '../siteLogo';
 import styles from './header.module.scss';
 
 export default function Header() {
@@ -11,8 +11,8 @@ export default function Header() {
         </a>
       </Link>
 
-      <Link href="./profiles/Profile">
-          <a>Profile</a>
+      <Link href="/profile">
+          <a className={styles.navLink}>Profile</a>
       </Link>
     </div>
   );
