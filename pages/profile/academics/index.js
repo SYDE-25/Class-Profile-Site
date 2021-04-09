@@ -1,6 +1,6 @@
-import Head from 'next/head';
+import Head from "next/head";
 import React from "react";
-import { Content, Header } from "../../../components/layout/layout"
+import { Content, Header } from "../../../components/layout/layout";
 
 export default function Academics() {
   return (
@@ -12,7 +12,7 @@ export default function Academics() {
       <Header />
 
       <Content>
-          <h1>Academics</h1>
+        <h1>Academics</h1>
       </Content>
     </>
   );
