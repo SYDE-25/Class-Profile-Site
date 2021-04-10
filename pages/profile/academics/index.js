@@ -13,12 +13,8 @@ export default function Academics() {
 
       <Content>
         <h1>Academics</h1>
-<<<<<<< HEAD
+        <PieChart datatype="Hometown" />
       </Content>
-=======
-        <Backup/>
-      </div>
->>>>>>> 69bb941... graphed multiple graphs
     </>
   );
 }
