@@ -1,9 +1,12 @@
 import Head from 'next/head';
-import Backup from "../../../components/charts/backup";
 import Header from '../../../components/header/header';
 import styles from '../profilePage.module.scss';
+import React from "react";
+
+import PieChart from "../../../components/charts/pieChart";
 
 export default function Academics() {
+  
   return (
     <>
       <Head>
@@ -14,7 +17,7 @@ export default function Academics() {
 
       <div className={styles.content}>
         <h1>Academics</h1>
-        <Backup/>
+        <PieChart datatype = 'Hometown' />
       </div>
     </>
   );

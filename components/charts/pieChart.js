@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { db } from '../../firebaseConfig';
 import { Pie } from 'react-chartjs-2';
 
-export default function Backup() {
+export default function PieChart(props) {
   const [data, setData] = useState({
     val: [],
     label: [],
     color: []
   });
 
-  db.collection('1A Data').doc('Backup')
+  db.collection('1A Data').doc(props.datatype)
       .onSnapshot(
         (snapshot) => {
           let data = {
@@ -19,7 +19,6 @@ export default function Backup() {
           }
 
           snapshot.data().x.forEach((element) => {
-            console.log(element)
             data.val.push(element.value);
             data.label.push(element.index);
             data.color.push(element.color);
