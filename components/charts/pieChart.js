@@ -15,7 +15,8 @@ export default function PieChart(props) {
           let data = {
             val: [],
             label: [],
-            color: []
+            color: [],
+            title: ''
           }
 
           snapshot.data().x.forEach((element) => {
@@ -23,7 +24,7 @@ export default function PieChart(props) {
             data.label.push(element.index);
             data.color.push(element.color);
           });
-
+          data.title = snapshot.data().title;
           setData(data)
         },
         (err) => {
@@ -55,7 +56,7 @@ export default function PieChart(props) {
             legend: { display: false },
             title: {
               display: true,
-              text: `What Was SYDE 2025's Backup Program?`,
+              text: data.title,
             },
           }}
           height="450"
