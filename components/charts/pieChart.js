@@ -1,35 +1,37 @@
-import { useState } from 'react';
-import { db } from '../../firebaseConfig';
-import { Pie } from 'react-chartjs-2';
+import { useState } from "react";
+import { db } from "../../firebaseConfig";
+import { Pie } from "react-chartjs-2";
 
 export default function PieChart(props) {
   const [data, setData] = useState({
     val: [],
     label: [],
-    color: []
+    color: [],
   });
 
-  db.collection('1A Data').doc(props.datatype)
-      .onSnapshot(
-        (snapshot) => {
-          let data = {
-            val: [],
-            label: [],
-            color: [],
-            title: ''
-          }
+  db.collection("1A Data")
+    .doc(props.datatype)
+    .onSnapshot(
+      (snapshot) => {
+        let data = {
+          val: [],
+          label: [],
+          color: [],
+          title: "",
+        };
 
-          snapshot.data().x.forEach((element) => {
-            data.val.push(element.value);
-            data.label.push(element.index);
-            data.color.push(element.color);
-          });
-          data.title = snapshot.data().title;
-          setData(data)
-        },
-        (err) => {
-          console.log('Error fetching firebase snapshot! ' + err);
+        snapshot.data().x.forEach((element) => {
+          data.val.push(element.value);
+          data.label.push(element.index);
+          data.color.push(element.color);
         });
+        data.title = snapshot.data().title;
+        setData(data);
+      },
+      (err) => {
+        console.log("Error fetching firebase snapshot! " + err);
+      }
+    );
 
   return (
     <div>
@@ -42,7 +44,7 @@ export default function PieChart(props) {
             labels: data.label,
             datasets: [
               {
-                label: '# of Students',
+                label: "# of Students",
                 data: data.val,
                 backgroundColor: data.color,
                 borderColor: data.color,

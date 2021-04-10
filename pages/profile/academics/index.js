@@ -2,6 +2,8 @@ import Head from "next/head";
 import React from "react";
 import { Content, Header } from "../../../components/layout/layout";
 
+import PieChart from "../../../components/charts/pieChart";
+
 export default function Academics() {
   return (
     <>
