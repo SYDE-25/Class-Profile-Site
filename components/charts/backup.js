@@ -1,71 +1,64 @@
-import { db } from "../../firebaseConfig";
-import { Pie } from "react-chartjs-2";
+import { useState } from 'react';
+import { db } from '../../firebaseConfig';
+import { Pie } from 'react-chartjs-2';
 
+export default function Backup() {
+  const [data, setData] = useState({
+    val: [],
+    label: [],
+    color: []
+  });
 
-const backup = db.collection("1A Data").doc("Backup");
-const dataVal = [];
-const dataLabel = [];
-const dataColor = [];
+  db.collection('1A Data').doc('Backup')
+      .onSnapshot(
+        (snapshot) => {
+          let data = {
+            val: [],
+            label: [],
+            color: []
+          }
 
+          snapshot.data().x.forEach((element) => {
+            console.log(element)
+            data.val.push(element.value);
+            data.label.push(element.index);
+            data.color.push(element.color);
+          });
 
-async function getData(){
-
-const observer = await backup.onSnapshot(
-  (docSnapshot) => {
-    docSnapshot.data().x.forEach((element) => {
-      dataVal.push(element.value);
-      dataLabel.push(element.index);
-      dataColor.push(element.color);
-    });
-    // ...
-  },
-
-  (err) => {
-    console.log(`Encountered error: ${err}`);
-  }
-);
-return dataVal;
-  }
-  console.log(getData());
-  
-
-const data1 =  {
-  labels: dataLabel,
-  datasets: [
-    {
-      label: "# of Students",
-      data: dataVal,
-      backgroundColor: dataColor,
-      borderColor: dataColor,
-      borderWidth: 1,
-    },
-  ],
-}
-
-
-export default function Backup () {
-  
+          setData(data)
+        },
+        (err) => {
+          console.log('Error fetching firebase snapshot! ' + err);
+        });
 
   return (
     <div>
-     
-      <div className="header" >
+      <div className="header">
         <h1 className="title">Pie Chart</h1>
-      </div >
+      </div>
       <div className="chart">
-        
         <Pie
-        data={data1}
+          data={{
+            labels: data.label,
+            datasets: [
+              {
+                label: '# of Students',
+                data: data.val,
+                backgroundColor: data.color,
+                borderColor: data.color,
+                borderWidth: 1,
+              },
+            ],
+          }}
           options={{
             responsive: true,
             maintainAspectRatio: false,
             legend: { display: false },
             title: {
               display: true,
-              text: `What Was SYDE 2025's Backup Program?`
+              text: `What Was SYDE 2025's Backup Program?`,
             },
           }}
-          
           height="450"
           width="450"
         />
@@ -73,4 +66,3 @@ export default function Backup () {
     </div>
   );
 }
-
