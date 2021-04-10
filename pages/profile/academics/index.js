@@ -16,7 +16,6 @@ export default function Academics() {
         <h1>Academics</h1>
         <Backup/>
       </div>
-      
     </>
   );
 }

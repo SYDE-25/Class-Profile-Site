@@ -1,7 +1,10 @@
 import Head from 'next/head';
-
 import Header from '../../../components/header/header';
 import styles from '../profilePage.module.scss';
+
+import HsAverage from '../../../components/charts/hsAverage';
+
+
 
 export default function HighSchool() {
   return (
@@ -15,6 +18,7 @@ export default function HighSchool() {
       <div className={styles.content}>
         <h1>High School</h1>
       </div>
+      <HsAverage/>
     </>
   );
 }

@@ -1,16 +1,14 @@
 import { db } from "../../firebaseConfig";
-import { Pie } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 
-const backup = db.collection("1A Data").doc("Backup");
+const backup = db.collection("1A Data").doc("Sexuality");
 const dataVal = [];
 const dataLabel = [];
 const dataColor = [];
 
 
-async function getData(){
-
-const observer = await backup.onSnapshot(
+const observer = backup.onSnapshot(
   (docSnapshot) => {
     docSnapshot.data().x.forEach((element) => {
       dataVal.push(element.value);
@@ -18,16 +16,12 @@ const observer = await backup.onSnapshot(
       dataColor.push(element.color);
     });
     // ...
+    
   },
-
   (err) => {
     console.log(`Encountered error: ${err}`);
   }
 );
-return dataVal;
-  }
-  console.log(getData());
-  
 
 const data1 =  {
   labels: dataLabel,
@@ -38,13 +32,13 @@ const data1 =  {
       backgroundColor: dataColor,
       borderColor: dataColor,
       borderWidth: 1,
+      barPercentage: 0.5,
     },
   ],
 }
 
 
-export default function Backup () {
-  
+export default function Sexuality() {
 
   return (
     <div>
@@ -54,7 +48,7 @@ export default function Backup () {
       </div >
       <div className="chart">
         
-        <Pie
+        <Bar
         data={data1}
           options={{
             responsive: true,
@@ -62,7 +56,7 @@ export default function Backup () {
             legend: { display: false },
             title: {
               display: true,
-              text: `What Was SYDE 2025's Backup Program?`
+              text: 'Sexualities in SYDE 2025'
             },
           }}
           

@@ -2,15 +2,13 @@ import { db } from "../../firebaseConfig";
 import { Pie } from "react-chartjs-2";
 
 
-const backup = db.collection("1A Data").doc("Backup");
+const backup = db.collection("1A Data").doc("Coop Round");
 const dataVal = [];
 const dataLabel = [];
 const dataColor = [];
 
 
-async function getData(){
-
-const observer = await backup.onSnapshot(
+const observer = backup.onSnapshot(
   (docSnapshot) => {
     docSnapshot.data().x.forEach((element) => {
       dataVal.push(element.value);
@@ -18,16 +16,12 @@ const observer = await backup.onSnapshot(
       dataColor.push(element.color);
     });
     // ...
+    
   },
-
   (err) => {
     console.log(`Encountered error: ${err}`);
   }
 );
-return dataVal;
-  }
-  console.log(getData());
-  
 
 const data1 =  {
   labels: dataLabel,
@@ -43,8 +37,8 @@ const data1 =  {
 }
 
 
-export default function Backup () {
-  
+export default function Round () {
+
 
   return (
     <div>
@@ -62,7 +56,7 @@ export default function Backup () {
             legend: { display: false },
             title: {
               display: true,
-              text: `What Was SYDE 2025's Backup Program?`
+              text: 'When did SYDE 2025 Accept a Job Offer?'
             },
           }}
           
