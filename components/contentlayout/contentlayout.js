@@ -1,7 +1,7 @@
 import Header from "../header/header"
-import styles from "./baselayout.module.scss"
+import styles from "./contentlayout.module.scss"
 
-export default function Baselayout(props) {
+export default function Contentlayout(props) {
     return(
         <>
         <Header />
