@@ -3,7 +3,7 @@ import Header from '../../../components/header/header';
 import styles from '../profilePage.module.scss';
 import React from "react";
 
-import PieChart from "../../../components/charts/pieChart";
+import PieChart from '../../../components/charts/pieChart';
 
 export default function Academics() {
   
