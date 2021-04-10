@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Round from '../../../components/charts/round'
+import PieChart from "../../../components/charts/pieChart";
 import Header from '../../../components/header/header';
 import styles from '../profilePage.module.scss';
 
@@ -14,7 +14,7 @@ export default function Coop() {
 
       < div className={styles.content}>
         <h1>Co-op</h1>
-        <Round />
+        <PieChart datatype = 'Coop Round' />
       </div>
     </>
   );

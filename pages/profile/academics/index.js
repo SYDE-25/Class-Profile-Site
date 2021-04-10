@@ -17,7 +17,7 @@ export default function Academics() {
 
       <div className={styles.content}>
         <h1>Academics</h1>
-        <PieChart datatype = 'Hometown' />
+        <PieChart datatype = 'Backup' />
       </div>
     </>
   );
