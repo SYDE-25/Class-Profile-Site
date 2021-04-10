@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import { Content, Header } from "../../../components/layout/layout"
+import Head from "next/head";
+import { Content, Header } from "../../../components/layout/layout";
 
 export default function Coop() {
   return (
@@ -13,7 +13,6 @@ export default function Coop() {
       <Content>
         <h1>Co-op</h1>
       </Content>
-
     </>
   );
 }

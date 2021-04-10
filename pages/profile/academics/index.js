@@ -13,7 +13,12 @@ export default function Academics() {
 
       <Content>
         <h1>Academics</h1>
+<<<<<<< HEAD
       </Content>
+=======
+        <Backup/>
+      </div>
+>>>>>>> 69bb941... graphed multiple graphs
     </>
   );
 }

@@ -1,50 +1,45 @@
 import { db } from "../../firebaseConfig";
-import { Pie } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 
-const backup = db.collection("1A Data").doc("Backup");
+const backup = db.collection("1A Data").doc("HS Average");
 const dataVal = [];
 const dataLabel = [];
 const dataColor = [];
 
 
-async function getData(){
-
-const observer = await backup.onSnapshot(
+const observer = backup.onSnapshot(
   (docSnapshot) => {
-    docSnapshot.data().x.forEach((element) => {
-      dataVal.push(element.value);
-      dataLabel.push(element.index);
-      dataColor.push(element.color);
+      
+    docSnapshot.data().x.values.forEach((element) => {
+      dataVal.push(element);
     });
-    // ...
-  },
+    
 
+  },
   (err) => {
     console.log(`Encountered error: ${err}`);
   }
 );
-return dataVal;
-  }
-  console.log(getData());
-  
 
 const data1 =  {
-  labels: dataLabel,
+  labels: dataVal,
   datasets: [
     {
-      label: "# of Students",
+      label: "Student Grade(%)",
       data: dataVal,
-      backgroundColor: dataColor,
-      borderColor: dataColor,
+      backgroundColor: '#b81113' ,
+      //borderColor: dataColor,
       borderWidth: 1,
     },
   ],
 }
 
+console.log(data1);
 
-export default function Backup () {
-  
+
+export default function HsAverage() {
+
 
   return (
     <div>
@@ -54,7 +49,7 @@ export default function Backup () {
       </div >
       <div className="chart">
         
-        <Pie
+        <Line
         data={data1}
           options={{
             responsive: true,
@@ -62,10 +57,12 @@ export default function Backup () {
             legend: { display: false },
             title: {
               display: true,
-              text: `What Was SYDE 2025's Backup Program?`
+              text: 'When was SYDE 2025 Born?'
             },
-          }}
-          
+            scales: {
+                y: {max: 100, min: 80 }, ticks: {stepSize : 5}
+        
+          }}}
           height="450"
           width="450"
         />
