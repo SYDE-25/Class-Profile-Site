@@ -61,8 +61,8 @@ export default function PieChart(props) {
               text: data.title,
             },
           }}
-          height="450"
-          width="450"
+          height="450px"
+          width="450px"
         />
       </div>
     </div>
