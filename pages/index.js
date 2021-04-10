@@ -1,5 +1,4 @@
 import Head from 'next/head';
-
 import Background from '../components/threejs/floatingRects';
 import Header from '../components/header/header';
 import styles from '../styles/Home.module.scss';

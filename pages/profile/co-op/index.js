@@ -1,8 +1,6 @@
-import Head from "next/head";
-import Header from "../../../components/header/header";
-import styles from "../profilePage.module.scss";
-
-import PieChart from "../../../components/charts/pieChart";
+import Head from 'next/head';
+import PieChart from '../../../components/charts/pieChart';
+import Contentlayout from "../../../components/contentlayout/contentlayout";
 
 export default function Coop() {
   return (
@@ -11,12 +9,10 @@ export default function Coop() {
         <title>Co-op • Class Profile</title>
       </Head>
 
-      <Header />
-
-      <div className={styles.content}>
+      <Contentlayout>
         <h1>Co-op</h1>
         <PieChart datatype="Coop Round" />
-      </div>
+      </Contentlayout>
     </>
   );
 }
