@@ -1,7 +1,5 @@
 import Head from 'next/head';
-
-import Header from '../../../components/header/header';
-import styles from '../profilePage.module.scss';
+import { Content, Header } from "../../../components/layout/layout"
 
 export default function Coop() {
   return (
@@ -12,9 +10,10 @@ export default function Coop() {
 
       <Header />
 
-      <div className={styles.content}>
+      <Content>
         <h1>Co-op</h1>
-      </div>
+      </Content>
+
     </>
   );
 }

@@ -1,7 +1,6 @@
 import Head from 'next/head';
-
-import Header from '../../../components/header/header';
-import styles from '../profilePage.module.scss';
+import React from "react";
+import { Content, Header } from "../../../components/layout/layout"
 
 export default function Academics() {
   return (
@@ -12,9 +11,9 @@ export default function Academics() {
 
       <Header />
 
-      <div className={styles.content}>
-        <h1>Academics</h1>
-      </div>
+      <Content>
+          <h1>Academics</h1>
+      </Content>
     </>
   );
 }
