@@ -1,6 +1,5 @@
 import Head from 'next/head';
-
-import Header from '../../../components/header/header';
+import { Content, Header } from '../../../components/layout/layout';
 import styles from '../profilePage.module.scss';
 
 export default function Lifestyle() {
@@ -12,9 +11,9 @@ export default function Lifestyle() {
 
       <Header />
 
-      <div className={styles.content}>
+      <Content>
         <h1>Lifestyle</h1>
-      </div>
+      </Content>
     </>
   );
 }

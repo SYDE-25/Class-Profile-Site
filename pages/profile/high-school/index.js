@@ -1,6 +1,5 @@
 import Head from 'next/head';
-
-import Header from '../../../components/header/header';
+import { Content, Header } from "../../../components/layout/layout"
 import styles from '../profilePage.module.scss';
 
 export default function HighSchool() {
@@ -11,10 +10,10 @@ export default function HighSchool() {
       </Head>
 
       <Header />
-
-      <div className={styles.content}>
+      
+      <Content>
         <h1>High School</h1>
-      </div>
+      </Content>
     </>
   );
 }

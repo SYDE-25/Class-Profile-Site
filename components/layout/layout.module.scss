@@ -7,6 +7,9 @@
 }
 
 .siteLogo  {
+    justify-self: flex-start;
+    z-index: 1;
+
     height: 3rem;
     fill: white;
 }
@@ -34,4 +37,15 @@
 .divLinks a{
     padding: 0.5em 1em;
     margin-left: 0.25em;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.margin {
+    margin: 0 3.75rem;
 }

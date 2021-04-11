@@ -1,7 +1,5 @@
 import Head from 'next/head';
-
-import Header from '../../../components/header/header';
-import styles from '../profilePage.module.scss';
+import { Content, Header } from "../../../components/layout/layout"
 
 export default function Demographics() {
   return (
@@ -12,9 +10,9 @@ export default function Demographics() {
 
       <Header />
 
-      <div className={styles.content}>
+      <Content>
         <h1>Demographics</h1>
-      </div>
+      </Content>
     </>
   );
 }
