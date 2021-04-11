@@ -1,20 +1,43 @@
 .header {
     display: flex;
     flex-direction: row;
+    padding: 2em;
+    align-items: center;
     justify-content: space-between;
+}
 
-    padding: 2rem 3rem;
+.header a{
+    display: block;
+    padding: 1em;
+    color: white;
 }
 
 .siteLogo  {
-    justify-self: flex-start;
-    z-index: 1;
-
     height: 3rem;
     fill: white;
 }
 
 .navLink {
     z-index: 1;
-    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+    color: white;
+    border-radius: 5px;
+}
+
+.navLink:hover {
+    background: #525151;
+    border-radius: 10px;
+    transition-duration: 1.5s;
+}
+
+.divLinks{
+    display: flex;
+    flex-direction: row;
+}
+
+.divLinks a{
+    padding: 0.5em 0.5em;
+    margin-left: 1.5em;
 }
