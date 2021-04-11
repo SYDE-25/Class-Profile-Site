@@ -10,10 +10,16 @@ export default function Header() {
           <SiteLogo className={styles.siteLogo} />
         </a>
       </Link>
+      
+      <div className={styles.divLinks}>
+        <Link href="https://www.youtube.com/watch?v=S0yLbdZRu3A&ab_channel=ElCroissant">
+            <a className={styles.navLink}>About</a>
+        </Link>
 
-      <Link href="/profile">
-          <a className={styles.navLink}>Profile</a>
-      </Link>
+        <Link href="/profile">
+            <a className={styles.navLink}>Profile</a>
+        </Link>
+      </div>
     </div>
   );
 }
