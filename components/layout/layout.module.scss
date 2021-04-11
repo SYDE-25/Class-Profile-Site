@@ -1,10 +1,9 @@
 .header {
     display: flex;
     flex-direction: row;
+    padding: 2em 3em;
     align-items: center;
     justify-content: space-between;
-
-    padding: 2rem 3rem;
 }
 
 .siteLogo  {
@@ -17,8 +16,29 @@
 
 .navLink {
     z-index: 1;
-    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+    color: white;
+    border-radius: 5px;
 }
+
+.navLink:hover {
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    transition-duration: .5s;
+}
+
+.divLinks{
+    display: flex;
+    flex-direction: row;
+}
+
+.divLinks a{
+    padding: 0.5em 1em;
+    margin-left: 0.25em;
+}
+
 
 .container {
     max-width: 1200px;
