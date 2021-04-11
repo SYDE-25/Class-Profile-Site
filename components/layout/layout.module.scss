@@ -1,3 +1,25 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 2rem 3rem;
+}
+
+.siteLogo  {
+    justify-self: flex-start;
+    z-index: 1;
+
+    height: 3rem;
+    fill: white;
+}
+
+.navLink {
+    z-index: 1;
+    color: #ffffff;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;

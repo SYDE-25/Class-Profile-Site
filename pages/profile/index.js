@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Content from '../../components/layout/layout';
+import { Content, Header } from '../../components/layout/layout';
 import styles from "./profilePage.module.scss"
 
 export default function Profile() {
@@ -9,6 +9,8 @@ export default function Profile() {
       <Head>
         <title>Class Profile</title>
       </Head>
+
+      <Header />
 
       <Content>
         <h1>Profile</h1>

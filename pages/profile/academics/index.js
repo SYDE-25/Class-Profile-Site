@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import React from "react";
-import Content from "../../../components/layout/layout"
-import PieChart from "../../../components/charts/pieChart";
+import { Content, Header } from "../../../components/layout/layout"
 
 export default function Academics() {
   return (
@@ -10,9 +9,10 @@ export default function Academics() {
         <title>Academics • Class Profile</title>
       </Head>
 
+      <Header />
+
       <Content>
           <h1>Academics</h1>
-          <PieChart datatype = 'Backup' />
       </Content>
     </>
   );
