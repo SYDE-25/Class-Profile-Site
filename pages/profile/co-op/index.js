@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Content, Header } from "../../../components/layout/layout";
 
-import PieChart from "../../../components/charts/pieChart";
+import DoughnutChart from "../../../components/charts/doughnut";
 
 export default function Coop() {
   return (
@@ -11,11 +11,10 @@ export default function Coop() {
       </Head>
 
       <Header />
-
-      <div className={styles.content}>
+      <Content>
         <h1>Co-op</h1>
-        <PieChart datatype="Coop Round" />
-      </div>
+        <DoughnutChart datatype="Coop Round" />
+      </Content>
     </>
   );
 }

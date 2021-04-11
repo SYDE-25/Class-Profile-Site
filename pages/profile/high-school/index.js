@@ -1,8 +1,5 @@
 import Head from "next/head";
 import { Content, Header } from "../../../components/layout/layout";
-import styles from "../profilePage.module.scss";
-
-import HsAverage from "../../../components/charts/hsAverage";
 
 export default function HighSchool() {
   return (
