@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Contentlayout from '../../components/contentlayout/contentlayout';
+import Content from '../../components/layout/layout';
 import styles from "./profilePage.module.scss"
 
 export default function Profile() {
@@ -10,7 +10,7 @@ export default function Profile() {
         <title>Class Profile</title>
       </Head>
 
-      <Contentlayout>
+      <Content>
         <h1>Profile</h1>
         <div className={styles.links}>
           <Link href="profile/demographics">Demographics</Link>
@@ -20,7 +20,7 @@ export default function Profile() {
           <Link href="profile/academics">Academics</Link>
           <Link href="profile/igor">Igor</Link>
         </div>
-      </Contentlayout>
+      </Content>
     </div>
   );
 }

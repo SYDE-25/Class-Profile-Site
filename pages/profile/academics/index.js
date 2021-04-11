@@ -1,7 +1,7 @@
 import Head from 'next/head';
-
-import Header from '../../../components/header/header';
-import styles from '../profilePage.module.scss';
+import React from "react";
+import Content from "../../../components/layout/layout"
+import PieChart from "../../../components/charts/pieChart";
 
 export default function Academics() {
   return (
@@ -10,11 +10,10 @@ export default function Academics() {
         <title>Academics • Class Profile</title>
       </Head>
 
-      <Header />
-
-      <div className={styles.content}>
-        <h1>Academics</h1>
-      </div>
+      <Content>
+          <h1>Academics</h1>
+          <PieChart datatype = 'Backup' />
+      </Content>
     </>
   );
 }

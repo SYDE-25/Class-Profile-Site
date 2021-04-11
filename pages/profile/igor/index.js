@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Contentlayout from '../../../components/contentlayout/contentlayout';
+import Content from '../../../components/layout/layout';
 
 import Header from '../../../components/header/header';
 import styles from '../profilePage.module.scss';
@@ -11,9 +11,9 @@ export default function Igor() {
         <title>Igor • Class Profile</title>
       </Head>
 
-      <Contentlayout>
+      <Content>
         <h1>Igor</h1>
-      </Contentlayout>    
+      </Content>    
     </>
   );
 }
