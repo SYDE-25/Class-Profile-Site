@@ -1,15 +1,9 @@
 .header {
     display: flex;
     flex-direction: row;
-    padding: 2em;
+    padding: 2em 3em;
     align-items: center;
     justify-content: space-between;
-}
-
-.header a{
-    display: block;
-    padding: 1em;
-    color: white;
 }
 
 .siteLogo  {
@@ -27,9 +21,9 @@
 }
 
 .navLink:hover {
-    background: #525151;
-    border-radius: 10px;
-    transition-duration: 1.5s;
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    transition-duration: .5s;
 }
 
 .divLinks{
@@ -38,6 +32,6 @@
 }
 
 .divLinks a{
-    padding: 0.5em 0.5em;
-    margin-left: 1.5em;
+    padding: 0.5em 1em;
+    margin-left: 0.25em;
 }

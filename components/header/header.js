@@ -6,18 +6,16 @@ export default function Header() {
   return (
     <div className={styles.header}>
       <Link href="/">
-        <a>
           <SiteLogo className={styles.siteLogo} />
-        </a>
       </Link>
       
       <div className={styles.divLinks}>
-        <Link href="https://www.youtube.com/watch?v=S0yLbdZRu3A&ab_channel=ElCroissant">
-            <a className={styles.navLink}>About</a>
+        <Link href="/profile">
+            <a className={styles.navLink}>profile</a>
         </Link>
 
-        <Link href="/profile">
-            <a className={styles.navLink}>Profile</a>
+        <Link href="https://www.youtube.com/watch?v=S0yLbdZRu3A&ab_channel=ElCroissant">
+            <a className={styles.navLink}>about</a>
         </Link>
       </div>
     </div>
