@@ -21,27 +21,3 @@ jobs:
         publish_branch: main
         publish_dir: ./
         destination_dir: ./
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v2.1.5
-      
-    - name: Install Dependencies
-      run: yarn install
-
-    - name: Yarn Build
-      run: yarn build
-
-    - name: Yarn Export
-      run: yarn export
-        
-    - name: Repair File Paths
-      run: | 
-        sudo find ./out -type f -name "*.html" -exec sed -i 's/\/_next/.\/_next/g' {} +
-
-    - name: Push to Github Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        user_name: 'github-actions[bot]'
-        user_email: 'github-actions[bot]@users.noreply.github.com'
-        publish_dir: ./out
