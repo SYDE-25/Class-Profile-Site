@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import PieChart from '../../../components/charts/pieChart';
-import Contentlayout from "../../../components/contentlayout/contentlayout";
+import Content from "../../../components/layout/layout";
 
 export default function Coop() {
   return (
@@ -9,10 +9,12 @@ export default function Coop() {
         <title>Co-op • Class Profile</title>
       </Head>
 
-      <Contentlayout>
+      <Content>
+
         <h1>Co-op</h1>
         <PieChart datatype="Coop Round" />
-      </Contentlayout>
+      </Content>
+
     </>
   );
 }

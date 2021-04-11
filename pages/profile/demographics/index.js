@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import PieChart from "../../../components/charts/pieChart";
-import Contentlayout from '../../../components/contentlayout/contentlayout';
+import Content from '../../../components/layout/layout';
 
 export default function Demographics() {
   return (
@@ -9,7 +9,7 @@ export default function Demographics() {
         <title>Demographics • Class Profile</title>
       </Head>
 
-      <Contentlayout>
+      <Content>
         <h1>Demographics</h1>
         <PieChart datatype="Gender" />
         <PieChart datatype="Hometown" />
@@ -18,7 +18,7 @@ export default function Demographics() {
         <PieChart datatype="Parents Stem" />
         <PieChart datatype="Religion" />
         <PieChart datatype="Year Born" />
-      </Contentlayout>
+      </Content>
     </>
   );
 }

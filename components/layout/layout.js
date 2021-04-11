@@ -1,7 +1,7 @@
 import Header from "../header/header"
-import styles from "./contentlayout.module.scss"
+import styles from "./layout.module.scss"
 
-export default function Contentlayout(props) {
+export default function Layout(props) {
     return(
         <>
         <Header />
