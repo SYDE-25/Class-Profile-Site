@@ -1,4 +1,5 @@
 import Head from "next/head";
+import React from "react";
 import { Content, Header } from "../../../components/layout/layout";
 import DoughnutChart from "../../../components/charts/doughnut";
 
