@@ -1,5 +1,6 @@
-import Head from 'next/head';
-import { Content, Header } from "../../../components/layout/layout"
+import Head from "next/head";
+import { Content, Header } from "../../../components/layout/layout";
+import DoughnutChart from "../../../components/charts/doughnut";
 
 export default function Coop() {
   return (
@@ -9,11 +10,10 @@ export default function Coop() {
       </Head>
 
       <Header />
-
       <Content>
         <h1>Co-op</h1>
+        <DoughnutChart datatype="Coop Round" />
       </Content>
-
     </>
   );
 }
