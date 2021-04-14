@@ -35,9 +35,9 @@ export default function DoughnutChart(props) {
 
   return (
     <div>
-      <div className="header">
+      {/* <div className="header">
         <h1 className="title">Doughnut</h1>
-      </div>
+      </div> */}
       <div className="chart">
         <Doughnut
           data={{
@@ -61,8 +61,8 @@ export default function DoughnutChart(props) {
               text: data.title,
             },
           }}
-          height="450"
-          width="450"
+          height={(props.height) ? props.height : "400"}
+          width={(props.width) ? props.width : "400"}
         />
       </div>
     </div>

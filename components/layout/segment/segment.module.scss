@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.containerOnTop {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.header h2 {
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.description {
+  max-width: 600px;
+  margin-bottom:2rem;
+}
+
+.descriptionOnTop {
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+
+.graph {
+  width: 350px;
+  height: 100%;
+}
+
+.graphOnTop {
+  width: 100%;
+}
+
+
+@media (max-width: 1050px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+
+  .graph {
+    width: 100%;
+    height: 100%;
+  }
+}
