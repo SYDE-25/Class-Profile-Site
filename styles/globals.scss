@@ -70,17 +70,17 @@ a {
   }
 }
 
-// @media screen and (max-width: 1400px) {
-//   :root {
-//       font-size: 16px;
-//   }
-// }
+@media screen and (max-width: 1400px) {
+  :root {
+      font-size: 16px;
+  }
+}
 
-// @media screen and (max-width: 1200px) {
-//   :root {
-//       font-size: 15px;
-//   }
-// }
+@media screen and (max-width: 1200px) {
+  :root {
+      font-size: 15px;
+  }
+}
 
 @media screen and (max-width: 960px) {
   :root {
@@ -88,14 +88,14 @@ a {
   }
 }
 
-// @media screen and (max-width: 480px) {
-//   :root {
-//       font-size: 12px;
-//   }
-// }
+@media screen and (max-width: 480px) {
+  :root {
+      font-size: 12px;
+  }
+}
 
-// @media screen and (max-width: 360px) {
-//   :root {
-//       font-size: 10px;
-//   }
-// }
+@media screen and (max-width: 360px) {
+  :root {
+      font-size: 10px;
+  }
+}
