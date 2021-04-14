@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -29,12 +30,14 @@
 }
 
 .graph {
-  width: 400px;
+  width: 350px;
   height: 100%;
 }
 
 .graphOnTop {
-  width: 100%;
+  width: 50%;
+  min-width: 350px;
+  height: 100%;
 }
 
 
@@ -49,7 +52,8 @@
   }
 
   .graph {
-    max-width: 100%;
+    width: 50%;
+    min-width: 350px;
     height: 100%;
   }
 }
