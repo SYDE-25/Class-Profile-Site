@@ -54,15 +54,15 @@ export default function DoughnutChart(props) {
           }}
           options={{
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
             legend: { display: false },
             title: {
               display: true,
               text: data.title,
             },
           }}
-          height={(props.height) ? props.height : "400"}
-          width={(props.width) ? props.width : "400"}
+          height={(props.height) ? props.height : "100%"}
+          width={(props.width) ? props.width : "100%"}
         />
       </div>
     </div>
