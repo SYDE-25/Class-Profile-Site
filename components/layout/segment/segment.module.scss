@@ -10,6 +10,7 @@
 .containerOnTop {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
@@ -21,7 +22,7 @@
 
 .description {
   max-width: 600px;
-  margin-bottom:2rem;
+  margin-bottom: 2rem;
 }
 
 .descriptionOnTop {
@@ -35,11 +36,10 @@
 }
 
 .graphOnTop {
-  width: 50%;
+  max-width: 55%;
   min-width: 350px;
   height: 100%;
 }
-
 
 @media (max-width: 1050px) {
   .container {
