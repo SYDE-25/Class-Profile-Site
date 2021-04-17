@@ -34,7 +34,6 @@ export default function Scatterplot(props) {
         data.xAxis = snapshot.data().x.label;
         data.yAxis = snapshot.data().y.label;
         setData(data);
-        console.log(data.color);
       },
       (err) => {
         console.log("Error fetching firebase snapshot! " + err);
