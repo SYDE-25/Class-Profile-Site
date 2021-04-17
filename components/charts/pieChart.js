@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { db } from "../../firebaseConfig";
-import { Doughnut } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 
-export default function DoughnutChart(props) {
+export default function PieChart(props) {
   const [data, setData] = useState({
     val: [],
     label: [],
@@ -36,10 +36,10 @@ export default function DoughnutChart(props) {
   return (
     <div>
       {/* <div className="header">
-        <h1 className="title">Doughnut</h1>
+        <h1 className="title">Pie Chart</h1>
       </div> */}
       <div className="chart">
-        <Doughnut
+        <Pie
           data={{
             labels: data.label,
             datasets: [
@@ -54,15 +54,15 @@ export default function DoughnutChart(props) {
           }}
           options={{
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             legend: { display: false },
             title: {
               display: true,
               text: data.title,
             },
           }}
-          height={(props.height) ? props.height : "100%"}
-          width={(props.width) ? props.width : "100%"}
+          height="450px"
+          width="450px"
         />
       </div>
     </div>
