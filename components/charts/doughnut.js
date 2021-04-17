@@ -59,10 +59,11 @@ export default function DoughnutChart(props) {
             title: {
               display: true,
               text: data.title,
+              fontColor: "#ffffff",
             },
           }}
-          height={(props.height) ? props.height : "100%"}
-          width={(props.width) ? props.width : "100%"}
+          height={props.height ? props.height : "100%"}
+          width={props.width ? props.width : "100%"}
         />
       </div>
     </div>
