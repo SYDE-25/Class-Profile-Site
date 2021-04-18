@@ -42,6 +42,7 @@ export default function DoughnutChart(props) {
         <Doughnut
           data={{
             labels: data.label,
+            
             datasets: [
               {
                 label: "# of Students",
@@ -55,7 +56,13 @@ export default function DoughnutChart(props) {
           options={{
             responsive: true,
             maintainAspectRatio: true,
-            legend: { display: false },
+            legend: { 
+              position:"right",
+              labels: {
+                usePointStyle: true,
+                boxWidth: 6
+              },
+              display: true },
             title: {
               display: true,
               text: data.title,
