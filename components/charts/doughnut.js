@@ -12,7 +12,7 @@ export default function DoughnutChart(props) {
   db.collection("1A Data")
     .doc(props.datatype)
     .onSnapshot(
-      (snapshot) => {
+      async (snapshot) => {
         let data = {
           val: [],
           label: [],
@@ -20,7 +20,7 @@ export default function DoughnutChart(props) {
           title: "",
         };
 
-        snapshot.data().x.forEach((element) => {
+        await snapshot.data().x.forEach((element) => {
           data.val.push(element.value);
           data.label.push(element.index);
           data.color.push(element.color);

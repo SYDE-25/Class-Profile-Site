@@ -12,7 +12,7 @@ export default function BarGraph(props) {
   db.collection("1A Data")
     .doc(props.datatype)
     .onSnapshot(
-      (snapshot) => {
+      async (snapshot) => {
         let data = {
           val: [],
           label: [],
@@ -20,7 +20,7 @@ export default function BarGraph(props) {
           title: "",
         };
 
-        snapshot.data().x.forEach((element) => {
+        await snapshot.data().x.forEach((element) => {
           data.val.push(element.value);
           data.label.push(element.index);
           data.color.push(element.color);
@@ -62,14 +62,15 @@ export default function BarGraph(props) {
               fontColor: "#ffffff",
             },
             scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero: true
-                      }
-                  }]
-              }
-          }
-          }
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                  },
+                },
+              ],
+            },
+          }}
           height={props.height ? props.height : "100%"}
           width={props.width ? props.width : "100%"}
         />

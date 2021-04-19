@@ -14,7 +14,7 @@ export default function Scatterplot(props) {
   db.collection("1A Data")
     .doc(props.datatype)
     .onSnapshot(
-      (snapshot) => {
+      async (snapshot) => {
         let data = {
           val: [],
           label: [],
@@ -22,7 +22,7 @@ export default function Scatterplot(props) {
           title: "",
         };
 
-        for (let i = 0; i < snapshot.data().x.values.length; i++) {
+        for (let i = 0; i < (await snapshot.data().x.values.length); i++) {
           data.val.push({
             x: snapshot.data().x.values[i].value,
             y: snapshot.data().y.values[i].value,
