@@ -4,7 +4,7 @@ import { Content, Header } from "../../../components/layout/layout";
 import DoughnutChart from "../../../components/charts/doughnut";
 import Segment from "../../../components/layout/segment/segment";
 import Scatterplot from "../../../components/charts/scatterplot";
-import BarGraph from "../../../components/charts/Bar";
+import BarGraph from "../../../components/charts/bar";
 
 export default function Academics() {
   return (
