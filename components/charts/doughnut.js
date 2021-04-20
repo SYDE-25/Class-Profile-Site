@@ -48,6 +48,7 @@ export default function DoughnutChart(props) {
                 data: data.val,
                 backgroundColor: data.color,
                 borderColor: data.color,
+                hoverBorderColor: "#ffffff",
                 borderWidth: 1,
               },
             ],
@@ -59,6 +60,7 @@ export default function DoughnutChart(props) {
             title: {
               display: true,
               text: data.title,
+              fontSize: 15,
               fontColor: "#ffffff",
             },
           }}

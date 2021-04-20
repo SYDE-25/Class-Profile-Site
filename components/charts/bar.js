@@ -18,14 +18,17 @@ export default function BarGraph(props) {
           label: [],
           color: [],
           title: "",
+          xAxes: "",
+          yAxes: "",
         };
-
-        await snapshot.data().x.forEach((element) => {
+        await snapshot.data().x.values.forEach((element) => {
           data.val.push(element.value);
           data.label.push(element.index);
           data.color.push(element.color);
         });
         data.title = snapshot.data().title;
+        data.xAxis = snapshot.data().x.label;
+        data.yAxis = snapshot.data().y.label;
         setData(data);
       },
       (err) => {
@@ -46,9 +49,10 @@ export default function BarGraph(props) {
               {
                 label: "# of Students",
                 data: data.val,
-                backgroundColor: data.color,
+                backgroundColor: "rgb(255, 99, 132)",
                 borderColor: data.color,
-                borderWidth: 1,
+                hoverBackgroundColor: "#ffffff",
+                borderWidth: 2,
               },
             ],
           }}
@@ -60,12 +64,33 @@ export default function BarGraph(props) {
               display: true,
               text: data.title,
               fontColor: "#ffffff",
+              fontSize: 15,
             },
             scales: {
+              xAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: data.xAxis,
+                    fontColor: "#ffffff",
+                    fontSize: 15,
+                  },
+                  ticks: {
+                    fontColor: "#ffffff",
+                  },
+                },
+              ],
               yAxes: [
                 {
+                  scaleLabel: {
+                    display: true,
+                    labelString: data.yAxis,
+                    fontColor: "#ffffff",
+                    fontSize: 15,
+                  },
                   ticks: {
                     beginAtZero: true,
+                    fontColor: "#ffffff",
                   },
                 },
               ],

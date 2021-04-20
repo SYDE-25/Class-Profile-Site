@@ -51,6 +51,7 @@ export default function Scatterplot(props) {
                 label: data.label,
                 data: data.val,
                 backgroundColor: "rgb(255, 99, 132)", //should be data.color
+                hoverBorderColor: "#ffffff",
                 //borderColor: data.color,
                 //borderWidth: 1,
               },
@@ -63,6 +64,7 @@ export default function Scatterplot(props) {
             title: {
               display: true,
               text: data.title,
+              fontSize: 15,
               fontColor: "#ffffff",
             },
             scales: {
@@ -71,9 +73,12 @@ export default function Scatterplot(props) {
                   scaleLabel: {
                     display: true,
                     labelString: data.xAxis,
+                    fontSize: 15,
                     fontColor: "#ffffff",
                   },
-                  ticks: {},
+                  ticks: {
+                    fontColor: "#ffffff",
+                  },
                 },
               ],
               yAxes: [
@@ -81,6 +86,10 @@ export default function Scatterplot(props) {
                   scaleLabel: {
                     display: true,
                     labelString: data.yAxis,
+                    fontSize: 15,
+                    fontColor: "#ffffff",
+                  },
+                  ticks: {
                     fontColor: "#ffffff",
                   },
                 },
