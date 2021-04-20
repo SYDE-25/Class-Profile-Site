@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -21,17 +20,19 @@
 }
 
 .description {
-  max-width: 600px;
+  max-width: 500px;
+  font-size: 1.25rem;
   margin-bottom: 2rem;
 }
 
 .descriptionOnTop {
   max-width: 100%;
+  font-size: 1.25rem;
   margin-bottom: 2rem;
 }
 
 .graph {
-  width: 350px;
+  width: 450px;
   height: 100%;
 }
 

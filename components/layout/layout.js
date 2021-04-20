@@ -14,7 +14,7 @@ export function Header() {
           <a className={styles.navLink}>profile</a>
         </Link>
 
-        <Link href="https://www.youtube.com/watch?v=S0yLbdZRu3A&ab_channel=ElCroissant">
+        <Link href="thelinkwasannoying">
           <a className={styles.navLink}>about</a>
         </Link>
       </div>
