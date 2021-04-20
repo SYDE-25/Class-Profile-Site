@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { db } from "../../firebaseConfig";
-import { Doughnut } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
-export default function DoughnutChart(props) {
+export default function BarGraph(props) {
   const [data, setData] = useState({
     val: [],
     label: [],
@@ -18,14 +18,17 @@ export default function DoughnutChart(props) {
           label: [],
           color: [],
           title: "",
+          xAxes: "",
+          yAxes: "",
         };
-
-        await snapshot.data().x.forEach((element) => {
+        await snapshot.data().x.values.forEach((element) => {
           data.val.push(element.value);
           data.label.push(element.index);
           data.color.push(element.color);
         });
         data.title = snapshot.data().title;
+        data.xAxis = snapshot.data().x.label;
+        data.yAxis = snapshot.data().y.label;
         setData(data);
       },
       (err) => {
@@ -39,17 +42,17 @@ export default function DoughnutChart(props) {
         <h1 className="title">Doughnut</h1>
       </div> */}
       <div className="chart">
-        <Doughnut
+        <Bar
           data={{
             labels: data.label,
             datasets: [
               {
                 label: "# of Students",
                 data: data.val,
-                backgroundColor: data.color,
+                backgroundColor: "rgb(255, 99, 132)",
                 borderColor: data.color,
-                hoverBorderColor: "#ffffff",
-                borderWidth: 1,
+                hoverBackgroundColor: "#ffffff",
+                borderWidth: 2,
               },
             ],
           }}
@@ -60,8 +63,37 @@ export default function DoughnutChart(props) {
             title: {
               display: true,
               text: data.title,
-              fontSize: 15,
               fontColor: "#ffffff",
+              fontSize: 15,
+            },
+            scales: {
+              xAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: data.xAxis,
+                    fontColor: "#ffffff",
+                    fontSize: 15,
+                  },
+                  ticks: {
+                    fontColor: "#ffffff",
+                  },
+                },
+              ],
+              yAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: data.yAxis,
+                    fontColor: "#ffffff",
+                    fontSize: 15,
+                  },
+                  ticks: {
+                    beginAtZero: true,
+                    fontColor: "#ffffff",
+                  },
+                },
+              ],
             },
           }}
           height={props.height ? props.height : "100%"}

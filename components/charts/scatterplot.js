@@ -14,7 +14,7 @@ export default function Scatterplot(props) {
   db.collection("1A Data")
     .doc(props.datatype)
     .onSnapshot(
-      (snapshot) => {
+      async (snapshot) => {
         let data = {
           val: [],
           label: [],
@@ -22,7 +22,7 @@ export default function Scatterplot(props) {
           title: "",
         };
 
-        for (let i = 0; i < snapshot.data().x.values.length; i++) {
+        for (let i = 0; i < (await snapshot.data().x.values.length); i++) {
           data.val.push({
             x: snapshot.data().x.values[i].value,
             y: snapshot.data().y.values[i].value,
@@ -51,6 +51,7 @@ export default function Scatterplot(props) {
                 label: data.label,
                 data: data.val,
                 backgroundColor: "rgb(255, 99, 132)", //should be data.color
+                hoverBorderColor: "#ffffff",
                 //borderColor: data.color,
                 //borderWidth: 1,
               },
@@ -63,6 +64,7 @@ export default function Scatterplot(props) {
             title: {
               display: true,
               text: data.title,
+              fontSize: 15,
               fontColor: "#ffffff",
             },
             scales: {
@@ -71,9 +73,12 @@ export default function Scatterplot(props) {
                   scaleLabel: {
                     display: true,
                     labelString: data.xAxis,
+                    fontSize: 15,
                     fontColor: "#ffffff",
                   },
-                  ticks: {},
+                  ticks: {
+                    fontColor: "#ffffff",
+                  },
                 },
               ],
               yAxes: [
@@ -81,6 +86,10 @@ export default function Scatterplot(props) {
                   scaleLabel: {
                     display: true,
                     labelString: data.yAxis,
+                    fontSize: 15,
+                    fontColor: "#ffffff",
+                  },
+                  ticks: {
                     fontColor: "#ffffff",
                   },
                 },
