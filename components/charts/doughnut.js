@@ -69,6 +69,7 @@ export default function DoughnutChart(props) {
               text: data.title,
               fontSize: 15,
               fontColor: "#ffffff",
+              fontSize: "14"
             },
           }}
           height={props.height ? props.height : "100%"}
