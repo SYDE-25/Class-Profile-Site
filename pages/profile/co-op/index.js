@@ -12,7 +12,6 @@ export default function Coop() {
       <Header />
       <Content>
         <h1>Co-op</h1>
-        <DoughnutChart datatype="Coop Round" />
       </Content>
     </>
   );
