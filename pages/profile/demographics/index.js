@@ -44,9 +44,9 @@ export default function Demographics() {
           
         </Segment>
 
-        <Segment title="Religion" graph={<DoughnutChart datatype="Religion" />}>
+        {/* <Segment title="Religion" graph={<DoughnutChart datatype="Religion" />}>
           
-        </Segment>
+        </Segment> */}
         <Segment title="Year Born" graph={<DoughnutChart datatype="Year Born" />}>
           
         </Segment>
