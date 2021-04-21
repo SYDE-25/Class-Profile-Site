@@ -61,7 +61,7 @@ export default function DoughnutChart(props) {
               position:"right",
               labels: {
                 usePointStyle: true,
-                boxWidth: 6
+                boxWidth: 5
               },
               display: true },
             title: {
