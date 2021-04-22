@@ -72,7 +72,7 @@ export default function Scatterplot(props) {
                 {
                   gridLines: {
                     zeroLineColor: '#d9dddc',
-                    color: "rgba(255, 255, 255, 0.3)",
+                    color: "rgba(255, 255, 255, 0.15)",
                 },
                   scaleLabel: {
                     display: true,
@@ -89,7 +89,7 @@ export default function Scatterplot(props) {
                 {
                   gridLines: {
                     zeroLineColor: '#d9dddc',
-                    color: "rgba(255, 255, 255, 0.3)",
+                    color: "rgba(255, 255, 255, 0.15)",
                 },
                   scaleLabel: {
                     display: true,  

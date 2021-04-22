@@ -51,7 +51,9 @@ export default function Segment(props) {
                     <h2>{props.title}</h2>
                 </div>
                 <div className={segmentStyle.description}>
-                    {props.children}
+                    <p>
+                        {props.children}
+                    </p>
                 </div>
             </div>
             <div className={segmentStyle.graph}>
