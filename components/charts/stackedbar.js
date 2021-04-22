@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { db } from "../../firebaseConfig";
 import { Bar } from "react-chartjs-2";
+import { DataTextureLoader } from "three";
 
 export default function StackedBar(props) {
   const [data, setData] = useState({
-    val: [],
+    bar: [],
+    val: [], 
     label: [],
     color: [],
   });
@@ -14,18 +16,38 @@ export default function StackedBar(props) {
     .onSnapshot(
       async (snapshot) => {
         let data = {
-          val: [],
-          label: [],
+          barlabel: [], 
+          barval: [],
+          label: [], 
+          val: [], 
           color: [],
           title: "",
           xAxes: "",
           yAxes: "",
         };
-        await snapshot.data().x.values.forEach((element) => {
-          data.val.push(element.value);
-          data.label.push(element.index);
+        await snapshot.data().x.bars.forEach((element) => {
+          data.label.push(element.legendIndex);
+          data.barval.push(element.barValues);
           data.color.push(element.color);
-        });
+        }); 
+        for (var i in data.barval) {
+          var d = [];
+          data.barval[i].forEach(function(elem, index) { 
+            d.push(elem.barValue);
+            if (!data.barlabel.includes(elem.barLabel))
+            {
+              data.barlabel.push(elem.barLabel);
+            }
+          });
+          data.val.push(d);
+          //data.barlabel.push(l);
+
+          
+      }
+      // console.log(data.val);
+      // console.log(data.barlabel);
+
+
         data.title = snapshot.data().title;
         data.xAxis = snapshot.data().x.label;
         data.yAxis = snapshot.data().y.label;
@@ -36,22 +58,60 @@ export default function StackedBar(props) {
       }
     );
 
+    
   return (
     <div>
-      {/* <div className="header">
-        <h1 className="title">Doughnut</h1>
-      </div> */}
       <div className="chart">
         <Bar
           data={{
-            labels: data.label,
+            labels: data.barlabel,            
             datasets: [
               {
-                label: "# of Students",
-                data: data.val,
+                label: data.label[0],
+                data: data.val[0],
                 backgroundColor: "rgb(255, 99, 132)",
-                borderColor: data.color,
-                hoverBackgroundColor: "#ffffff",
+                borderColor: '#003f5c',
+                //hoverBackgroundColor: "#ffffff",
+                borderWidth: 2,
+              },
+              {
+                label: data.label[1],
+                data: data.val[1],
+                backgroundColor: "rgb(133, 99, 122)",
+                borderColor: '#003f5c',
+                //hoverBackgroundColor: "#ffffff",
+                borderWidth: 2,
+              },
+              {
+                label: data.label[2],
+                data: data.val[2],
+                backgroundColor: "rgb(231, 99, 55)",
+                borderColor: '#003f5c',
+                //hoverBackgroundColor: "#ffffff",
+                borderWidth: 2,
+              },
+              {
+                label: data.label[3],
+                data: data.val[3],
+                backgroundColor: "rgb(21, 22, 222)",
+                borderColor: '#003f5c',
+                //hoverBackgroundColor: "#ffffff",
+                borderWidth: 2,
+              },
+              {
+                label: data.label[4],
+                data: data.val[4],
+                backgroundColor: "rgb(134, 22, 122)",
+                borderColor: '#003f5c',
+                //hoverBackgroundColor: "#ffffff",
+                borderWidth: 2,
+              },
+              {
+                label: data.label[5],
+                data: data.val[5],
+                backgroundColor: "rgb(122, 43, 33)",
+                borderColor: '#003f5c',
+                //hoverBackgroundColor: "#ffffff",
                 borderWidth: 2,
               },
             ],
@@ -69,13 +129,13 @@ export default function StackedBar(props) {
             scales: {
               xAxes: [
                 {
+                  stacked: true, 
                   scaleLabel: {
                     display: true,
                     labelString: data.xAxis,
                     fontColor: "#ffffff",
                     fontSize: 15,
                   },
-                  stacked: true, 
                   ticks: {
                     fontColor: "#ffffff",
                   },
@@ -83,13 +143,13 @@ export default function StackedBar(props) {
               ],
               yAxes: [
                 {
+                  stacked: true,
                   scaleLabel: {
                     display: true,
                     labelString: data.yAxis,
                     fontColor: "#ffffff",
                     fontSize: 15,
                   },
-                  stacked: true, 
                   ticks: {
                     beginAtZero: true,
                     fontColor: "#ffffff",
