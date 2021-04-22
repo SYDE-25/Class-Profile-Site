@@ -60,7 +60,7 @@ export default function Scatterplot(props) {
           options={{
             responsive: true,
             maintainAspectRatio: true,
-            legend: { display: false },
+            legend: { display: true },  
             title: {
               display: true,
               text: data.title,
@@ -70,6 +70,10 @@ export default function Scatterplot(props) {
             scales: {
               xAxes: [
                 {
+                  gridLines: {
+                    zeroLineColor: '#d9dddc',
+                    color: "rgba(255, 255, 255, 0.15)",
+                },
                   scaleLabel: {
                     display: true,
                     labelString: data.xAxis,
@@ -83,8 +87,12 @@ export default function Scatterplot(props) {
               ],
               yAxes: [
                 {
+                  gridLines: {
+                    zeroLineColor: '#d9dddc',
+                    color: "rgba(255, 255, 255, 0.15)",
+                },
                   scaleLabel: {
-                    display: true,
+                    display: true,  
                     labelString: data.yAxis,
                     fontSize: 15,
                     fontColor: "#ffffff",

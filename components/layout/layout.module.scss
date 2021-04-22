@@ -1,51 +1,75 @@
 .header {
-    display: flex;
-    flex-direction: row;
-    padding: 2em 3em;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  padding: 2em 3em;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.siteLogo  {
-    justify-self: flex-start;
-    z-index: 1;
+.siteLogo {
+  justify-self: flex-start;
+  z-index: 1;
 
-    height: 3rem;
-    fill: white;
+  height: 3rem;
+  fill: white;
 }
 
 .navLink {
-    z-index: 1;
-    text-decoration: none;
-    display: block;
-    padding: 1em;
-    color: white;
-    border-radius: 5px;
+  z-index: 1;
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+  border-radius: 5px;
 }
 
 .navLink:hover {
-    background: rgba(255,255,255,0.15);
-    border-radius: 12px;
-    transition-duration: .5s;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  transition-duration: 0.5s;
 }
 
-.divLinks{
-    display: flex;
-    flex-direction: row;
+.divLinks {
+  display: flex;
+  flex-direction: row;
 }
 
-.divLinks a{
-    padding: 0.5em 1em;
-    margin-left: 0.25em;
+.divLinks a {
+  padding: 0.5em 1em;
+  margin-left: 0.25em;
 }
-
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .margin {
-    margin: 0 3.75rem;
+  margin: 0 3.75rem;
+}
+
+.button {
+  background-color: Transparent;
+  border-color: transparent;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 4rem;
+  width: 4rem;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+  transition: all 0.2s ease;
+  opacity: 0.5;
+  padding: 0;
+}
+
+.button svg path{
+  width: 100%;
+  height: 100%;
+}
+
+.button:hover {
+  opacity: 1;
+  cursor: pointer;
+
 }
