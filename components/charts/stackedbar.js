@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { db } from "../../firebaseConfig";
 import { Bar } from "react-chartjs-2";
-import { DataTextureLoader } from "three";
 
 export default function StackedBar(props) {
   const [data, setData] = useState({
@@ -30,6 +29,7 @@ export default function StackedBar(props) {
           data.barval.push(element.barValues);
           data.color.push(element.color);
         }); 
+
         for (var i in data.barval) {
           var d = [];
           data.barval[i].forEach(function(elem, index) { 
@@ -39,14 +39,8 @@ export default function StackedBar(props) {
               data.barlabel.push(elem.barLabel);
             }
           });
-          data.val.push(d);
-          //data.barlabel.push(l);
-
-          
+          data.val.push(d); 
       }
-      // console.log(data.val);
-      // console.log(data.barlabel);
-
 
         data.title = snapshot.data().title;
         data.xAxis = snapshot.data().x.label;
@@ -58,68 +52,54 @@ export default function StackedBar(props) {
       }
     );
 
-    
+  
+  function dataset_chartjs(data){
+    var datasets = []
+    var datasets_sorted = []
+    for (var i = 0; i < data.val.length; i++){ 
+      var add_data = {
+          label: data.label[i],
+          data: data.val[i],
+          backgroundColor: data.color[i],
+          borderColor: data.color[i],
+          hoverBorderWidth: 2,
+          sum: data.val[i].reduce((a, b) => a + b, 0)
+      }
+      datasets.push(add_data)
+    }  
+    datasets = orderBySubKey( datasets, 'sum' )
+
+      datasets.forEach(function(elem, index) { 
+        datasets_sorted.push(elem.value);
+      });
+  
+    return datasets_sorted
+  }
+
+  function orderBySubKey( input, key ) {
+    return Object.keys( input ).map( key => ({ key, value: input[key] }) ).sort( (a, b) => a.value[key] - b.value[key] );
+  }
+
   return (
     <div>
       <div className="chart">
         <Bar
           data={{
-            labels: data.barlabel,            
-            datasets: [
-              {
-                label: data.label[0],
-                data: data.val[0],
-                backgroundColor: "rgb(255, 99, 132)",
-                borderColor: '#003f5c',
-                //hoverBackgroundColor: "#ffffff",
-                borderWidth: 2,
-              },
-              {
-                label: data.label[1],
-                data: data.val[1],
-                backgroundColor: "rgb(133, 99, 122)",
-                borderColor: '#003f5c',
-                //hoverBackgroundColor: "#ffffff",
-                borderWidth: 2,
-              },
-              {
-                label: data.label[2],
-                data: data.val[2],
-                backgroundColor: "rgb(231, 99, 55)",
-                borderColor: '#003f5c',
-                //hoverBackgroundColor: "#ffffff",
-                borderWidth: 2,
-              },
-              {
-                label: data.label[3],
-                data: data.val[3],
-                backgroundColor: "rgb(21, 22, 222)",
-                borderColor: '#003f5c',
-                //hoverBackgroundColor: "#ffffff",
-                borderWidth: 2,
-              },
-              {
-                label: data.label[4],
-                data: data.val[4],
-                backgroundColor: "rgb(134, 22, 122)",
-                borderColor: '#003f5c',
-                //hoverBackgroundColor: "#ffffff",
-                borderWidth: 2,
-              },
-              {
-                label: data.label[5],
-                data: data.val[5],
-                backgroundColor: "rgb(122, 43, 33)",
-                borderColor: '#003f5c',
-                //hoverBackgroundColor: "#ffffff",
-                borderWidth: 2,
-              },
-            ],
+            labels: data.barlabel,
+            datasets: dataset_chartjs(data)
           }}
           options={{
             responsive: true,
             maintainAspectRatio: true,
-            legend: { display: false },
+            legend: { 
+              display: true,
+              position: 'right',
+              labels: {
+                usePointStyle: true,
+                boxWidth: 15,
+                padding: 15,
+              }
+             },
             title: {
               display: true,
               text: data.title,
@@ -165,3 +145,7 @@ export default function StackedBar(props) {
     </div>
   );
 }
+
+
+
+
