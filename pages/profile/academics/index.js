@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React from "react";
+
 //styles
 import { Content, Header } from "../../../components/layout/layout";
 import Segment from "../../../components/layout/segment/segment";
@@ -8,9 +9,6 @@ import Segment from "../../../components/layout/segment/segment";
 import DoughnutChart from "../../../components/charts/doughnut";
 import Scatterplot from "../../../components/charts/scatterplot";
 import Bar from "../../../components/charts/bar";
-
-//writeup
-import Text from "../../../text1A";
 
 export default function Academics() {
   return (
@@ -34,7 +32,10 @@ export default function Academics() {
           graph={<Scatterplot datatype="Course Average vs Time Spent" />}
           onTop={false}
         >
-          {Text.text.academics.COURSE_AVERAGE_VS_TIME_SPENT_TEXT}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
         </Segment>
 
         <Segment
@@ -42,7 +43,10 @@ export default function Academics() {
           graph={<Scatterplot datatype="Course Usefulness vs Difficulty" />}
           onTop={false}
         >
-          {Text.text.academics.DIFFICULTIES_VS_USEFULNESS_TEXT}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
         </Segment>
 
         <Segment
@@ -50,7 +54,10 @@ export default function Academics() {
           graph={<Scatterplot datatype="Course Average vs Difficulty" />}
           onTop={false}
         >
-          {Text.text.academics.DIFFICULTY_VS_COURSE_AVERAGE_TEXT}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
         </Segment>
 
         <Segment

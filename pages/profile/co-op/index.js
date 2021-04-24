@@ -1,4 +1,5 @@
 import Head from "next/head";
+
 //Styles
 import { Content, Header } from "../../../components/layout/layout";
 import Segment from "../../../components/layout/segment/segment";
@@ -6,9 +7,6 @@ import Segment from "../../../components/layout/segment/segment";
 //graphing
 import StackedBar from "../../../components/charts/stackedbar";
 import DoughnutChart from "../../../components/charts/doughnut";
-
-//writeup
-import Text from "../../../text1A";
 
 export default function Coop() {
   return (
@@ -24,14 +22,20 @@ export default function Coop() {
           graph={<StackedBar datatype="Coop Round vs Job Sector" />}
           onTop={false}
         >
-          {Text.text.coop.COOP_ROUND_VS_TYPE_TEXT}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
         </Segment>
 
         <Segment
           graph={<DoughnutChart datatype="Favourite Programming Language" />}
           onTop={false}
         >
-          {Text.text.coop.FAVOURITE_PROGRAMMING_LANGUAGE}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
         </Segment>
       </Content>
     </>

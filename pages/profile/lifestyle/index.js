@@ -9,9 +9,6 @@ import SectionTitle from "../../../components/layout/sectiontitle/sectiontitle";
 import DoughnutChart from "../../../components/charts/doughnut";
 import Bar from "../../../components/charts/bar";
 
-//writeup
-import Text from "../../../text1A";
-
 export default function Lifestyle() {
   return (
     <>
