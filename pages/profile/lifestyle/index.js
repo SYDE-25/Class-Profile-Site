@@ -1,6 +1,13 @@
-import Head from 'next/head';
-import { Content, Header } from '../../../components/layout/layout';
-import styles from '../profilePage.module.scss';
+import Head from "next/head";
+
+//styling
+import { Content, Header } from "../../../components/layout/layout";
+import Segment from "../../../components/layout/segment/segment";
+import SectionTitle from "../../../components/layout/sectiontitle/sectiontitle";
+
+//graphing
+import DoughnutChart from "../../../components/charts/doughnut";
+import Bar from "../../../components/charts/bar";
 
 export default function Lifestyle() {
   return (

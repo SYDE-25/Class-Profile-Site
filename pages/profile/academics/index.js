@@ -1,10 +1,14 @@
 import Head from "next/head";
 import React from "react";
+
+//styles
 import { Content, Header } from "../../../components/layout/layout";
 import Segment from "../../../components/layout/segment/segment";
+
+//graphing
 import DoughnutChart from "../../../components/charts/doughnut";
 import Scatterplot from "../../../components/charts/scatterplot";
-import BarGraph from "../../../components/charts/bar";
+import Bar from "../../../components/charts/bar";
 
 export default function Academics() {
   return (
@@ -17,6 +21,11 @@ export default function Academics() {
 
       <Content>
         <h1>Academics</h1>
+        <Segment
+          title="Backup University"
+          graph={<DoughnutChart datatype="Backup" />}
+          onTop={false}
+        ></Segment>
 
         <Segment
           title="Course Average vs Time Spent"
@@ -26,10 +35,7 @@ export default function Academics() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          aliquip ex ea commodo consequat.
         </Segment>
 
         <Segment
@@ -40,10 +46,7 @@ export default function Academics() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          aliquip ex ea commodo consequat.
         </Segment>
 
         <Segment
@@ -54,11 +57,16 @@ export default function Academics() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          aliquip ex ea commodo consequat.
         </Segment>
+
+        <Segment
+          title="Course Average vs Difficulty"
+          graph={
+            <Scatterplot datatype="Time Spent in Course vs Course Difficulty" />
+          }
+          onTop={false}
+        ></Segment>
       </Content>
     </>
   );
