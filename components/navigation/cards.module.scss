@@ -42,3 +42,24 @@
     }
   }
 }
+
+@media screen and (max-width: 900px) {
+  .cardsContainer {
+    .row {
+      .card {
+        padding: 3em 3em;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .cardsContainer {
+    .row {
+      .card {
+        padding: 1em 3em;
+      }
+    }
+  }
+}
