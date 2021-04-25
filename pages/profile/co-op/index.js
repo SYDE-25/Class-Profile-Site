@@ -7,6 +7,7 @@ import Segment from "../../../components/layout/segment/segment";
 //graphing
 import StackedBar from "../../../components/charts/stackedbar";
 import DoughnutChart from "../../../components/charts/doughnut";
+import CardLineChart from "../../../components/charts/boxplot";
 
 export default function Coop() {
   return (
@@ -38,6 +39,7 @@ export default function Coop() {
           aliquip ex ea commodo consequat.
         </Segment>
       </Content>
+      <CardLineChart />
     </>
   );
 }
