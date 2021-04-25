@@ -1,8 +1,9 @@
 import Head from "next/head";
 import React from "react";
 
-//styles
+// Layout
 import { Content, Header } from "../../../components/layout/layout";
+import NavigationCards from "../../../components/navigation/cards";
 import Segment from "../../../components/layout/segment/segment";
 
 //graphing
@@ -18,6 +19,8 @@ export default function Academics() {
       </Head>
 
       <Header />
+
+      <NavigationCards title={"1A Class Profile"}/>
 
       <Content>
         <h1>Academics</h1>
