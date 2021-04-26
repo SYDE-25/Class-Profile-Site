@@ -1,8 +1,6 @@
 import Head from 'next/head';
-
-// Layout
 import { Content, Header } from "../../../components/layout/layout"
-import NavigationCards from "../../../components/navigation/cards";
+import styles from '../profilePage.module.scss';
 
 export default function Igor() {
   return (
@@ -12,8 +10,6 @@ export default function Igor() {
       </Head>
 
       <Header />
-
-      <NavigationCards title={"1A Class Profile"}/>
 
       <Content>
         <h1>Igor</h1>

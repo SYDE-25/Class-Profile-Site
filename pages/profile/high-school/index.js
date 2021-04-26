@@ -1,19 +1,19 @@
 import Head from 'next/head';
 import { Content, Header } from "../../../components/layout/layout"
+import styles from '../profilePage.module.scss';
 
-export default function Coop() {
+export default function HighSchool() {
   return (
     <>
       <Head>
-        <title>Co-op • Class Profile</title>
+        <title>High School • Class Profile</title>
       </Head>
 
       <Header />
-
+      
       <Content>
-        <h1>Co-op</h1>
+        <h1>High School</h1>
       </Content>
-
     </>
   );
 }

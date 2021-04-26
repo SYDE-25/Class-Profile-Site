@@ -1,8 +1,6 @@
-import Head from "next/head";
-
-// Layout
-import NavigationCards from "../../../components/navigation/cards";
-import { Content, Header } from "../../../components/layout/layout";
+import Head from 'next/head';
+import { Content, Header } from '../../../components/layout/layout';
+import styles from '../profilePage.module.scss';
 
 export default function Lifestyle() {
   return (
@@ -12,8 +10,6 @@ export default function Lifestyle() {
       </Head>
 
       <Header />
-
-      <NavigationCards title={"1A Class Profile"}/>
 
       <Content>
         <h1>Lifestyle</h1>
