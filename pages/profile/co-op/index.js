@@ -1,10 +1,11 @@
 import Head from "next/head";
 
-//Styles
+// Layout
 import { Content, Header } from "../../../components/layout/layout";
+import NavigationCards from "../../../components/navigation/cards";
 import Segment from "../../../components/layout/segment/segment";
 
-//graphing
+// Graphs
 import StackedBar from "../../../components/charts/stackedbar";
 import DoughnutChart from "../../../components/charts/doughnut";
 import BoxPlot from "../../../components/charts/boxplot";
@@ -17,6 +18,9 @@ export default function Coop() {
       </Head>
 
       <Header />
+
+      <NavigationCards title={"1A Class Profile"}/>
+
       <Content>
         <h1>Co-op</h1>
         <Segment

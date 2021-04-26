@@ -1,11 +1,12 @@
 import Head from "next/head";
 
-//styling
+// Layout
 import { Content, Header } from "../../../components/layout/layout";
+import NavigationCards from "../../../components/navigation/cards";
 import Segment from "../../../components/layout/segment/segment";
 import SectionTitle from "../../../components/layout/sectiontitle/sectiontitle";
 
-//graphing
+// Graphs
 import DoughnutChart from "../../../components/charts/doughnut";
 import Bar from "../../../components/charts/bar";
 
@@ -17,6 +18,8 @@ export default function Demographics() {
       </Head>
 
       <Header />
+
+      <NavigationCards title={"1A Class Profile"}/>
 
       <Content>
         <h1>Demographics</h1>
