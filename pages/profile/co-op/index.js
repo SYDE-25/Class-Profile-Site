@@ -7,7 +7,7 @@ import Segment from "../../../components/layout/segment/segment";
 //graphing
 import StackedBar from "../../../components/charts/stackedbar";
 import DoughnutChart from "../../../components/charts/doughnut";
-import CardLineChart from "../../../components/charts/boxplot";
+import BoxPlot from "../../../components/charts/boxplot";
 
 export default function Coop() {
   return (
@@ -38,8 +38,17 @@ export default function Coop() {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </Segment>
+
+        <Segment
+          graph={<BoxPlot datatype = "Coop Round vs Pay" />}
+          onTop={false}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Segment>
       </Content>
-      <CardLineChart />
     </>
   );
 }

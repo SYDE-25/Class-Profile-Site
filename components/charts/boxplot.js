@@ -1,87 +1,111 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import { db } from "../../firebaseConfig";
 import "chartjs-chart-box-and-violin-plot/build/Chart.BoxPlot.js";
-function randomValues(count, min, max) {
-    const delta = max - min;
-    return Array.from({ length: count }).map(() => Math.random() * delta + min);
-  }
-  const boxplotData = {
-    // define label tree
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [{
-      label: 'Dataset 1',
-      backgroundColor: '#525772',
-      borderColor: '#525772',
-      borderWidth: 1,
-      outlierColor: '#999999',
-      padding: 10,
-      itemRadius: 0,
-      data: [
-        randomValues(100, 0, 100),
-        randomValues(100, 0, 20),
-        randomValues(100, 20, 70),
-        randomValues(100, 60, 100),
-        randomValues(40, 50, 100),
-        randomValues(100, 60, 120),
-        randomValues(100, 80, 100)
-      ]
-    }, {
-      label: 'Dataset 2',
-      backgroundColor:  '#f8878f',
-      borderColor: '#f8878f',
-      borderWidth: 1,
-      outlierColor: '#999999',
-      padding: 10,
-      itemRadius: 0,
-      data: [
-        randomValues(100, 60, 100),
-        randomValues(100, 0, 100),
-        randomValues(100, 0, 20),
-        randomValues(100, 20, 70),
-        randomValues(40, 60, 120),
-        randomValues(100, 20, 100),
-        randomValues(100, 80, 100)
-      ]
-    }]
-  };
-export default function CardLineChart() {
-  React.useEffect(() => {
-    var config = {
+
+export default function BoxPlot(props) {
+  const [data, setData] = useState({
+    val: [],
+    label: [],
+    color: [],
+  });
+
+  db.collection("1A Data")
+    .doc(props.datatype)
+    .onSnapshot(
+      async (snapshot) => {
+        let data = {
+          val: [],
+          label: [],
+          color: [],
+          title: "",
+          xAxes: "",
+          yAxes: "",
+        };
+        await snapshot.data().x.values.forEach((element) => {
+          data.val.push(element.plotValues);
+          data.label.push(element.index);
+          data.color.push(element.color);
+        });
+        data.title = snapshot.data().title;
+        data.xAxis = snapshot.data().x.label;
+        data.yAxis = snapshot.data().y.label;
+        setData(data);
+      },
+      (err) => {
+        console.log("Error fetching firebase snapshot! " + err);
+      }
+    );
+
+    
+    useEffect(() => {    
+        let config = {
         type: 'boxplot',
-        data: boxplotData,
+        data: {
+            labels: data.label,
+            datasets: [{
+                label: 'Dataset 1',
+                backgroundColor: '#525772',
+                borderColor: 'white',
+                hoverBackgroundColor: 'red',
+                borderWidth: 1,
+                outlierColor: '#999999',
+                padding: 10,
+                itemRadius: 0,
+                data: data.val
+            }]
+        },
         options: {
-          responsive: true,
-          legend: {
-            position: 'top',
-          },
-          title: {
-            display: true,
-            text: 'Chart.js Box Plot Chart',
-          },
-    },
-};
-    var ctx = document.getElementById("line-chart").getContext("2d");
+            responsive: true,
+            tootltips: {enabled:false}, 
+            hover: {mode: null},
+            maintainAspectRatio: true,
+            legend: { display: false },
+            title: {
+                display: true,
+                text: data.title,
+                fontColor: "#ffffff",
+                fontSize: 15,
+            },
+            scales: {
+                xAxes: [
+                {
+                    scaleLabel: {
+                    display: true,
+                    labelString: data.xAxis,
+                    fontColor: "#ffffff",
+                    fontSize: 15,
+                    },
+                    ticks: {
+                    fontColor: "#ffffff",
+                    },
+                },
+                ],
+                yAxes: [
+                {
+                    scaleLabel: {
+                    display: true,
+                    labelString: data.yAxis,
+                    fontColor: "#ffffff",
+                    fontSize: 15,
+                    },
+                    ticks: {
+                    fontColor: "#ffffff",
+                    },
+                },
+                ],
+            },
+        },
+    };
+    var ctx = document.getElementById("box-plot").getContext("2d");
     window.myLine = new Chart(ctx, config);
-  }, []);
+        }, [data])
+
   return (
-    <>
-      <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-blueGray-700">
-        <div className="rounded-t mb-0 px-4 py-3 bg-transparent">
-          <div className="flex flex-wrap items-center">
-            <div className="relative w-full max-w-full flex-grow flex-1">
-              <h6 className="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
-                Overview
-              </h6>
-              <h2 className="text-white text-xl font-semibold">Sales value</h2>
-            </div>
-          </div>
-        </div>
-        <div className="p-4 flex-auto">
-          {/* Chart */}
-          <div className="relative h-350-px">
-            <canvas id="line-chart"></canvas>
-          </div>
-        </div>
+      <div className="chart">
+      <canvas id="box-plot"
+       height={props.height ? props.height : "100%"}
+        width={props.width ? props.width : "100%"} 
+    />
       </div>
-    </>
   );
 }
