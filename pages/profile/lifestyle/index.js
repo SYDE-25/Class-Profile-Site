@@ -1,13 +1,8 @@
 import Head from "next/head";
 
-//styling
+// Layout
+import NavigationCards from "../../../components/navigation/cards";
 import { Content, Header } from "../../../components/layout/layout";
-import Segment from "../../../components/layout/segment/segment";
-import SectionTitle from "../../../components/layout/sectiontitle/sectiontitle";
-
-//graphing
-import DoughnutChart from "../../../components/charts/doughnut";
-import Bar from "../../../components/charts/bar";
 
 export default function Lifestyle() {
   return (
@@ -17,6 +12,8 @@ export default function Lifestyle() {
       </Head>
 
       <Header />
+
+      <NavigationCards title={"1A Class Profile"}/>
 
       <Content>
         <h1>Lifestyle</h1>

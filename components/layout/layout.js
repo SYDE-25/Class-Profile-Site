@@ -49,24 +49,19 @@ export function Content(props) {
     })
   }
 
-  console.log(visible)
-
   return (
     <div className={styles.container}>
-      <div className={styles.margin}>{props.children}</div>
-      { visible ?
+      {props.children}
+      { visible &&
         <button className={styles.button} onClick={goToTop}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white" width="100%">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 29" fill="#222" width="80%">
             <path
               fillRule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+              d="M18.221,7.206l9.585,9.585c0.879,0.879,0.879,2.317,0,3.195l-0.8,0.801c-0.877,0.878-2.316,0.878-3.194,0  l-7.315-7.315l-7.315,7.315c-0.878,0.878-2.317,0.878-3.194,0l-0.8-0.801c-0.879-0.878-0.879-2.316,0-3.195l9.587-9.585  c0.471-0.472,1.103-0.682,1.723-0.647C17.115,6.524,17.748,6.734,18.221,7.206z"
               clipRule="evenodd"
             />
           </svg></button>
-        :
-        ""
       }
-
     </div>
   );
 }

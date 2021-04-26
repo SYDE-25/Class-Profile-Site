@@ -31,33 +31,33 @@
     .navLink:hover {
       background: rgba(255, 255, 255, 0.15);
       border-radius: 12px;
-      transition-duration: 0.5s;
+      transition-duration: 0.3s;
     }
   }
 }
 
 .container {
   max-width: 1200px;
-  margin: 0 auto;
 
-  .margin {
-    margin: 0 3.75rem;
-  }
+  margin: 0 auto;
+  padding: 2.5em 4em;
+
+  background-color: #333;
+  border-radius: 2em 2em 0 0;
 
   .button {
-    background-color: Transparent;
-    border-color: transparent;
     position: fixed;
-    bottom: 0;
-    right: 0;
-    height: 4rem;
-    width: 4rem;
-    margin-bottom: 2rem;
-    margin-right: 2rem;
-    transition: all 0.2s ease;
-    opacity: 0.5;
+    bottom: 2rem;
+    right: 2rem;
+    
     padding: 0;
+    height: 3.5rem;
+    width: 3.5rem;
 
+    background-color: #444;
+    border-color: transparent;
+    border-radius: 1.6em;
+    
     svg {
       path {
         width: 100%;
@@ -67,7 +67,7 @@
   }
 
   .button:hover {
-    opacity: 1;
+    opacity: 0.5;
     cursor: pointer;
   }
 }

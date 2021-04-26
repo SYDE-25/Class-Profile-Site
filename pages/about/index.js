@@ -10,10 +10,6 @@ export default function About() {
             </Head>
 
             <Header/>
-
-            <Content>
-                
-            </Content>  
         </>
     )
 }
