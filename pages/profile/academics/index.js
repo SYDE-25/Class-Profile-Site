@@ -7,6 +7,7 @@ import NavigationCards from "../../../components/navigation/cards";
 import Segment from "../../../components/layout/segment/segment";
 
 //graphing
+import {HistogramPercent, HistogramCount} from "../../../components/charts/histogram";
 import DoughnutChart from "../../../components/charts/doughnut";
 import Scatterplot from "../../../components/charts/scatterplot";
 import Bar from "../../../components/charts/bar";
@@ -24,6 +25,31 @@ export default function Academics() {
 
       <Content>
         <h1>Academics</h1>
+
+        <Segment
+          title="1A Average"
+          graph={
+            <HistogramPercent datatype="1A Class Average" />
+          }
+          onTop={false}
+        ></Segment>
+
+        <Segment
+          title="Avg Dropoff"
+          graph={
+            <HistogramCount datatype="Admission Average Drop Off" />
+          }
+          onTop={false}
+        ></Segment>
+        
+        <Segment
+          title="HS Average"
+          graph={
+            <HistogramCount datatype="HS Average" />
+          }
+          onTop={false}
+        ></Segment>
+
         <Segment
           title="Backup University"
           graph={<DoughnutChart datatype="Backup" />}
@@ -70,6 +96,7 @@ export default function Academics() {
           }
           onTop={false}
         ></Segment>
+
       </Content>
     </>
   );
