@@ -1,4 +1,9 @@
-.links {
-    display: flex;
-    flex-direction: column;
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1em 0 1em;
+  margin: 0 auto 0 auto;
+
+  width: 100%;
+  max-width: 1200px;
 }
