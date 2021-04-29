@@ -100,7 +100,7 @@ export default function Demographics() {
         </Segment>
 
         <Segment
-          title="Political Alignment of SYDE 2025"
+          title="Political Alignment"
           graph={<Bar datatype="Political Alignment" />}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

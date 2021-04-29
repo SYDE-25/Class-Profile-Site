@@ -35,9 +35,6 @@ export default function PieChart(props) {
 
   return (
     <div>
-      {/* <div className="header">
-        <h1 className="title">Pie Chart</h1>
-      </div> */}
       <div className="chart">
         <Pie
           data={{

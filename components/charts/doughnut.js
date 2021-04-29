@@ -33,24 +33,44 @@ export default function DoughnutChart(props) {
       }
     );
 
+    var arrayData = data.label.map(function(d, i) {
+      return {
+        label: d,
+        data: data.val[i],
+        color: data.color[i], 
+      };
+    });
+    
+    var sortedArrayData = arrayData.sort(function(a, b) {
+      return b.data - a.data;
+    });
+    
+    var newArrayLabel = [];
+    var newArrayData = [];
+    var newArrayColor = [];
+    sortedArrayData.forEach(function(d){
+      newArrayLabel.push(d.label);
+      newArrayData.push(d.data);
+      newArrayColor.push(d.color);
+    });
+
+
   return (
     <div>
-      {/* <div className="header">
-        <h1 className="title">Doughnut</h1>
-      </div> */}
+ 
       <div className="chart">
         <Doughnut
           data={{
-            labels: data.label,
+            labels: newArrayLabel,
             
             datasets: [
               {
                 label: "# of Students",
-                data: data.val,
-                backgroundColor: data.color,
-                borderColor: data.color,
+                data: newArrayData,
+                backgroundColor: newArrayColor,
+                borderColor: newArrayColor,
                 hoverBorderColor: "#ffffff",
-                borderWidth: 1,
+                hoverBorderWidth: 2,
               },
             ],
           }}
