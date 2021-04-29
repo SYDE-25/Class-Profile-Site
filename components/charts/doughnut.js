@@ -84,14 +84,14 @@ export default function DoughnutChart(props) {
                 boxWidth: 8,
                 padding: 8,
                 fontSize: 12,
-                fontColor: "#e2e2e2"           
+                fontColor: "#a0a0a0"           
                 },
               display: true },
             title: {
               display: true,
               text: data.title,
               fontSize: 15,
-              fontColor: "#a0a0a0",
+              fontColor: "#ffffff",
               fontSize: "14"
             },
           }}
