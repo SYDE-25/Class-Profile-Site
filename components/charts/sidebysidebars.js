@@ -91,13 +91,17 @@ export default function SideBar(props) {
           options={{
             responsive: true,
             maintainAspectRatio: true,
+            layout:{
+              padding: -5
+            },
             legend: { 
               display: true,
               position: 'right',
               labels: {
                 usePointStyle: true,
-                boxWidth: 15,
-                padding: 15,
+                boxWidth: 8,
+                padding: 8,
+                fontSize: 12,   
               }
              },
             title: {
