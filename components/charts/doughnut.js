@@ -83,13 +83,15 @@ export default function DoughnutChart(props) {
                 usePointStyle: true,
                 boxWidth: 8,
                 padding: 8,
-                fontSize: 12,              },
+                fontSize: 12,
+                fontColor: "#e2e2e2"           
+                },
               display: true },
             title: {
               display: true,
               text: data.title,
               fontSize: 15,
-              fontColor: "#ffffff",
+              fontColor: "#a0a0a0",
               fontSize: "14"
             },
           }}
