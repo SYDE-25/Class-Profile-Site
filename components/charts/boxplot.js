@@ -7,11 +7,8 @@ class BoxPlotChart extends Component {
     super(props);
     this.chartRef = createRef();
   }
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     if ( this.props.id <= 0) {
-      console.log(this.props.id)
-      console.log(this.props.data)
-
         this.myChart.data.labels = this.props.data.label;
         this.myChart.data.datasets[0].data = this.props.data.val;
         this.myChart.data.datasets[0].backgroundColor = this.props.data.color;
@@ -73,7 +70,7 @@ class BoxPlotChart extends Component {
           borderColor: 'white',
           hoverBackgroundColor: 'white',
           borderWidth: 2,
-          //outlierColor: this.props.data.color
+          outlierColor: this.props.data.color
 
         }]
       }
@@ -88,7 +85,7 @@ class BoxPlotChart extends Component {
   }
 }
 
-///////////////////////////////////////////////////
+///////////////////////////////////////////////////////
 
 export default function BoxPlot(props) {
   const [data, setData] = useState({
@@ -99,8 +96,7 @@ export default function BoxPlot(props) {
 
   const [id, setId] = useState(0);
 
-  useEffect(() => {
-    db.collection("1A Data")
+  db.collection("1A Data")
   .doc(props.datatype)
   .get()
   .then(
@@ -128,16 +124,18 @@ export default function BoxPlot(props) {
       console.log("Error fetching firebase snapshot! " + err);
     }
   );
-    })
+
 
   return (
-      <div className="chart">
-          <div>
-        <BoxPlotChart data={data} id = {id}
-        height={props.height ? props.height : "100%"}
-        width={props.width ? props.width : "100%"} 
-          />
-          </div>
+      <div>
+        <div className="chart">
+          <BoxPlotChart 
+          data={data} 
+          id = {id}
+          height={props.height ? props.height : "100%"}
+          width={props.width ? props.width : "100%"} 
+            />
+        </div>
       </div>
   );
 }
