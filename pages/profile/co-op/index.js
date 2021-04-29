@@ -8,6 +8,7 @@ import Segment from "../../../components/layout/segment/segment";
 // Graphs
 import StackedBar from "../../../components/charts/stackedbar";
 import DoughnutChart from "../../../components/charts/doughnut";
+import BoxPlot from "../../../components/charts/boxplot";
 
 export default function Coop() {
   return (
@@ -34,6 +35,16 @@ export default function Coop() {
 
         <Segment
           graph={<DoughnutChart datatype="Favourite Programming Language" />}
+          onTop={false}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Segment>
+
+        <Segment
+          graph={<BoxPlot datatype = "Coop Round vs Pay" />}
           onTop={false}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

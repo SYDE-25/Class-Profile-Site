@@ -93,11 +93,13 @@ export default function StackedBar(props) {
             maintainAspectRatio: true,
             legend: { 
               display: true,
+              reverse: true, 
               position: 'right',
               labels: {
                 usePointStyle: true,
-                boxWidth: 15,
-                padding: 15,
+                boxWidth: 8,
+                padding: 8,
+                fontSize: 12,
               }
              },
             title: {
