@@ -9,46 +9,50 @@ export function HistogramPercent(props) {
     color: [],
   });
 
+  const [id, setId] = useState(0);
+
   useEffect(() => {
-    db.collection("1A Data")
-    .doc(props.datatype)
-    .onSnapshot(
-      async (snapshot) => {
-        let data = {
-          val: [],
-          label: [],
-          color: [],
-          title: "",
-          xAxes: "",
-          yAxes: "",
-        };
+    if(id <= 0){
+      db.collection("1A Data")
+      .doc(props.datatype)
+      .onSnapshot(
+        async (snapshot) => {
+          let data = {
+            val: [],
+            label: [],
+            color: [],
+            title: "",
+            xAxes: "",
+            yAxes: "",
+          };
 
-        let values = [];
-        let allData = await snapshot.data();
-        
-        await allData.x.values.forEach((element) => {
-          values.push(element);
-        })
+          let values = [];
+          let allData = await snapshot.data();
+          
+          await allData.x.values.forEach((element) => {
+            values.push(element);
+          })
 
-        await allData.xLimit.enums.forEach((element) => {
-          //need to take in all of the values, sort them,
-          let value = values.filter(x => x === element.value).length
-          data.val.push((value / values.length).toFixed(2)); //VALUE NEEDS TO BE DETERMINED BY TAKING IN ALL OF THE VALUES AND CALCULATING IT
-          data.label.push(element.index);
-        });
+          await allData.xLimit.enums.forEach((element) => {
+            //need to take in all of the values, sort them,
+            let value = values.filter(x => x === element.value).length
+            data.val.push((value / values.length).toFixed(2)); //VALUE NEEDS TO BE DETERMINED BY TAKING IN ALL OF THE VALUES AND CALCULATING IT
+            data.label.push(element.index);
+          });
 
-        data.title = allData.title;
-        data.xAxis = allData.x.label;
-        data.yAxis = allData.y.label;
-        data.color = allData.x.color;
-        setData(data);
-      },
-      (err) => {
-        console.log("Error fetching firebase snapshot! " + err);
-      }
-    );
-  }, [])
-  
+          data.title = allData.title;
+          data.xAxis = allData.x.label;
+          data.yAxis = allData.y.label;
+          data.color = allData.x.color;
+          setId(id+1);
+          setData(data);
+        },
+        (err) => {
+          console.log("Error fetching firebase snapshot! " + err);
+        }
+      );
+    }
+  })
 
     if (data.color === undefined){ 
       data.color = "rgb(255, 99, 132)"
@@ -129,73 +133,77 @@ export function HistogramCount(props) {
     label: [],
     color: [],
   });
+  const [id, setId] = useState(0);
 
   useEffect(() => {
-    db.collection("1A Data")
-    .doc(props.datatype)
-    .onSnapshot(
-      async (snapshot) => {
-        let data = {
-          val: [],
-          label: [],
-          color: [],
-          title: "",
-          xAxes: "",
-          yAxes: "",
-        };
+    if(id <= 0){
+      db.collection("1A Data")
+      .doc(props.datatype)
+      .onSnapshot(
+        async (snapshot) => {
+          let data = {
+            val: [],
+            label: [],
+            color: [],
+            title: "",
+            xAxes: "",
+            yAxes: "",
+          };
 
-        let values = [];
-        let allData = snapshot.data();
+          let values = [];
+          let allData = snapshot.data();
 
-        allData.x.values.forEach((element) => {
-          values.push(parseInt((element).toFixed(2)));
-        })
+          allData.x.values.forEach((element) => {
+            values.push(parseInt((element).toFixed(2)));
+          })
 
-        values.sort((a,b) => { //sorted in numerical value
-          return (a-b)
-        });
+          values.sort((a,b) => { //sorted in numerical value
+            return (a-b)
+          });
 
-        let min = allData.xLimit.min;
-        let max = allData.xLimit.max;
+          let min = allData.xLimit.min;
+          let max = allData.xLimit.max;
 
-        for (let i = min; i <= max; i++) {
-          data.label.push(i);
-          data.val.push(0); //for each element, will push a 0 value which will be changed later
+          for (let i = min; i <= max; i++) {
+            data.label.push(i);
+            data.val.push(0); //for each element, will push a 0 value which will be changed later
 
+          }
+
+          //need to go through all of the grades
+          //need to check that grade is inbetween itself and its num + 1
+          let counter = 0;
+          let valueptr = 0;
+
+          try {
+            while (valueptr < values.length) { 
+              if (valueptr >= values.length) {
+                break;
+              }
+              if (values[valueptr] >= data.label[counter] && values[valueptr] < data.label[counter] + 1) {
+                valueptr += 1;
+                data.val[counter] += 1;
+              } else {
+                counter += 1;
+              }
+            }        
+          } catch (err) {
+            console.log(err);
+          }
+
+          data.title = allData.title;
+          data.xAxis = allData.x.label;
+          data.yAxis = allData.y.label;
+          setId(id+1);
+          setData(data);  
+        },
+        (err) => {
+          console.log("Error fetching firebase snapshot! " + err);
         }
+      );
+    }
+  })
 
-        //need to go through all of the grades
-        //need to check that grade is inbetween itself and its num + 1
-        let counter = 0;
-        let valueptr = 0;
-
-        try {
-          while (valueptr < values.length) { 
-            if (valueptr >= values.length) {
-              break;
-            }
-            if (values[valueptr] >= data.label[counter] && values[valueptr] < data.label[counter] + 1) {
-              valueptr += 1;
-              data.val[counter] += 1;
-            } else {
-              counter += 1;
-            }
-          }        
-        } catch (err) {
-          console.log(err);
-        }
-
-        data.title = allData.title;
-        data.xAxis = allData.x.label;
-        data.yAxis = allData.y.label;
-        setData(data);  
-      },
-      (err) => {
-        console.log("Error fetching firebase snapshot! " + err);
-      }
-    );
-  }, [])
-  console.log(data)
   return (
     <div>
       {/* <div className="header">
