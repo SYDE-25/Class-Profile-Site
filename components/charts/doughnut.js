@@ -65,7 +65,6 @@ sortedArrayData.forEach(function(d){
 
 return (
 <div>
-
   <div className="chart">
     <Doughnut
       data={{

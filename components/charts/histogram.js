@@ -57,6 +57,10 @@ export function HistogramPercent(props) {
 
   console.log(data)
 
+    if (data.color === undefined){ 
+      data.color = "rgb(255, 99, 132)"
+    }
+
   return (
     <div>
       {/* <div className="header">
@@ -70,10 +74,9 @@ export function HistogramPercent(props) {
               {
                 label: "# of Students",
                 data: data.val,
-                backgroundColor: "rgb(255, 99, 132)",
+                backgroundColor: data.color,
                 borderColor: data.color,
                 hoverBackgroundColor: "#ffffff",
-                borderWidth: 2,
                 barPercentage: 1.3,
               },
             ],

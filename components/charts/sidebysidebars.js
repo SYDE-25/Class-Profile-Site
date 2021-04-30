@@ -108,7 +108,8 @@ export default function SideBar(props) {
                 usePointStyle: true,
                 boxWidth: 8,
                 padding: 8,
-                fontSize: 12,   
+                fontSize: 12,  
+                fontColor: "#a0a0a0"           
               }
              },
             title: {
