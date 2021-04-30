@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../../firebaseConfig";
 import { Bar } from "react-chartjs-2";
 
@@ -9,45 +9,53 @@ export function HistogramPercent(props) {
     color: [],
   });
 
+  const [id, setId] = useState(0);
+
   let displayOptions = {}
 
+  useEffect(() => {
+    if(id <= 0){ 
+      db.collection("1A Data")
+      .doc(props.datatype)
+      .onSnapshot(
+        async (snapshot) => {
+          let data = {
+            val: [],
+            label: [],
+            color: [],
+            title: "",
+            xAxes: "",
+            yAxes: "",
+          };
+  
+          let values = [];
+  
+          await snapshot.data().x.values.forEach((element) => {
+            values.push(element);
+          })
+  
+          await snapshot.data().xLimit.enums.forEach((element) => {
+            //need to take in all of the values, sort them,
+            let value = values.filter(x => x === element.value).length
+            data.val.push((value / values.length).toFixed(2)); //VALUE NEEDS TO BE DETERMINED BY TAKING IN ALL OF THE VALUES AND CALCULATING IT
+            data.label.push(element.index);
+            data.color.push(element.color);
+          });
+  
+          data.title = snapshot.data().title;
+          data.xAxis = snapshot.data().x.label;
+          data.yAxis = snapshot.data().y.label;
+          setId(id+1);
+          setData(data);
+        },
+        (err) => {
+          console.log("Error fetching firebase snapshot! " + err);
+        }
+      );
+    }
+  });
 
-  db.collection("1A Data")
-    .doc(props.datatype)
-    .onSnapshot(
-      async (snapshot) => {
-        let data = {
-          val: [],
-          label: [],
-          color: [],
-          title: "",
-          xAxes: "",
-          yAxes: "",
-        };
-
-        let values = [];
-
-        await snapshot.data().x.values.forEach((element) => {
-          values.push(element);
-        })
-
-        await snapshot.data().xLimit.enums.forEach((element) => {
-          //need to take in all of the values, sort them,
-          let value = values.filter(x => x === element.value).length
-          data.val.push((value / values.length).toFixed(2)); //VALUE NEEDS TO BE DETERMINED BY TAKING IN ALL OF THE VALUES AND CALCULATING IT
-          data.label.push(element.index);
-          data.color.push(element.color);
-        });
-
-        data.title = snapshot.data().title;
-        data.xAxis = snapshot.data().x.label;
-        data.yAxis = snapshot.data().y.label;
-        setData(data);
-      },
-      (err) => {
-        console.log("Error fetching firebase snapshot! " + err);
-      }
-    );
+  console.log(data)
 
   return (
     <div>

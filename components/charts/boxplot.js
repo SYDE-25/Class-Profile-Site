@@ -8,7 +8,6 @@ class BoxPlotChart extends Component {
     this.chartRef = createRef();
   }
   componentDidUpdate() {
-    if ( this.props.id <= 0) {
         this.myChart.data.labels = this.props.data.label;
         this.myChart.data.datasets[0].data = this.props.data.val;
         this.myChart.data.datasets[0].backgroundColor = this.props.data.color;
@@ -17,7 +16,7 @@ class BoxPlotChart extends Component {
         this.myChart.options.scales.xAxes[0].scaleLabel.labelString = this.props.data.xAxis;
         this.myChart.options.scales.yAxes[0].scaleLabel.labelString = this.props.data.yAxis;
         this.myChart.update();
-    }};
+    };
 
   componentDidMount() {
     this.myChart = new Chart(this.chartRef.current, {
@@ -96,42 +95,46 @@ export default function BoxPlot(props) {
 
   const [id, setId] = useState(0);
 
-  db.collection("1A Data")
-  .doc(props.datatype)
-  .get()
-  .then(
-    (snapshot) => {
-      let data = {
-        val: [],
-        label: [],
-        color: [],
-        title: "",
-        xAxes: "",
-        yAxes: "",
-      };
-       snapshot.data().x.values.forEach((element) => {
-        data.val.push(element.plotValues);
-        data.label.push(element.index);
-        data.color.push(element.color);
-      });
-      data.title = snapshot.data().title;
-      data.xAxis = snapshot.data().x.label;
-      data.yAxis = snapshot.data().y.label;
-      setData(data);
-      setId(id + 1);
-    },
-    (err) => {
-      console.log("Error fetching firebase snapshot! " + err);
-    }
-  );
+  useEffect(() => {
 
+    if(id <= 0){
+      db.collection("1A Data")
+      .doc(props.datatype)
+      .get()
+      .then(
+        (snapshot) => {
+          let data = {
+            val: [],
+            label: [],
+            color: [],
+            title: "",
+            xAxes: "",
+            yAxes: "",
+          };
+          snapshot.data().x.values.forEach((element) => {
+            data.val.push(element.plotValues);
+            data.label.push(element.index);
+            data.color.push(element.color);
+          });
+          data.title = snapshot.data().title;
+          data.xAxis = snapshot.data().x.label;
+          data.yAxis = snapshot.data().y.label;
+          setId(id + 1);
+          setData(data);
+        },
+        (err) => {
+          console.log("Error fetching firebase snapshot! " + err);
+        }
+      );
+    }
+  });
+  console.log(data)
 
   return (
       <div>
         <div className="chart">
           <BoxPlotChart 
           data={data} 
-          id = {id}
           height={props.height ? props.height : "100%"}
           width={props.width ? props.width : "100%"} 
             />
