@@ -59,7 +59,7 @@ export default function SideBar(props) {
       );
     }
   });
-  
+
   function dataset_chartjs(data){
     var datasets = []
     var datasets_sorted = []

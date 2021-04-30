@@ -52,7 +52,7 @@ export default function Academics() {
 
         <Segment
           title="Backup University"
-          graph={<DoughnutChart datatype="Backup" />}
+          graph={<Bar datatype="Backup" />}
           onTop={false}
         ></Segment>
 
