@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../../firebaseConfig";
 import { Bar } from "react-chartjs-2";
 
@@ -9,45 +9,46 @@ export function HistogramPercent(props) {
     color: [],
   });
 
-  let displayOptions = {}
-
-
-  db.collection("1A Data")
+  useEffect(() => {
+    db.collection("1A Data")
     .doc(props.datatype)
     .onSnapshot(
       async (snapshot) => {
         let data = {
           val: [],
           label: [],
-          color: "",
+          color: [],
           title: "",
           xAxes: "",
           yAxes: "",
         };
 
         let values = [];
-
-        await snapshot.data().x.values.forEach((element) => {
+        let allData = await snapshot.data();
+        
+        await allData.x.values.forEach((element) => {
           values.push(element);
         })
 
-        await snapshot.data().xLimit.enums.forEach((element) => {
+        await allData.xLimit.enums.forEach((element) => {
           //need to take in all of the values, sort them,
           let value = values.filter(x => x === element.value).length
           data.val.push((value / values.length).toFixed(2)); //VALUE NEEDS TO BE DETERMINED BY TAKING IN ALL OF THE VALUES AND CALCULATING IT
           data.label.push(element.index);
         });
 
-        data.title = snapshot.data().title;
-        data.xAxis = snapshot.data().x.label;
-        data.yAxis = snapshot.data().y.label;
-        data.color = snapshot.data().x.color;
+        data.title = allData.title;
+        data.xAxis = allData.x.label;
+        data.yAxis = allData.y.label;
+        data.color = allData.x.color;
         setData(data);
       },
       (err) => {
         console.log("Error fetching firebase snapshot! " + err);
       }
     );
+  }, [])
+  
 
     if (data.color === undefined){ 
       data.color = "rgb(255, 99, 132)"
@@ -129,7 +130,8 @@ export function HistogramCount(props) {
     color: [],
   });
 
-  db.collection("1A Data")
+  useEffect(() => {
+    db.collection("1A Data")
     .doc(props.datatype)
     .onSnapshot(
       async (snapshot) => {
@@ -143,18 +145,18 @@ export function HistogramCount(props) {
         };
 
         let values = [];
+        let allData = snapshot.data();
 
-        await snapshot.data().x.values.forEach((element) => {
+        allData.x.values.forEach((element) => {
           values.push(parseInt((element).toFixed(2)));
         })
 
-        values.sort((a,b) => {
+        values.sort((a,b) => { //sorted in numerical value
           return (a-b)
         });
-        console.log(values);
 
-        let min = snapshot.data().xLimit.min;
-        let max = snapshot.data().xLimit.max;
+        let min = allData.xLimit.min;
+        let max = allData.xLimit.max;
 
         for (let i = min; i <= max; i++) {
           data.label.push(i);
@@ -166,13 +168,14 @@ export function HistogramCount(props) {
         //need to check that grade is inbetween itself and its num + 1
         let counter = 0;
         let valueptr = 0;
-        
+
         try {
           while (valueptr < values.length) { 
-            console.log(values[valueptr], data.label[counter]);
+            if (valueptr >= values.length) {
+              break;
+            }
             if (values[valueptr] >= data.label[counter] && values[valueptr] < data.label[counter] + 1) {
               valueptr += 1;
-              console.log(valueptr);
               data.val[counter] += 1;
             } else {
               counter += 1;
@@ -181,18 +184,18 @@ export function HistogramCount(props) {
         } catch (err) {
           console.log(err);
         }
-       
 
-        data.title = snapshot.data().title;
-        data.xAxis = snapshot.data().x.label;
-        data.yAxis = snapshot.data().y.label;
-        setData(data);
+        data.title = allData.title;
+        data.xAxis = allData.x.label;
+        data.yAxis = allData.y.label;
+        setData(data);  
       },
       (err) => {
         console.log("Error fetching firebase snapshot! " + err);
       }
     );
-
+  }, [])
+  console.log(data)
   return (
     <div>
       {/* <div className="header">
