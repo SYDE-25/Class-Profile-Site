@@ -128,7 +128,6 @@ export default function BoxPlot(props) {
       );
     }
   });
-  console.log(data)
 
   return (
       <div>

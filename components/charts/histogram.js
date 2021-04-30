@@ -55,7 +55,6 @@ export function HistogramPercent(props) {
     }
   });
 
-  console.log(data)
     if (data.color[0] === undefined){ 
       data.color = "rgb(255, 99, 132)"
     }
@@ -203,7 +202,7 @@ export function HistogramCount(props) {
     // }
  // });
 
-  console.log(data)
+  //console.log(data)
 
   return (
     <div>
