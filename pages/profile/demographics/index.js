@@ -59,7 +59,7 @@ export default function Demographics() {
         <Segment
           graph={
             <>
-              <DoughnutChart datatype="Parental Education" />
+              <Bar datatype="Parental Education" />
               <DoughnutChart datatype="Parents Stem" />
             </>
           }
