@@ -36,11 +36,13 @@ export default function BarGraph(props) {
       }
     );
 
+    if (data.color[0] === undefined){ 
+      data.color = "rgb(255, 99, 132)"
+    }
+
   return (
     <div>
-      {/* <div className="header">
-        <h1 className="title">Doughnut</h1>
-      </div> */}
+      
       <div className="chart">
         <Bar
           data={{
@@ -49,10 +51,9 @@ export default function BarGraph(props) {
               {
                 label: "# of Students",
                 data: data.val,
-                backgroundColor: "rgb(255, 99, 132)",
+                backgroundColor: data.color,
                 borderColor: data.color,
                 hoverBackgroundColor: "#ffffff",
-                borderWidth: 2,
               },
             ],
           }}

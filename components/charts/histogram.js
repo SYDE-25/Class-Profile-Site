@@ -19,7 +19,7 @@ export function HistogramPercent(props) {
         let data = {
           val: [],
           label: [],
-          color: [],
+          color: "",
           title: "",
           xAxes: "",
           yAxes: "",
@@ -36,18 +36,22 @@ export function HistogramPercent(props) {
           let value = values.filter(x => x === element.value).length
           data.val.push((value / values.length).toFixed(2)); //VALUE NEEDS TO BE DETERMINED BY TAKING IN ALL OF THE VALUES AND CALCULATING IT
           data.label.push(element.index);
-          data.color.push(element.color);
         });
 
         data.title = snapshot.data().title;
         data.xAxis = snapshot.data().x.label;
         data.yAxis = snapshot.data().y.label;
+        data.color = snapshot.data().x.color;
         setData(data);
       },
       (err) => {
         console.log("Error fetching firebase snapshot! " + err);
       }
     );
+
+    if (data.color === undefined){ 
+      data.color = "rgb(255, 99, 132)"
+    }
 
   return (
     <div>
@@ -62,10 +66,9 @@ export function HistogramPercent(props) {
               {
                 label: "# of Students",
                 data: data.val,
-                backgroundColor: "rgb(255, 99, 132)",
+                backgroundColor: data.color,
                 borderColor: data.color,
                 hoverBackgroundColor: "#ffffff",
-                borderWidth: 2,
                 barPercentage: 1.3,
               },
             ],

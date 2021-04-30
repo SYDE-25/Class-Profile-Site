@@ -100,6 +100,7 @@ export default function StackedBar(props) {
                 boxWidth: 8,
                 padding: 8,
                 fontSize: 12,
+                fontColor: "#a0a0a0"           
               }
              },
             title: {
