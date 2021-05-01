@@ -63,7 +63,7 @@ class BoxPlotChart extends Component {
       data: {
         labels: this.props.data.label,
         datasets: [{
-          label: 'Dataset',
+          //label: '',
           data: this.props.data.val,
           backgroundColor: this.props.data.color,
           borderColor: 'white',
@@ -128,6 +128,29 @@ export default function BoxPlot(props) {
       );
     }
   });
+
+  if(Number.isInteger(data.label[0])){
+      var arrayData = data.label.map(function(d, i) {
+        return {
+          label: d,
+          data: data.val[i],
+        };
+      });
+      
+      var sortedArrayData = arrayData.sort(function(a, b) {
+        return a.label - b.label;
+      });
+      
+      var newArrayLabel = [];
+      var newArrayData = [];
+      sortedArrayData.forEach(function(d){
+        newArrayLabel.push(d.label);
+        newArrayData.push(d.data);
+      });
+
+      data.label = newArrayLabel
+      data.val = newArrayData
+  }
 
   return (
       <div>
