@@ -37,7 +37,7 @@ export default function StackedBar(props) {
           for (var i in data.barval) {
             var d = [];
             data.barval[i].forEach(function(elem, index) { 
-              d.push(elem.barValue);
+              d.push(parseFloat(elem.barValue.toFixed(2)));
               if (!data.barlabel.includes(elem.barLabel))
               {
                 data.barlabel.push(elem.barLabel);

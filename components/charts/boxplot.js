@@ -112,6 +112,10 @@ export default function BoxPlot(props) {
             yAxes: "",
           };
           snapshot.data().x.values.forEach((element) => {
+            for(var i = 0; i < element.plotValues.length; i++){
+              element.plotValues[i] = parseFloat(element.plotValues[i].toFixed(2)); 
+            }
+            console.log(element.plotValues)
             data.val.push(element.plotValues);
             data.label.push(element.index);
             data.color.push(element.color);
@@ -128,6 +132,7 @@ export default function BoxPlot(props) {
       );
     }
   });
+
 
   if(Number.isInteger(data.label[0])){
       var arrayData = data.label.map(function(d, i) {

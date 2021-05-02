@@ -28,8 +28,8 @@ export default function Scatterplot(props) {
   
           for (let i = 0; i < (await snapshot.data().x.values.length); i++) {
             data.val.push({
-              x: snapshot.data().x.values[i].value,
-              y: snapshot.data().y.values[i].value,
+              x: parseFloat(snapshot.data().x.values[i].value.toFixed(2)),
+              y: parseFloat(snapshot.data().y.values[i].value.toFixed(2)),
             });
             data.label.push(snapshot.data().x.values[i].index);
             data.color.push(snapshot.data().x.values[i].color);

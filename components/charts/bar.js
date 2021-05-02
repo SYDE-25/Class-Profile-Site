@@ -47,6 +47,13 @@ export default function BarGraph(props) {
       data.color = "rgb(255, 99, 132)"
     }
 
+    var x = 0;
+    var len = data.val.length
+    while(x < len){ 
+      data.val[x] = data.val[x].toFixed(2); 
+      x++
+    }
+
   return (
     <div>
       
@@ -56,7 +63,7 @@ export default function BarGraph(props) {
             labels: data.label,
             datasets: [
               {
-                label: "# of Students",
+                label: "% of Students",
                 data: data.val,
                 backgroundColor: data.color,
                 borderColor: data.color,
