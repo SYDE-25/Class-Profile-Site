@@ -9,7 +9,6 @@
 .containerOnTop {
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
@@ -42,6 +41,13 @@
   width: 100%;
   min-width: 350px;
   height: 100%;
+  min-height: 300px;
+}
+
+.graphOnTop canvas {
+  width: 100%;
+  min-width: 450px;
+  min-height: 450px;
 }
 
 .graphContainer {
@@ -69,5 +75,12 @@
     width: 50%;
     min-width: 350px;
     height: 100%;
+
+    canvas {
+      min-width: 100%;
+      min-height: 100%;
+    }
   }
+
+  
 }

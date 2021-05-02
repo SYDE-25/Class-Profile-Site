@@ -69,10 +69,7 @@ export default function Demographics() {
         ></Segment>
         <Segment
           graph={
-            <>
-              <Bar datatype="Parental Education" />
               <DoughnutChart datatype="Parents Stem" />
-            </>
           }
           onTop={true}
         ></Segment>

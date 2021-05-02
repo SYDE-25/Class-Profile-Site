@@ -36,9 +36,7 @@ export default function Segment(props) {
         }
         else {
             return (
-                <>
-                    {props.graph}
-                </>
+                    props.graph
             )
         }
 
