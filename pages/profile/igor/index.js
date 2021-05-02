@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import styles from '../profile.module.scss';
 
 // Layout
 import { Content, Header } from "../../../components/layout/layout"
@@ -15,7 +16,7 @@ export default function Igor() {
 
       <NavigationCards title={"1A Class Profile"}/>
 
-      <Content>
+      <Content className={styles.igor}>
         <h1>Igor</h1>
       </Content>    
     </>
