@@ -27,20 +27,15 @@ export default function Coop() {
           graph={<StackedBar datatype="Coop Round vs Job Sector" />}
           onTop={false}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          Software development (including QA) was the most popular sector
+          for our cohort in every round, similar to the SYDE 2024 Cohort [1].
         </Segment>
 
         <Segment
           graph={<DoughnutChart datatype="Favourite Programming Language" />}
           onTop={false}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          People who liked Python had the highest median hourly pay.
         </Segment>
 
         <Segment
