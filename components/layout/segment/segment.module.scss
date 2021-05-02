@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
 
 .header h2 {
@@ -19,19 +19,18 @@
 }
 
 .description {
-  max-width: 500px;
-  margin-bottom: 2rem;
+  max-width: 450px;
 }
 
 .descriptionOnTop {
-  max-width: 100%;
-  margin-bottom: 2rem;
+  max-width: 650px;
+  margin: auto;
+  margin-bottom: 3rem;
 }
 
 .graph {
-  width: 450px;
+  width: 500px;
   height: 100%;
-  padding-top: 2rem;
 }
 
 .graphOnTop {
@@ -42,16 +41,16 @@
   min-width: 350px;
   height: 100%;
   min-height: 300px;
-}
 
-.graphOnTop canvas {
-  width: 100%;
-  min-width: 450px;
-  min-height: 450px;
+  canvas {
+    width: 100%;
+    min-width: 450px;
+    min-height: 450px;
+  }
 }
 
 .graphContainer {
-  min-width:350px;
+  min-width: 350px;
 }
 
 @media (max-width: 1050px) {
@@ -75,12 +74,16 @@
     width: 50%;
     min-width: 350px;
     height: 100%;
+    margin: auto;
+    margin-bottom: -3rem;
+
+    div {
+      margin-bottom: 2rem;
+    }
 
     canvas {
       min-width: 100%;
       min-height: 100%;
     }
   }
-
-  
 }

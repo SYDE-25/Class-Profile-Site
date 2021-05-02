@@ -1,4 +1,5 @@
 import Head from "next/head";
+import styles from '../profile.module.scss';
 
 // Layout
 import { Content, Header } from "../../../components/layout/layout";
@@ -22,7 +23,7 @@ export default function Coop() {
 
       <NavigationCards title={"1A Class Profile"}/>
 
-      <Content>
+      <Content className={styles.coop}>
         <h1>Co-op</h1>
         <Segment
           title = "CO-OP Round VS Type of CO-OP"

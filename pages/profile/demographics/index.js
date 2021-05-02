@@ -1,14 +1,15 @@
-import Head from "next/head";
+import Head from 'next/head';
+import styles from '../profile.module.scss';
 
 // Layout
-import { Content, Header } from "../../../components/layout/layout";
-import NavigationCards from "../../../components/navigation/cards";
-import Segment from "../../../components/layout/segment/segment";
-import SectionTitle from "../../../components/layout/sectiontitle/sectiontitle";
+import { Content, Header } from '../../../components/layout/layout';
+import NavigationCards from '../../../components/navigation/cards';
+import Segment from '../../../components/layout/segment/segment';
+import SectionTitle from '../../../components/layout/sectiontitle/sectiontitle';
 
 // Graphs
-import DoughnutChart from "../../../components/charts/doughnut";
-import Bar from "../../../components/charts/bar";
+import DoughnutChart from '../../../components/charts/doughnut';
+import Bar from '../../../components/charts/bar';
 
 export default function Demographics() {
   return (
@@ -19,9 +20,9 @@ export default function Demographics() {
 
       <Header />
 
-      <NavigationCards title={"1A Class Profile"} />
+      <NavigationCards title={'1A Class Profile'} />
 
-      <Content>
+      <Content className={styles.demographics}>
         <h1>Demographics</h1>
 
         <SectionTitle>
@@ -68,9 +69,7 @@ export default function Demographics() {
           graph={<DoughnutChart datatype="Parents Born" />}
         ></Segment>
         <Segment
-          graph={
-              <DoughnutChart datatype="Parents Stem" />
-          }
+          graph={<DoughnutChart datatype="Parents Stem" />}
           onTop={true}
         ></Segment>
 
