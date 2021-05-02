@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styles from '../profilePage.module.scss';
+import styles from '../profile.module.scss';
 
 // Layout
 import NavigationCards from '../../../components/navigation/cards';

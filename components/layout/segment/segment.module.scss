@@ -41,12 +41,12 @@
   min-width: 350px;
   height: 100%;
   min-height: 300px;
-}
 
-.graphOnTop canvas {
-  width: 100%;
-  min-width: 450px;
-  min-height: 450px;
+  canvas {
+    width: 100%;
+    min-width: 450px;
+    min-height: 450px;
+  }
 }
 
 .graphContainer {
@@ -74,6 +74,12 @@
     width: 50%;
     min-width: 350px;
     height: 100%;
+    margin: auto;
+    margin-bottom: -3rem;
+
+    div {
+      margin-bottom: 2rem;
+    }
 
     canvas {
       min-width: 100%;

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import styles from '../profile.module.scss';
 
 // Layout
 import { Content, Header } from "../../../components/layout/layout";
@@ -24,7 +24,7 @@ export default function Academics() {
 
       <NavigationCards title={"1A Class Profile"} />
 
-      <Content>
+      <Content className={styles.academics}>
         <h1>Academics</h1>
 
         <Segment
