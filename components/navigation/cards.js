@@ -41,7 +41,7 @@ export default function NavigationCards(props) {
       </div>
       <div className={styles.report}>
         <a
-          href="/1a/data-sci-report.pdf"
+          href="/1a/data_sci_report.pdf"
           target="_blank"
         >
           <h4>

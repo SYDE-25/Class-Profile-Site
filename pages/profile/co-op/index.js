@@ -33,6 +33,9 @@ export default function Coop() {
 
       <Content className={styles.coop}>
         <h1>Co-op</h1>
+        <h4>
+          As of the end of SYDE 2025's first work term, SYDE had an employment rate of 99.1%. What type of jobs did they get? How much were they paid? How was how much they were paid correlated with anything?
+        </h4>
         <Segment
           title="Co-op Round vs Type"
           graph={<StackedBar datatype="Coop Round vs Job Sector" />}

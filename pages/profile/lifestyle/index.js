@@ -28,6 +28,7 @@ export default function Lifestyle() {
 
       <Content className={styles.lifestyle}>
         <h1>Lifestyle</h1>
+        <h4>How has SYDE managed during the 1A term? How much have they experienced? Have they experimented with drugs?</h4>
 
         <Segment
           title={'Location'}
