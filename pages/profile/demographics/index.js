@@ -4,7 +4,7 @@ import styles from '../profile.module.scss';
 
 // Layout
 import { Content, Header } from '../../../components/layout/layout';
-import NavigationCards from '../../../components/navigation/cards';
+import NavigationCards, { Card } from "../../../components/navigation/cards";
 import Segment from '../../../components/layout/segment/segment';
 
 // Graphs
@@ -71,10 +71,19 @@ export default function Demographics() {
           onTop={true}
         ></Segment>
 
-        <Segment
-          title="Hometown"
-          graph={<BarGraph datatype="Hometown" />}
-        ></Segment>
+        <Segment title="Hometown" graph={<Bar datatype="Hometown" />}></Segment>
+
+        <div className={styles.cardContainer}>
+          <h3>Check out the next section</h3>
+          <div className={styles.card} style={{maxWidth: '470px'}}>
+            <Card 
+                title={"Academics"}
+                link={"/profile/academics#content"}
+                svg={"/cards/academics.svg"}
+                relativeSize={1}
+            />
+          </div>
+        </div>
       </Content>
     </>
   );

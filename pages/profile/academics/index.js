@@ -3,9 +3,9 @@ import dynamic from 'next/dynamic';
 import styles from '../profile.module.scss';
 
 // Layout
-import { Content, Header } from '../../../components/layout/layout';
-import NavigationCards from '../../../components/navigation/cards';
-import Segment from '../../../components/layout/segment/segment';
+import { Content, Header } from "../../../components/layout/layout";
+import NavigationCards, { Card } from "../../../components/navigation/cards";
+import Segment from "../../../components/layout/segment/segment";
 
 //graphing
 const BarGraph = dynamic(() => import('../../../components/charts/barGraph'));
@@ -169,7 +169,19 @@ export default function Academics() {
           attended at around 80%, and SYDE 161 (Introduction to Design) had the
           lowest percentage of lectures attended at around 45%.
         </Segment>
-      </Content>
+      <div className={styles.cardContainer}>
+      <h3>Check out the next section</h3>
+      <div className={styles.card} style={{maxWidth: '370px'}}>
+        <Card 
+            title={"Co-op"}
+            link={"/profile/co-op#content"}
+            svg={"/cards/co-op.svg"}
+            relativeSize={2}
+        />
+      </div>
+
+    </div>
+    </Content>
     </>
   );
 }
