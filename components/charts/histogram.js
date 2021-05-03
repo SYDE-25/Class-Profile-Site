@@ -205,30 +205,6 @@ export function HistogramCount(props) {
     }
   })
 
-//   if(Number.isInteger(data.label[0])){
-//     var arrayData = data.label.map(function(d, i) {
-//       return {
-//         label: d,
-//         data: data.val[i],
-//       };
-//     });
-    
-//     var sortedArrayData = arrayData.sort(function(a, b) {
-//       return a.label - b.label;
-//     });
-    
-//     var newArrayLabel = [];
-//     var newArrayData = [];
-//     sortedArrayData.forEach(function(d){
-//       newArrayLabel.push(d.label);
-//       newArrayData.push(d.data);
-//     });
-
-//     data.label = newArrayLabel
-//     data.val = newArrayData
-//     console.log(data.label)
-// }
-
   return (
     <div>
       {/* <div className="header">

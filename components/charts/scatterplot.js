@@ -47,22 +47,39 @@ export default function Scatterplot(props) {
     }
   });
 
+  function dataset_chartjs(data){
+    var datasets = []
+
+    if (data.label[0] !== null){
+      for (var i = 0; i < data.val.length; i++){ 
+        var add_data = {
+            label: data.label[i],
+            data: [data.val[i]],
+            backgroundColor: data.color[i],
+            borderColor: data.color[i],
+            hoverBorderWidth: 2,
+        }
+      datasets.push(add_data)
+    } 
+  } 
+  else  {
+    datasets.push({
+      label: "Student",
+      data: data.val,
+      backgroundColor: '#7582ca',
+      hoverBorderColor: "#ffffff",
+    })
+  }
+    return datasets
+  }
+
   return (
     <div>
       <div className="chart">
         <Scatter
           data={{
             labels: data.label,
-            datasets: [
-              {
-                label: data.label,
-                data: data.val,
-                backgroundColor: 'pink',
-                hoverBorderColor: "#ffffff",
-                //borderColor: data.color,
-                //borderWidth: 1,
-              },
-            ],
+            datasets: dataset_chartjs(data)
           }}
           options={{
             responsive: true,
@@ -70,12 +87,28 @@ export default function Scatterplot(props) {
             tooltips: {
               enabled: true, 
               callbacks: {
-                label: function(tooltipItems) { 
-                    return '(' + tooltipItems.yLabel +', '+ tooltipItems.xLabel + ") " + data.label[0] ;
+                label: function(tooltipItem, data) { 
+                    var label = data.labels[tooltipItem.datasetIndex];
+                    if(label !== null){
+                      return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+                    }
+                    else{
+                      return ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+                    }
                 }
             }
           },
-            legend: { display: true },  
+            legend: { 
+              display: true,
+              position: 'right',
+              labels: {
+                usePointStyle: true,
+                boxWidth: 8,
+                padding: 8,
+                fontSize: 12,  
+                fontColor: "#a0a0a0"           
+              }
+            },
             title: {
               display: true,
               text: data.title,
