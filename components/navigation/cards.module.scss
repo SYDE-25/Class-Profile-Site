@@ -7,6 +7,32 @@
   display: flex;
   flex-direction: column;
 
+  .report {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      color: white;
+      padding: 0.5rem 0;
+      margin: 1rem 0;
+    }
+
+    h4 {
+      margin: 0;
+      line-height: normal;
+    }
+
+    span {
+      margin-left: 8px;
+      position: absolute;
+      transition: 0.2s ease;
+    }
+
+    a:hover span{
+      transform: translate(8px,0);
+    }
+  }
+
   .row {
     display: flex;
     flex-direction: row;
