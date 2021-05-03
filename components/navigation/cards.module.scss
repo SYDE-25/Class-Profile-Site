@@ -10,6 +10,7 @@
   .report {
     display: flex;
     justify-content: flex-end;
+    transition: 0.2s ease;
 
     a {
       color: white;
@@ -23,13 +24,18 @@
     }
 
     span {
-      margin-left: 8px;
-      position: absolute;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
       transition: 0.2s ease;
     }
 
-    a:hover span{
-      transform: translate(8px,0);
+    &:hover {
+      opacity: 0.7;
+
+      span{
+        margin-left: 1rem;
+        margin-right: 0rem;
+      }
     }
   }
 

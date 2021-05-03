@@ -1,7 +1,7 @@
-import Head from "next/head";
+import Head from 'next/head';
 
-import { Header } from "../../components/layout/layout";
-import NavigationCards from "../../components/navigation/cards.js";
+import { Header } from '../../components/layout/layout';
+import NavigationCards from '../../components/navigation/cards.js';
 
 export default function Profile() {
   return (
@@ -12,7 +12,7 @@ export default function Profile() {
 
       <Header />
 
-      <NavigationCards title={"1A Class Profile"}/>
+      <NavigationCards title={'1A Class Profile'} />
     </div>
   );
 }

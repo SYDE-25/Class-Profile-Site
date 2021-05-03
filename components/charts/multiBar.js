@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { db } from '../../firebaseConfig';
 import { Bar } from 'react-chartjs-2';
 
-export default function StackedBar(props) {
+export default function SideBar(props) {
   const [data, setData] = useState({
     bar: [],
     val: [],
@@ -107,9 +107,11 @@ export default function StackedBar(props) {
                 },
               },
             },
+            layout: {
+              padding: -5,
+            },
             legend: {
               display: true,
-              reverse: true,
               position: 'right',
               labels: {
                 usePointStyle: true,
@@ -128,7 +130,11 @@ export default function StackedBar(props) {
             scales: {
               xAxes: [
                 {
-                  stacked: true,
+                  gridLines: {
+                    zeroLineColor: '#fff',
+                    color: 'rgba(255, 255, 255, 0.05)',
+                    lineWidth: 1,
+                  },
                   scaleLabel: {
                     display: true,
                     labelString: data.xAxis,
@@ -142,7 +148,11 @@ export default function StackedBar(props) {
               ],
               yAxes: [
                 {
-                  stacked: true,
+                  gridLines: {
+                    zeroLineColor: '#fff',
+                    color: 'rgba(255, 255, 255, 0.05)',
+                    lineWidth: 1,
+                  },
                   scaleLabel: {
                     display: true,
                     labelString: data.yAxis,
