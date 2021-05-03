@@ -1,7 +1,9 @@
-import Head from "next/head";
-import styles from "../styles/Home.module.scss";
-import Background from "../components/threejs/floatingRects";
-import { Header } from "../components/layout/layout";
+import Head from 'next/head';
+import { Header } from '../components/layout/layout';
+import dynamic from 'next/dynamic';
+import styles from '../styles/Home.module.scss';
+
+const Background = dynamic(() => import('../components/threejs/floatingRects'));
 
 export default function Home() {
   return (

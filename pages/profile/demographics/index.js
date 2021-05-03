@@ -1,15 +1,17 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import styles from '../profile.module.scss';
 
 // Layout
 import { Content, Header } from '../../../components/layout/layout';
 import NavigationCards from '../../../components/navigation/cards';
 import Segment from '../../../components/layout/segment/segment';
-import SectionTitle from '../../../components/layout/sectiontitle/sectiontitle';
 
 // Graphs
-import DoughnutChart from '../../../components/charts/doughnut';
-import Bar from '../../../components/charts/bar';
+const BarGraph = dynamic(() => import('../../../components/charts/barGraph'));
+const DoughnutChart = dynamic(() =>
+  import('../../../components/charts/doughnutChart')
+);
 
 export default function Demographics() {
   return (
@@ -25,16 +27,6 @@ export default function Demographics() {
       <Content className={styles.demographics}>
         <h1>Demographics</h1>
 
-        <SectionTitle>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </SectionTitle>
-
         <Segment title="Gender" graph={<DoughnutChart datatype="Gender" />}>
           There is about an equal representation of both females and males in
           SYDE 2025, with slightly more males than females. This contrasts to
@@ -42,30 +34,36 @@ export default function Demographics() {
           [1].
         </Segment>
 
-        <Segment title="Ethnicities" graph={<Bar datatype="Ethnicities" />}>
+        <Segment
+          title="Ethnicities"
+          graph={<BarGraph datatype="Ethnicities" />}
+        >
           The majority of the SYDE 2025 cohort is Asian or Cauccasian, similar
           to past class profiles [1][2].
         </Segment>
 
         <Segment
           title="Sexuality"
-          graph={<Bar datatype="Sexuality" />}
+          graph={<BarGraph datatype="Sexuality" />}
           onTop={false}
         ></Segment>
 
         <Segment
-          title="Year Born"
+          title="Birth Years"
           graph={<DoughnutChart datatype="Year Born" />}
         ></Segment>
 
-        <Segment title="Religion" graph={<Bar datatype="Religion" />}></Segment>
+        <Segment
+          title="Religion"
+          graph={<BarGraph datatype="Religion" />}
+        ></Segment>
 
         <Segment
           title="Political Alignment"
-          graph={<Bar datatype="Political Alignment" />}
+          graph={<BarGraph datatype="Political Alignment" />}
         ></Segment>
         <Segment
-          title="Parents "
+          title="Parents"
           graph={<DoughnutChart datatype="Parents Born" />}
         ></Segment>
         <Segment
@@ -73,7 +71,10 @@ export default function Demographics() {
           onTop={true}
         ></Segment>
 
-        <Segment title="Hometown" graph={<Bar datatype="Hometown" />}></Segment>
+        <Segment
+          title="Hometown"
+          graph={<BarGraph datatype="Hometown" />}
+        ></Segment>
       </Content>
     </>
   );
