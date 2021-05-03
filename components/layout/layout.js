@@ -54,7 +54,7 @@ export function Content(props) {
   };
 
   return (
-    <div className={`${styles.container} ${props.className}`}>
+    <div className={`${styles.container} ${props.className}`} id='content'>
       {props.children}
       {visible && (
         <button className={styles.button} onClick={goToTop}>

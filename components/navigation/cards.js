@@ -8,13 +8,13 @@ const NavigationCards = (props) => {
       <div className={styles.row}>
         <Card
           title={"Demographics"}
-          link={"/profile/demographics"}
+          link={"/profile/demographics#content"}
           svg={"/cards/demographics.svg"}
           relativeSize={2}
         />
         <Card
           title={"Academics"}
-          link={"/profile/academics"}
+          link={"/profile/academics#content"}
           svg={"/cards/academics.svg"}
           relativeWidth={3}
         />
@@ -22,19 +22,19 @@ const NavigationCards = (props) => {
       <div className={styles.row}>
         <Card
           title={"Co-op"}
-          link={"/profile/co-op"}
+          link={"/profile/co-op#content"}
           svg={"/cards/co-op.svg"}
           relativeSize={2}
         />
         <Card
           title={"Lifestyle"}
-          link={"/profile/lifestyle"}
+          link={"/profile/lifestyle#content"}
           svg={"/cards/lifestyle.svg"}
           relativeSize={3}
         />
         <Card
           title={"Igor"}
-          link={"/profile/igor"}
+          link={"/profile/igor#content"}
           svg={"/cards/igor.svg"}
           relativeSize={2}
         />

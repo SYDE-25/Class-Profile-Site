@@ -2,6 +2,7 @@ import { useState, useEffect, Component, createRef } from "react";
 import { db } from "../../firebaseConfig";
 import "chartjs-chart-box-and-violin-plot/build/Chart.BoxPlot.js";
 
+
 class BoxPlotChart extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +16,8 @@ class BoxPlotChart extends Component {
         this.myChart.options.title.text = this.props.data.title;
         this.myChart.options.scales.xAxes[0].scaleLabel.labelString = this.props.data.xAxis;
         this.myChart.options.scales.yAxes[0].scaleLabel.labelString = this.props.data.yAxis;
+        this.myChart.options.scales.yAxes[0].ticks.min = this.props.data.ymin;
+        this.myChart.options.scales.yAxes[0].ticks.max = this.props.data.ymax;
         this.myChart.update();
     };
 
@@ -55,6 +58,8 @@ class BoxPlotChart extends Component {
                   },
                   ticks: {
                   fontColor: "#ffffff",
+                  min: parseInt(this.props.data.xmin),
+                  max: parseInt(this.props.data.xmax), 
                   },
               },
               ],
@@ -90,7 +95,7 @@ export default function BoxPlot(props) {
   const [data, setData] = useState({
     val: [],
     label: [],
-    color: [],
+    color: "",
   });
 
   const [id, setId] = useState(0);
@@ -106,23 +111,26 @@ export default function BoxPlot(props) {
           let data = {
             val: [],
             label: [],
-            color: [],
+            color: "",
             title: "",
             xAxes: "",
             yAxes: "",
+            ymin: "", 
+            ymax: "", 
           };
           snapshot.data().x.values.forEach((element) => {
             for(var i = 0; i < element.plotValues.length; i++){
               element.plotValues[i] = parseFloat(element.plotValues[i].toFixed(2)); 
             }
-            console.log(element.plotValues)
             data.val.push(element.plotValues);
             data.label.push(element.index);
-            data.color.push(element.color);
           });
+          data.color = snapshot.data().x.color;
           data.title = snapshot.data().title;
           data.xAxis = snapshot.data().x.label;
           data.yAxis = snapshot.data().y.label;
+          data.ymin = snapshot.data().yLimit.min;
+          data.ymax = snapshot.data().yLimit.max;
           setId(id + 1);
           setData(data);
         },
@@ -132,7 +140,6 @@ export default function BoxPlot(props) {
       );
     }
   });
-
 
   if(Number.isInteger(data.label[0])){
       var arrayData = data.label.map(function(d, i) {
