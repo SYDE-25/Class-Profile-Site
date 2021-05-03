@@ -36,7 +36,7 @@ const HistogramPercent = (props) => {
             await allData.xLimit.enums.forEach((element) => {
               //need to take in all of the values, sort them,
               let value = values.filter((x) => x === element.value).length;
-              data.val.push((value / values.length).toFixed(2)); //VALUE NEEDS TO BE DETERMINED BY TAKING IN ALL OF THE VALUES AND CALCULATING IT
+              data.val.push((value*100 / values.length).toFixed(2)); //VALUE NEEDS TO BE DETERMINED BY TAKING IN ALL OF THE VALUES AND CALCULATING IT
               data.label.push(element.index);
             });
 
@@ -69,7 +69,7 @@ const HistogramPercent = (props) => {
             labels: data.label,
             datasets: [
               {
-                label: '# of Students',
+                label: '% of Students',
                 data: data.val,
                 backgroundColor: data.color,
                 borderColor: data.color,

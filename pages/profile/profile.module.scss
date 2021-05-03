@@ -99,4 +99,19 @@
   h4 {
     color: #909aa1;
   }
+
+}
+
+.cardContainer {
+  max-width: 700px;
+  margin: 0 auto;
+  height: 100%;
+
+  .card {
+    margin: 0 auto;
+    h3 {
+      color: var(--bg);
+    }
+  }
+
 }

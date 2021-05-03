@@ -3,9 +3,9 @@ import dynamic from 'next/dynamic';
 import styles from '../profile.module.scss';
 
 // Layout
-import { Content, Header } from '../../../components/layout/layout';
-import NavigationCards from '../../../components/navigation/cards';
-import Segment from '../../../components/layout/segment/segment';
+import { Content, Header } from "../../../components/layout/layout";
+import NavigationCards, { Card } from "../../../components/navigation/cards";
+import Segment from "../../../components/layout/segment/segment";
 
 // Graphs
 const BoxPlot = dynamic(() => import('../../../components/charts/boxPlot'));
@@ -33,6 +33,9 @@ export default function Coop() {
 
       <Content className={styles.coop}>
         <h1>Co-op</h1>
+        <h4>
+          As of the end of SYDE 2025's first work term, SYDE had an employment rate of 99.1%. What type of jobs did they get? How much were they paid? How was how much they were paid correlated with anything?
+        </h4>
         <Segment
           title="Co-op Round vs Type"
           graph={<StackedBar datatype="Coop Round vs Job Sector" />}
@@ -119,6 +122,19 @@ export default function Coop() {
           software coop was 97% compared to 92% for those who did not have a
           software coop.
         </Segment>
+        <div className={styles.cardContainer}>
+          <h3>Check out the next section</h3>
+          <div className={styles.card} style={{maxWidth: '470px'}}>
+            <Card 
+                title={"Lifestyle"}
+                link={"/profile/lifestyle#content"}
+                svg={"/cards/lifestyle.svg"}
+                relativeSize={1}
+            />
+          </div>
+
+        </div>
+
       </Content>
     </>
   );

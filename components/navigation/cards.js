@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './cards.module.scss';
 
-const NavigationCards = (props) => {
+export default function NavigationCards(props) {
   return (
     <div className={styles.cardsContainer}>
       {props.title != undefined && <h1>{props.title}</h1>}
@@ -41,11 +41,11 @@ const NavigationCards = (props) => {
       </div>
       <div className={styles.report}>
         <a
-          href="/1a/data-sci-report.pdf"
+          href="/1a/data_sci_report.pdf"
           target="_blank"
         >
           <h4>
-            Check out the data science report here <span>{'>'}</span>
+            Check out the full report here <span>{'>'}</span>
           </h4>
         </a>
       </div>
@@ -53,7 +53,7 @@ const NavigationCards = (props) => {
   );
 };
 
-const Card = (props) => {
+export const Card = (props) => {
   return (
     <Link href={props.link}>
       <div
@@ -68,4 +68,3 @@ const Card = (props) => {
     </Link>
   );
 };
-export default NavigationCards;
