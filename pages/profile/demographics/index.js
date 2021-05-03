@@ -38,51 +38,44 @@ export default function Demographics() {
         </Segment>
 
         <Segment
-          title="Ethnicities"
-          graph={<BarGraph datatype="Ethnicities" />}
+          title="Ethnicities and Religon"
+          graph={
+          <>
+          <BarGraph datatype="Ethnicities" width = {500} height ={500} />
+          <BarGraph datatype="Religion" width = {450} height ={500}/>
+          </>}
+          onTop={true}
         >
           The majority of the SYDE 2025 cohort is Asian or Cauccasian, similar
           to past class profiles [1][2].
         </Segment>
 
         <Segment
-          title="Sexuality"
-          graph={<BarGraph datatype="Sexuality" />}
-          onTop={true}
-        ></Segment>
-
-        <Segment
-          title="Birth Years"
-          graph={<DoughnutChart datatype="Year Born" />}
-          onTop={true}
-        ></Segment>
-
-        <Segment
-          title="Religion"
-          graph={<BarGraph datatype="Religion" />}
+          title="Hometown and Birth Years"
+          graph={
+            <>
+            <BarGraph datatype="Hometown" width = {600} height ={500} />
+            <DoughnutChart datatype="Year Born" width = {20} height ={20}  />
+            </>}
           onTop={true}
         ></Segment>
 
         <Segment
           title="Political Alignment"
-          graph={<BarGraph datatype="Political Alignment" />}
+          graph={<BarGraph datatype="Political Alignment" width = {800} height ={500} />}
           onTop={true}
         ></Segment>
+
         <Segment
           title="Parents"
-          graph={<DoughnutChart datatype="Parents Born" />}
+          graph={
+          <>
+          <DoughnutChart datatype="Parents Born" />
+          <DoughnutChart datatype="Parents Stem" />
+          </>
+          }
           onTop={true}
         ></Segment>
-
-        <Segment
-          graph={<DoughnutChart datatype="Parents Stem" />}
-          onTop={true}
-        ></Segment>
-
-        <Segment title="Hometown" graph={<BarGraph datatype="Hometown" />}
-                  onTop={true}
-                  >
-        </Segment>
 
         <div className={styles.cardContainer}>
           <h3>Check out the next section</h3>
