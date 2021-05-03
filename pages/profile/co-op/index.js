@@ -3,9 +3,9 @@ import dynamic from 'next/dynamic';
 import styles from '../profile.module.scss';
 
 // Layout
-import { Content, Header } from '../../../components/layout/layout';
-import NavigationCards from '../../../components/navigation/cards';
-import Segment from '../../../components/layout/segment/segment';
+import { Content, Header } from "../../../components/layout/layout";
+import NavigationCards, { Card } from "../../../components/navigation/cards";
+import Segment from "../../../components/layout/segment/segment";
 
 // Graphs
 const BoxPlot = dynamic(() => import('../../../components/charts/boxPlot'));
@@ -115,6 +115,19 @@ export default function Coop() {
           software coop was 97% compared to 92% for those who did not have a
           software coop.
         </Segment>
+        <div className={styles.cardContainer}>
+          <h3>Check out the next section</h3>
+          <div className={styles.card} style={{maxWidth: '470px'}}>
+            <Card 
+                title={"Lifestyle"}
+                link={"/profile/lifestyle#content"}
+                svg={"/cards/lifestyle.svg"}
+                relativeSize={1}
+            />
+          </div>
+
+        </div>
+
       </Content>
     </>
   );

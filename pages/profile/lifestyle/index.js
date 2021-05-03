@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import styles from '../profile.module.scss';
 
 // Layout
-import NavigationCards from '../../../components/navigation/cards';
+import NavigationCards, { Card } from "../../../components/navigation/cards";
 import { Content, Header } from '../../../components/layout/layout';
 import Segment from '../../../components/layout/segment/segment';
 
@@ -121,6 +121,17 @@ export default function Lifestyle() {
           }
           onTop={true}
         ></Segment>
+        <div className={styles.cardContainer}>
+          <h3>Check out the next section</h3>
+          <div className={styles.card} style={{maxWidth: '340px'}}>
+            <Card 
+                title={"Igor"}
+                link={"/profile/igor#content"}
+                svg={"/cards/igor.svg"}
+                relativeSize={1}
+            />
+          </div>
+         </div>
       </Content>
     </>
   );
