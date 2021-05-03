@@ -115,7 +115,6 @@ export default function BoxPlot(props) {
             for(var i = 0; i < element.plotValues.length; i++){
               element.plotValues[i] = parseFloat(element.plotValues[i].toFixed(2)); 
             }
-            console.log(element.plotValues)
             data.val.push(element.plotValues);
             data.label.push(element.index);
           });

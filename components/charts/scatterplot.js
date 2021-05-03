@@ -6,7 +6,6 @@ export default function Scatterplot(props) {
   const [data, setData] = useState({
     val: [],
     label: [],
-    color: "",
     title: "",
     xAxis: "",
     yAxis: "",
@@ -23,7 +22,7 @@ export default function Scatterplot(props) {
           let data = {
             val: [],
             label: [],
-            color: "",
+            color: [],
             title: "",
           };
   
@@ -33,12 +32,11 @@ export default function Scatterplot(props) {
               y: parseFloat(snapshot.data().y.values[i].value.toFixed(2)),
             });
             data.label.push(snapshot.data().x.values[i].index);
-            //data.color.push(snapshot.data().x.values[i].color);
+            data.color.push(snapshot.data().x.values[i].color);
           }
           data.title = snapshot.data().title;
           data.xAxis = snapshot.data().x.label;
           data.yAxis = snapshot.data().y.label;
-          data.color = snapshot.data().x.color;
           setId(id+1);
           setData(data);
         },
@@ -59,7 +57,7 @@ export default function Scatterplot(props) {
               {
                 label: data.label,
                 data: data.val,
-                backgroundColor: data.color, 
+                backgroundColor: 'pink',
                 hoverBorderColor: "#ffffff",
                 //borderColor: data.color,
                 //borderWidth: 1,
@@ -69,6 +67,14 @@ export default function Scatterplot(props) {
           options={{
             responsive: true,
             maintainAspectRatio: true,
+            tooltips: {
+              enabled: true, 
+              callbacks: {
+                label: function(tooltipItems) { 
+                    return '(' + tooltipItems.yLabel +', '+ tooltipItems.xLabel + ") " + data.label[0] ;
+                }
+            }
+          },
             legend: { display: true },  
             title: {
               display: true,
