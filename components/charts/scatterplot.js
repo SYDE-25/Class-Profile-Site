@@ -64,8 +64,9 @@ export default function Scatterplot(props) {
   } 
   else  {
     datasets.push({
+      label: "Student",
       data: data.val,
-      backgroundColor: 'pink',
+      backgroundColor: '#7582ca',
       hoverBorderColor: "#ffffff",
     })
   }
