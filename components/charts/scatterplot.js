@@ -6,6 +6,7 @@ export default function Scatterplot(props) {
   const [data, setData] = useState({
     val: [],
     label: [],
+    color: "",
     title: "",
     xAxis: "",
     yAxis: "",
@@ -22,7 +23,7 @@ export default function Scatterplot(props) {
           let data = {
             val: [],
             label: [],
-            color: [],
+            color: "",
             title: "",
           };
   
@@ -32,11 +33,12 @@ export default function Scatterplot(props) {
               y: parseFloat(snapshot.data().y.values[i].value.toFixed(2)),
             });
             data.label.push(snapshot.data().x.values[i].index);
-            data.color.push(snapshot.data().x.values[i].color);
+            //data.color.push(snapshot.data().x.values[i].color);
           }
           data.title = snapshot.data().title;
           data.xAxis = snapshot.data().x.label;
           data.yAxis = snapshot.data().y.label;
+          data.color = snapshot.data().x.color;
           setId(id+1);
           setData(data);
         },
@@ -57,7 +59,7 @@ export default function Scatterplot(props) {
               {
                 label: data.label,
                 data: data.val,
-                backgroundColor: "rgb(255, 99, 132)", //should be data.color
+                backgroundColor: data.color, 
                 hoverBorderColor: "#ffffff",
                 //borderColor: data.color,
                 //borderWidth: 1,

@@ -11,6 +11,7 @@ import StackedBar from "../../../components/charts/stackedbar";
 import DoughnutChart from "../../../components/charts/doughnut";
 import BoxPlot from "../../../components/charts/boxplot";
 import SideBar from "../../../components/charts/sidebysidebars";
+import Scatterplot from "../../../components/charts/scatterplot";
 
 export default function Coop() {
   return (
@@ -59,6 +60,19 @@ export default function Coop() {
         </Segment>
 
         <Segment 
+          title = "Admission Average vs Coop Salary"
+          graph={<Scatterplot datatype = "Admission Average vs Coop Salary"/>}
+          onTop={false}
+        >
+          Admission average and salary have a pearson correlation coefficient of 0.006.
+          This indicates no association and therefore no correlation between high school 
+          admission average and 1A coop salary.
+          <br />
+          <b>SYDE Opinion</b>: Employers don’t care about high school marks. 
+
+        </Segment>
+
+        <Segment 
           title = "Co-op Pay vs 1A Average"
           graph={<BoxPlot datatype = "1A Average vs Salary"/>}
           onTop={false}
@@ -87,6 +101,18 @@ export default function Coop() {
           onTop={true}
         >
         </Segment>
+
+        <Segment 
+          title = "Software Co-op vs SYDE 121 Grade"
+          graph={<BoxPlot datatype = "SYDE 121 Average vs Software Coop"/>}
+          onTop={true}
+        >
+        The median SYDE 121 (Digital Computation) grade for people who 
+        had a software coop was 97% compared to 92% for those who did 
+        not have a software coop.
+
+        </Segment>
+
       </Content>
     </>
   );

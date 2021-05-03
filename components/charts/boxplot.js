@@ -90,7 +90,7 @@ export default function BoxPlot(props) {
   const [data, setData] = useState({
     val: [],
     label: [],
-    color: [],
+    color: "",
   });
 
   const [id, setId] = useState(0);
@@ -106,7 +106,7 @@ export default function BoxPlot(props) {
           let data = {
             val: [],
             label: [],
-            color: [],
+            color: "",
             title: "",
             xAxes: "",
             yAxes: "",
@@ -118,8 +118,8 @@ export default function BoxPlot(props) {
             console.log(element.plotValues)
             data.val.push(element.plotValues);
             data.label.push(element.index);
-            data.color.push(element.color);
           });
+          data.color = snapshot.data().x.color;
           data.title = snapshot.data().title;
           data.xAxis = snapshot.data().x.label;
           data.yAxis = snapshot.data().y.label;
