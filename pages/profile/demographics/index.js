@@ -71,7 +71,7 @@ export default function Demographics() {
           onTop={true}
         ></Segment>
 
-        <Segment title="Hometown" graph={<Bar datatype="Hometown" />}></Segment>
+        <Segment title="Hometown" graph={<BarGraph datatype="Hometown" />}></Segment>
 
         <div className={styles.cardContainer}>
           <h3>Check out the next section</h3>
