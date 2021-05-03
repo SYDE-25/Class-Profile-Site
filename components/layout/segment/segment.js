@@ -1,9 +1,8 @@
-import React from 'react';
 import styles from './segment.module.scss';
 
 export default function Segment(props) {
   let doubleGraph = false;
-  if (React.Children.count(props.graph.props.children) === 2) {
+  if (props.graph.props.children === 2) {
     doubleGraph = true;
   }
 
@@ -40,7 +39,7 @@ export default function Segment(props) {
     <div className={segmentStyle.container}>
       <div className={styles.wrapper}>
         <div className={styles.header}>
-          <h2>{props.title}</h2>
+          <h3>{props.title}</h3>
         </div>
         <div className={segmentStyle.description}>
           <p>{props.children}</p>

@@ -7,6 +7,38 @@
   display: flex;
   flex-direction: column;
 
+  .report {
+    display: flex;
+    justify-content: flex-end;
+    transition: 0.2s ease;
+
+    a {
+      color: white;
+      padding: 0.5rem 0;
+      margin: 1rem 0;
+    }
+
+    h4 {
+      margin: 0;
+      line-height: normal;
+    }
+
+    span {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      transition: 0.2s ease;
+    }
+
+    &:hover {
+      opacity: 0.7;
+
+      span{
+        margin-left: 1rem;
+        margin-right: 0rem;
+      }
+    }
+  }
+
   .row {
     display: flex;
     flex-direction: row;

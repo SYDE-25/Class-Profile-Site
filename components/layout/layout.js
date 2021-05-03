@@ -3,7 +3,7 @@ import SiteLogo from '../siteLogo';
 import styles from './layout.module.scss';
 import { useState, useEffect } from 'react';
 
-export function Header() {
+const Header = () => {
   return (
     <div className={styles.header}>
       <Link href="/">
@@ -21,9 +21,9 @@ export function Header() {
       </div>
     </div>
   );
-}
+};
 
-export function Content(props) {
+const Content = (props) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export function Content(props) {
   };
 
   return (
-    <div className={`${styles.container} ${props.className}`}>
+    <div className={`${styles.container} ${props.className}`} id='content'>
       {props.children}
       {visible && (
         <button className={styles.button} onClick={goToTop}>
@@ -74,4 +74,6 @@ export function Content(props) {
       )}
     </div>
   );
-}
+};
+
+export { Header, Content };
