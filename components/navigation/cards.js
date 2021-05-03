@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import styles from "./cards.module.scss";
 
 const NavigationCards = (props) => {
@@ -40,9 +39,18 @@ const NavigationCards = (props) => {
           relativeSize={2}
         />
       </div>
+      <div className={styles.report}>
+        <a href='https://eevanwong.github.io/SYDE2025-datasci-report/reports/data_sci_report.pdf' target='_blank'>
+          <h4>
+            Check out the full data science report here <span>{'>'}</span>
+          </h4>
+        </a>
+      </div>
     </div>
   );
 };
+
+
 
 const Card = (props) => {
   return (
