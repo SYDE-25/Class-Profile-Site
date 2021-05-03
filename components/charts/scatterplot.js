@@ -57,7 +57,7 @@ export default function Scatterplot(props) {
               {
                 label: data.label,
                 data: data.val,
-                backgroundColor: "rgb(255, 99, 132)", //should be data.color
+                backgroundColor: 'pink',
                 hoverBorderColor: "#ffffff",
                 //borderColor: data.color,
                 //borderWidth: 1,
@@ -67,6 +67,14 @@ export default function Scatterplot(props) {
           options={{
             responsive: true,
             maintainAspectRatio: true,
+            tooltips: {
+              enabled: true, 
+              callbacks: {
+                label: function(tooltipItems) { 
+                    return '(' + tooltipItems.yLabel +', '+ tooltipItems.xLabel + ") " + data.label[0] ;
+                }
+            }
+          },
             legend: { display: true },  
             title: {
               display: true,

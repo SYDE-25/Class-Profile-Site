@@ -144,7 +144,7 @@ export function HistogramCount(props) {
           let data = {
             val: [],
             label: [],
-            color: [],
+            color: "",
             title: "",
             xAxes: "",
             yAxes: "",
@@ -194,6 +194,7 @@ export function HistogramCount(props) {
           data.title = allData.title;
           data.xAxis = allData.x.label;
           data.yAxis = allData.y.label;
+          data.color = allData.x.color;
           setId(id+1);
           setData(data);  
         },
@@ -203,6 +204,30 @@ export function HistogramCount(props) {
       );
     }
   })
+
+//   if(Number.isInteger(data.label[0])){
+//     var arrayData = data.label.map(function(d, i) {
+//       return {
+//         label: d,
+//         data: data.val[i],
+//       };
+//     });
+    
+//     var sortedArrayData = arrayData.sort(function(a, b) {
+//       return a.label - b.label;
+//     });
+    
+//     var newArrayLabel = [];
+//     var newArrayData = [];
+//     sortedArrayData.forEach(function(d){
+//       newArrayLabel.push(d.label);
+//       newArrayData.push(d.data);
+//     });
+
+//     data.label = newArrayLabel
+//     data.val = newArrayData
+//     console.log(data.label)
+// }
 
   return (
     <div>
@@ -217,10 +242,10 @@ export function HistogramCount(props) {
               {
                 label: "# of Students",
                 data: data.val,
-                backgroundColor: "rgb(255, 99, 132)",
-                borderColor: data.color,
+                backgroundColor: data.color,
+                borderColor: "white",
                 hoverBackgroundColor: "#ffffff",
-                borderWidth: 2,
+                borderWidth: 0.5,
                 barPercentage: 1.3,
               },
             ],
