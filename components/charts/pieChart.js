@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../../firebaseConfig";
 import { Pie } from "react-chartjs-2";
 
@@ -9,35 +9,40 @@ export default function PieChart(props) {
     color: [],
   });
 
-  db.collection("1A Data")
-    .doc(props.datatype)
-    .onSnapshot(
-      async (snapshot) => {
-        let data = {
-          val: [],
-          label: [],
-          color: [],
-          title: "",
-        };
+  const [id, setId] = useState(0);
 
-        await snapshot.data().x.forEach((element) => {
-          data.val.push(element.value);
-          data.label.push(element.index);
-          data.color.push(element.color);
-        });
-        data.title = snapshot.data().title;
-        setData(data);
-      },
-      (err) => {
-        console.log("Error fetching firebase snapshot! " + err);
-      }
-    );
+  useEffect(() => {
+    if(id<=0){
+      db.collection("1A Data")
+      .doc(props.datatype)
+      .onSnapshot(
+        async (snapshot) => {
+          let data = {
+            val: [],
+            label: [],
+            color: [],
+            title: "",
+          };
+  
+          await snapshot.data().x.forEach((element) => {
+            data.val.push(element.value);
+            data.label.push(element.index);
+            data.color.push(element.color);
+          });
+          data.title = snapshot.data().title;
+          setId(id+1);
+          setData(data);
+        },
+        (err) => {
+          console.log("Error fetching firebase snapshot! " + err);
+        }
+      );
+  
+    }
+  });
 
   return (
     <div>
-      {/* <div className="header">
-        <h1 className="title">Pie Chart</h1>
-      </div> */}
       <div className="chart">
         <Pie
           data={{

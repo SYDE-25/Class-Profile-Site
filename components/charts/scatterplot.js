@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../../firebaseConfig";
 import { Scatter } from "react-chartjs-2";
 
@@ -11,34 +11,41 @@ export default function Scatterplot(props) {
     yAxis: "",
   });
 
-  db.collection("1A Data")
-    .doc(props.datatype)
-    .onSnapshot(
-      async (snapshot) => {
-        let data = {
-          val: [],
-          label: [],
-          color: [],
-          title: "",
-        };
+  const [id, setId] = useState(0);
 
-        for (let i = 0; i < (await snapshot.data().x.values.length); i++) {
-          data.val.push({
-            x: snapshot.data().x.values[i].value,
-            y: snapshot.data().y.values[i].value,
-          });
-          data.label.push(snapshot.data().x.values[i].index);
-          data.color.push(snapshot.data().x.values[i].color);
+  useEffect(() => {
+    if(id<=0){
+      db.collection("1A Data")
+      .doc(props.datatype)
+      .onSnapshot(
+        async (snapshot) => {
+          let data = {
+            val: [],
+            label: [],
+            color: [],
+            title: "",
+          };
+  
+          for (let i = 0; i < (await snapshot.data().x.values.length); i++) {
+            data.val.push({
+              x: parseFloat(snapshot.data().x.values[i].value.toFixed(2)),
+              y: parseFloat(snapshot.data().y.values[i].value.toFixed(2)),
+            });
+            data.label.push(snapshot.data().x.values[i].index);
+            data.color.push(snapshot.data().x.values[i].color);
+          }
+          data.title = snapshot.data().title;
+          data.xAxis = snapshot.data().x.label;
+          data.yAxis = snapshot.data().y.label;
+          setId(id+1);
+          setData(data);
+        },
+        (err) => {
+          console.log("Error fetching firebase snapshot! " + err);
         }
-        data.title = snapshot.data().title;
-        data.xAxis = snapshot.data().x.label;
-        data.yAxis = snapshot.data().y.label;
-        setData(data);
-      },
-      (err) => {
-        console.log("Error fetching firebase snapshot! " + err);
-      }
-    );
+      );
+    }
+  });
 
   return (
     <div>
@@ -50,7 +57,7 @@ export default function Scatterplot(props) {
               {
                 label: data.label,
                 data: data.val,
-                backgroundColor: "rgb(255, 99, 132)", //should be data.color
+                backgroundColor: 'pink',
                 hoverBorderColor: "#ffffff",
                 //borderColor: data.color,
                 //borderWidth: 1,
@@ -60,6 +67,14 @@ export default function Scatterplot(props) {
           options={{
             responsive: true,
             maintainAspectRatio: true,
+            tooltips: {
+              enabled: true, 
+              callbacks: {
+                label: function(tooltipItems) { 
+                    return '(' + tooltipItems.yLabel +', '+ tooltipItems.xLabel + ") " + data.label[0] ;
+                }
+            }
+          },
             legend: { display: true },  
             title: {
               display: true,

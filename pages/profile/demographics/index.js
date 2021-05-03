@@ -1,14 +1,15 @@
-import Head from "next/head";
+import Head from 'next/head';
+import styles from '../profile.module.scss';
 
 // Layout
-import { Content, Header } from "../../../components/layout/layout";
-import NavigationCards from "../../../components/navigation/cards";
-import Segment from "../../../components/layout/segment/segment";
-import SectionTitle from "../../../components/layout/sectiontitle/sectiontitle";
+import { Content, Header } from '../../../components/layout/layout';
+import NavigationCards from '../../../components/navigation/cards';
+import Segment from '../../../components/layout/segment/segment';
+import SectionTitle from '../../../components/layout/sectiontitle/sectiontitle';
 
 // Graphs
-import DoughnutChart from "../../../components/charts/doughnut";
-import Bar from "../../../components/charts/bar";
+import DoughnutChart from '../../../components/charts/doughnut';
+import Bar from '../../../components/charts/bar';
 
 export default function Demographics() {
   return (
@@ -19,9 +20,9 @@ export default function Demographics() {
 
       <Header />
 
-      <NavigationCards title={"1A Class Profile"}/>
+      <NavigationCards title={'1A Class Profile'} />
 
-      <Content>
+      <Content className={styles.demographics}>
         <h1>Demographics</h1>
 
         <SectionTitle>
@@ -35,79 +36,44 @@ export default function Demographics() {
         </SectionTitle>
 
         <Segment title="Gender" graph={<DoughnutChart datatype="Gender" />}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Segment>
-        <Segment title="Hometown" graph={<Bar datatype="Hometown" />}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          There is about an equal representation of both females and males in
+          SYDE 2025, with slightly more males than females. This contrasts to
+          the SYDE 2024 Cohort, which had a greater amount of females than males
+          [1].
         </Segment>
 
-        <Segment
-          title="Parents"
-          graph={<DoughnutChart datatype="Parents Born" />}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Segment>
-        <Segment
-          graph={
-            <>
-              <DoughnutChart datatype="Parental Education" />
-              <DoughnutChart datatype="Parents Stem" />
-            </>
-          }
-          onTop={true}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Segment>
-
-        <Segment
-          title="Year Born"
-          graph={<DoughnutChart datatype="Year Born" />}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+        <Segment title="Ethnicities" graph={<Bar datatype="Ethnicities" />}>
+          The majority of the SYDE 2025 cohort is Asian or Cauccasian, similar
+          to past class profiles [1][2].
         </Segment>
 
         <Segment
           title="Sexuality"
           graph={<Bar datatype="Sexuality" />}
           onTop={false}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Segment>
-
-        <Segment title="Religion" graph={<Bar datatype="Religion" />}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Segment>
+        ></Segment>
 
         <Segment
-          title="Political Alignment of SYDE 2025"
+          title="Year Born"
+          graph={<DoughnutChart datatype="Year Born" />}
+        ></Segment>
+
+        <Segment title="Religion" graph={<Bar datatype="Religion" />}></Segment>
+
+        <Segment
+          title="Political Alignment"
           graph={<Bar datatype="Political Alignment" />}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Segment>
+        ></Segment>
+        <Segment
+          title="Parents "
+          graph={<DoughnutChart datatype="Parents Born" />}
+        ></Segment>
+        <Segment
+          graph={<DoughnutChart datatype="Parents Stem" />}
+          onTop={true}
+        ></Segment>
+
+        <Segment title="Hometown" graph={<Bar datatype="Hometown" />}></Segment>
       </Content>
     </>
   );

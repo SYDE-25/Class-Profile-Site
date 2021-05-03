@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../../firebaseConfig";
 import { Bar } from "react-chartjs-2";
 
@@ -10,48 +10,54 @@ export default function StackedBar(props) {
     color: [],
   });
 
-  db.collection("1A Data")
-    .doc(props.datatype)
-    .onSnapshot(
-      async (snapshot) => {
-        let data = {
-          barlabel: [], 
-          barval: [],
-          label: [], 
-          val: [], 
-          color: [],
-          title: "",
-          xAxes: "",
-          yAxes: "",
-        };
-        await snapshot.data().x.bars.forEach((element) => {
-          data.label.push(element.legendIndex);
-          data.barval.push(element.barValues);
-          data.color.push(element.color);
-        }); 
+  const [id, setId] = useState(0);
 
-        for (var i in data.barval) {
-          var d = [];
-          data.barval[i].forEach(function(elem, index) { 
-            d.push(elem.barValue);
-            if (!data.barlabel.includes(elem.barLabel))
-            {
-              data.barlabel.push(elem.barLabel);
-            }
-          });
-          data.val.push(d); 
-      }
-
-        data.title = snapshot.data().title;
-        data.xAxis = snapshot.data().x.label;
-        data.yAxis = snapshot.data().y.label;
-        setData(data);
-      },
-      (err) => {
-        console.log("Error fetching firebase snapshot! " + err);
-      }
-    );
-
+  useEffect(() => {
+    if(id<=0){
+      db.collection("1A Data")
+      .doc(props.datatype)
+      .onSnapshot(
+        async (snapshot) => {
+          let data = {
+            barlabel: [], 
+            barval: [],
+            label: [], 
+            val: [], 
+            color: [],
+            title: "",
+            xAxes: "",
+            yAxes: "",
+          };
+          await snapshot.data().x.bars.forEach((element) => {
+            data.label.push(element.legendIndex);
+            data.barval.push(element.barValues);
+            data.color.push(element.color);
+          }); 
+  
+          for (var i in data.barval) {
+            var d = [];
+            data.barval[i].forEach(function(elem, index) { 
+              d.push(parseFloat(elem.barValue.toFixed(2)));
+              if (!data.barlabel.includes(elem.barLabel))
+              {
+                data.barlabel.push(elem.barLabel);
+              }
+            });
+            data.val.push(d); 
+        }
+  
+          data.title = snapshot.data().title;
+          data.xAxis = snapshot.data().x.label;
+          data.yAxis = snapshot.data().y.label;
+          setId(id+1)
+          setData(data);
+        },
+        (err) => {
+          console.log("Error fetching firebase snapshot! " + err);
+        }
+      );
+    }
+  });
   
   function dataset_chartjs(data){
     var datasets = []
@@ -93,11 +99,14 @@ export default function StackedBar(props) {
             maintainAspectRatio: true,
             legend: { 
               display: true,
+              reverse: true, 
               position: 'right',
               labels: {
                 usePointStyle: true,
-                boxWidth: 15,
-                padding: 15,
+                boxWidth: 8,
+                padding: 8,
+                fontSize: 12,
+                fontColor: "#a0a0a0"           
               }
              },
             title: {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../../firebaseConfig";
 import { Bar } from "react-chartjs-2";
 
@@ -6,53 +6,68 @@ export default function BarGraph(props) {
   const [data, setData] = useState({
     val: [],
     label: [],
-    color: [],
+    color: "",
   });
 
-  db.collection("1A Data")
-    .doc(props.datatype)
-    .onSnapshot(
-      async (snapshot) => {
-        let data = {
-          val: [],
-          label: [],
-          color: [],
-          title: "",
-          xAxes: "",
-          yAxes: "",
-        };
-        await snapshot.data().x.values.forEach((element) => {
-          data.val.push(element.value);
-          data.label.push(element.index);
-          data.color.push(element.color);
-        });
-        data.title = snapshot.data().title;
-        data.xAxis = snapshot.data().x.label;
-        data.yAxis = snapshot.data().y.label;
-        setData(data);
-      },
-      (err) => {
-        console.log("Error fetching firebase snapshot! " + err);
-      }
-    );
+  const [id, setId] = useState(0);
+
+  useEffect(() => {
+    if(id <= 0){
+        db.collection("1A Data")
+      .doc(props.datatype)
+      .onSnapshot(
+        async (snapshot) => {
+          let data = {
+            val: [],
+            label: [],
+            color: "",
+            title: "",
+            xAxes: "",
+            yAxes: "",
+          };
+          await snapshot.data().x.values.forEach((element) => {
+            data.val.push(element.value);
+            data.label.push(element.index);
+          });
+          data.color =  snapshot.data().x.color;
+          data.title = snapshot.data().title;
+          data.xAxis = snapshot.data().x.label;
+          data.yAxis = snapshot.data().y.label;
+          setId(id+1);
+          setData(data);
+        },
+        (err) => {
+          console.log("Error fetching firebase snapshot! " + err);
+        }
+      );
+    }
+  });
+
+    if (data.color[0] === undefined){ 
+      data.color = "rgb(255, 99, 132)"
+    }
+
+    var x = 0;
+    var len = data.val.length
+    while(x < len){ 
+      data.val[x] = data.val[x].toFixed(2); 
+      x++
+    }
 
   return (
     <div>
-      {/* <div className="header">
-        <h1 className="title">Doughnut</h1>
-      </div> */}
+      
       <div className="chart">
         <Bar
           data={{
             labels: data.label,
             datasets: [
               {
-                label: "# of Students",
+                label: "% of Students",
                 data: data.val,
-                backgroundColor: "rgb(255, 99, 132)",
+                backgroundColor: data.color,
                 borderColor: data.color,
                 hoverBackgroundColor: "#ffffff",
-                borderWidth: 2,
               },
             ],
           }}
