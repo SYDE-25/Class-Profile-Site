@@ -37,6 +37,9 @@ export default function Academics() {
 
       <Content className={styles.academics}>
         <h1>Academics</h1>
+        <h4>
+          How has SYDE's grades faired between their admission averages and their first term? What did they think of each 1A course? What were their backups?
+        </h4>
 
         <Segment
           title="1A Average"
