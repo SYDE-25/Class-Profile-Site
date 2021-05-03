@@ -65,7 +65,7 @@ export default function Academics() {
 
         <Segment
           title="Backup University"
-          graph={<BarGraph datatype="Backup" />}
+          graph={<BarGraph datatype="Backup"  width = {800} height ={500} />}
           onTop={true}
         ></Segment>
 
@@ -91,7 +91,7 @@ export default function Academics() {
 
         <Segment
           title="1A Average vs High School Program"
-          graph={<BoxPlot datatype="1A Class Average vs HS Program" />}
+          graph={<BoxPlot datatype="1A Class Average vs HS Program"  width = {800} height ={500} />}
           onTop={true}
         ></Segment>
 
@@ -112,7 +112,7 @@ export default function Academics() {
 
         <Segment
           title="Course Usefulness vs Difficulty"
-          graph={<ScatterPlot datatype="Course Usefulness vs Difficulty" />}
+          graph={<ScatterPlot datatype="Course Usefulness vs Difficulty"/>}
           onTop={false}
         >
           Usefulness and difficulty have a 0.27 spearman correlation
@@ -131,7 +131,7 @@ export default function Academics() {
         </Segment>
         <Segment
           title="Course Average vs Difficulty"
-          graph={<ScatterPlot datatype="Course Average vs Difficulty" />}
+          graph={<ScatterPlot datatype="Course Average vs Difficulty"/>}
           onTop={false}
         >
           The easiest course on average was SYDE 101 (Communications in Systems
@@ -149,7 +149,7 @@ export default function Academics() {
         <Segment
           title="Course Difficulty vs Percentage of Lectures Attended"
           graph={
-            <ScatterPlot datatype="Time Spent in Course vs Course Difficulty" />
+            <ScatterPlot datatype="Time Spent in Course vs Course Difficulty" width = {800} height ={500}/>
           }
           onTop={true}
         ></Segment>

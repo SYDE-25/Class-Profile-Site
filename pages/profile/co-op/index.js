@@ -49,16 +49,21 @@ export default function Coop() {
         </Segment>
 
         <Segment
-          title="Favourite Programming Languages vs Pay"
-          graph={<DoughnutChart datatype="Favourite Programming Language" />}
-          onTop={false}
+          title="Programming Languages"
+          graph={
+          <>
+          <DoughnutChart datatype="Favourite Programming Language" /> {' '}
+          <BoxPlot datatyp= "Favourite Programming Language vs Pay" />
+          </>
+        }
+          onTop={true}
         >
           People who liked Python had the highest median hourly pay.
         </Segment>
 
         <Segment
-          title="People With Parents in STEM vs Co-op Offer Round"
-          graph={<MultiBar datatype="Parents STEM vs Coop Round" />}
+          title="Parents in STEM vs Co-op Offer Round"
+          graph={<MultiBar datatype="Parents STEM vs Coop Round" width={700} height={500} />}
           onTop={false}
         >
           The majority of people without parents working in a STEM position
@@ -91,20 +96,19 @@ export default function Coop() {
         </Segment>
 
         <Segment
-          title="Co-op Pay vs Round"
-          graph={<BoxPlot datatype="Coop Round vs Pay" />}
-          onTop={false}
+          title="Co-op Pay"
+          graph={
+            <>
+            <BoxPlot datatype="Coop Round vs Pay" />
+            <BoxPlot datatype="Coop Sector vs Pay" />
+            </>
+          }
+          onTop={true}
         >
           The average engineering coop salary for 1A students is $18.50/h [6].
           The SYDE 1A average coop salary was slightly higher, with students
           getting paid an average of $19.11/h.
         </Segment>
-
-        <Segment
-          title="Co-op Sector vs Pay"
-          graph={<BoxPlot datatype="Coop Sector vs Pay" />}
-          onTop={true}
-        ></Segment>
 
         <Segment
           title="Software Co-op vs SYDE 121 Grade"

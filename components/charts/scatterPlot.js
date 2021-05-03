@@ -49,7 +49,6 @@ export default function Scatterplot(props) {
             }
 
             if (snapshot.data().xLimit.enums !== null) {
-              console.log(props.datatype);
               data.allow = true;
               for (
                 var i = 0;
@@ -189,7 +188,6 @@ export default function Scatterplot(props) {
                   afterTickToLabelConversion: function (q) {
                     if (data.allow) {
                       for (var tick in q.ticks) {
-                        console.log(q.ticks.length);
                         if (q.ticks.length == 9) {
                           if (data.x_enums[tick] !== '') {
                             q.ticks[tick] = data.x_enums[tick];
@@ -226,7 +224,6 @@ export default function Scatterplot(props) {
                   afterTickToLabelConversion: function (q) {
                     if (data.allow) {
                       for (var tick in q.ticks) {
-                        console.log(q.ticks.length);
                         if (q.ticks.length == 9) {
                           if (data.y_enums[tick] !== '') {
                             q.ticks[tick] = data.y_enums[tick];

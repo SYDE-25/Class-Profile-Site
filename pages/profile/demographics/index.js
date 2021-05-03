@@ -27,7 +27,15 @@ export default function Demographics() {
       <Content className={styles.demographics}>
         <h1>Demographics</h1>
 
-        <Segment title="Gender" graph={<DoughnutChart datatype="Gender" />}>
+        <Segment title="Gender and Sexuality" 
+          graph={
+            <>
+            <DoughnutChart datatype="Gender" />{' '}
+            <BarGraph datatype="Sexuality" /> 
+            </>
+          }
+          onTop={true}
+          >
           There is about an equal representation of both females and males in
           SYDE 2025, with slightly more males than females. This contrasts to
           the SYDE 2024 Cohort, which had a greater amount of females than males
@@ -35,46 +43,45 @@ export default function Demographics() {
         </Segment>
 
         <Segment
-          title="Ethnicities"
-          graph={<BarGraph datatype="Ethnicities" />}
+          title="Ethnicities and Religon"
+          graph={
+          <>
+          <BarGraph datatype="Ethnicities" width = {500} height ={500} />
+          <BarGraph datatype="Religion" width = {450} height ={500}/>
+          </>}
+          onTop={true}
         >
           The majority of the SYDE 2025 cohort is Asian or Cauccasian, similar
           to past class profiles [1][2].
         </Segment>
 
         <Segment
-          title="Sexuality"
-          graph={<BarGraph datatype="Sexuality" />}
-          onTop={false}
-        ></Segment>
-
-        <Segment
-          title="Birth Years"
-          graph={<DoughnutChart datatype="Year Born" />}
-        ></Segment>
-
-        <Segment
-          title="Religion"
-          graph={<BarGraph datatype="Religion" />}
-        ></Segment>
-
-        <Segment
-          title="Political Alignment"
-          graph={<BarGraph datatype="Political Alignment" />}
-        ></Segment>
-        <Segment
-          title="Parents"
-          graph={<DoughnutChart datatype="Parents Born" />}
-        ></Segment>
-        <Segment
-          graph={<DoughnutChart datatype="Parents Stem" />}
+          title="Hometown and Birth Years"
+          graph={
+            <>
+            <BarGraph datatype="Hometown" width = {600} height ={500} />
+            <DoughnutChart datatype="Year Born" width = {20} height ={20}  />
+            </>}
           onTop={true}
         ></Segment>
 
         <Segment
-          title="Hometown"
-          graph={<BarGraph datatype="Hometown" />}
+          title="Political Alignment"
+          graph={<BarGraph datatype="Political Alignment" width = {800} height ={500} />}
+          onTop={true}
         ></Segment>
+
+        <Segment
+          title="Parents"
+          graph={
+          <>
+          <DoughnutChart datatype="Parents Born" />{' '}
+          <DoughnutChart datatype="Parents Stem" /> 
+          </>
+          }
+          onTop={true}
+        ></Segment>
+
       </Content>
     </>
   );
