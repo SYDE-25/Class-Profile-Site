@@ -1,34 +1,27 @@
 .content {
   display: flex;
   flex-direction: column;
-  padding: 0 1em 0 1em;
-  margin: 0 auto 0 auto;
-
-  width: 100%;
+  margin: 0 auto;
+  padding: 0 2.5rem;
   max-width: 1200px;
 }
 
 .heading {
-  h1 {
-    font-family: "Poppins";
-    font-size: 33px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-  margin-left: 120px;
-  margin-right: 371px;
+  padding-right: 5rem;
+
 }
 .row {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  font-family: "Poppins";
+  flex-flow: wrap;
+  justify-content: space-between;
 }
 
 .column {
   display: flex;
+  width: 15rem;
   flex-direction: column;
-  font-family: "Poppins";
+  padding: 0 1rem;
 }
 .pm {
   color: #cc96cd;
@@ -44,4 +37,10 @@
 
 .webDev {
   color: #e9b09e;
+}
+
+@media only screen and (max-width: 900px) {
+  .heading {
+    padding: 0;
+  }
 }
