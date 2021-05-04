@@ -1,0 +1,47 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1em 0 1em;
+  margin: 0 auto 0 auto;
+
+  width: 100%;
+  max-width: 1200px;
+}
+
+.heading {
+  h1 {
+    font-family: "Poppins";
+    font-size: 33px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  margin-left: 120px;
+  margin-right: 371px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-family: "Poppins";
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins";
+}
+.pm {
+  color: #cc96cd;
+}
+
+.dataSci {
+  color: #929bcb;
+}
+
+.design {
+  color: #79ed66;
+}
+
+.webDev {
+  color: #e9b09e;
+}
