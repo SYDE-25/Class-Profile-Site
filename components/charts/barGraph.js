@@ -96,8 +96,15 @@ export default function BarGraph(props) {
                   },
                   ticks: {
                     fontColor: '#ffffff',
+                    userCallback: function(tick) {
+                      if(tick.length > 9){
+                       return tick.split(" ");
+                      }else{
+                        return tick
+                      }
+                    },
                   },
-                },
+                }
               ],
               yAxes: [
                 {

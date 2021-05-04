@@ -143,6 +143,13 @@ export default function SideBar(props) {
                   },
                   ticks: {
                     fontColor: '#ffffff',
+                    userCallback: function(tick, index, values) {
+                      if(tick.length > 9  && values.length >= 3){
+                        return tick.split(" ");
+                      }else{
+                        return tick
+                      }
+                    },
                   },
                 },
               ],

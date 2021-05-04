@@ -30,12 +30,21 @@ export default function Demographics() {
         Who are the individuals that make up SYDE? Where are they from? What are their ethnicities, beliefs, and hometowns?
         </h4>
         
-        <Segment title="Gender" graph={<DoughnutChart datatype="Gender" />}>
+        <Segment title="Gender and Sexuality" 
+        graph={
+           <>
+            <DoughnutChart datatype="Gender" /> 
+            <BarGraph datatype="Sexuality"/> 
+            </>} 
+          onTop={true}
+            >
           There is about an equal representation of both females and males in
           SYDE 2025, with slightly more males than females. This contrasts to
           the SYDE 2024 Cohort, which had a greater amount of females than males
           [1].
         </Segment>
+
+
 
         <Segment
           title="Ethnicities and Religon"
@@ -54,15 +63,15 @@ export default function Demographics() {
           title="Hometown and Birth Years"
           graph={
             <>
-            <BarGraph datatype="Hometown" width = {500} height ={500} />
-            <DoughnutChart datatype="Year Born" width = {20} height ={20}  />
+            <BarGraph datatype="Hometown" width = {700} height ={500} />
+            <DoughnutChart datatype="Year Born" />
             </>}
           onTop={true}
         ></Segment>
 
         <Segment
           title="Political Alignment"
-          graph={<BarGraph datatype="Political Alignment" width = {800} height ={500} />}
+          graph={<BarGraph datatype="Political Alignment" width = {800} height ={550} />}
           onTop={true}
         ></Segment>
 

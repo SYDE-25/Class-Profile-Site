@@ -49,6 +49,13 @@ class BoxPlotChart extends Component {
               },
               ticks: {
                 fontColor: '#ffffff',
+                userCallback: function(tick, index, values) {
+                  if(tick.length > 9 && values.length >= 4){
+                   return tick.split(" ");
+                  } else{
+                    return tick
+                  }
+                },
               },
             },
           ],

@@ -100,7 +100,7 @@ export default function Academics() {
 
         <Segment
           title="Average Dropoff"
-          graph={<HistogramCount datatype="Admission Average Drop Off" />}
+          graph={<HistogramCount datatype="Admission Average Drop Off"/>}
           onTop={false}
         >
           Academic drop-off is calculated by: 1A average - admission average.
