@@ -100,7 +100,50 @@
     color: #909aa1;
   }
 
+  p{
+    margin:0;
+  }
 }
+
+/*
+  CARD CHANGES
+  900px screen width
+*/
+
+@media only screen and (max-width: 900px) {
+  .igorFlexVertical{
+    display:flex;
+    flex-direction:column;
+    margin-right:20px;
+  }
+  
+  .igorPicture{
+    border: 5px solid #555;
+    border-radius:20px;
+    height:500px;
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  .igorFlexHorizontal{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+  }
+  
+  .igorFlexVertical{
+    display:flex;
+    flex-direction:column;
+    margin-right:20px;
+  }
+  
+  .igorPicture{
+    border: 5px solid #555;
+    border-radius:20px;
+    height:500px;
+  }
+}
+
 
 .cardContainer {
   display:flex;
