@@ -56,7 +56,7 @@ export default function Coop() {
           graph={
           <>
           <DoughnutChart datatype="Favourite Programming Language" /> {' '}
-          <BoxPlot datatyp= "Favourite Programming Language vs Pay" />
+          <BoxPlot datatype= "Favourite Programming Language vs Pay" />
           </>
         }
           onTop={true}
@@ -123,13 +123,18 @@ export default function Coop() {
           software coop.
         </Segment>
         <div className={styles.cardContainer}>
-          <h3>Check out the next section</h3>
-          <div className={styles.card} style={{maxWidth: '470px'}}>
+          <div className={styles.card}>
             <Card 
-                title={"Lifestyle"}
+                 title={<>
+                  Next:
+                  <br />
+                  Lifestyle
+                  </>
+            }
                 link={"/profile/lifestyle#content"}
                 svg={"/cards/lifestyle.svg"}
                 relativeSize={1}
+                bottomSect={true}
             />
           </div>
 

@@ -54,10 +54,21 @@ export default function NavigationCards(props) {
 };
 
 export const Card = (props) => {
+  let cardStyles = {};
+  if (props.bottomSect) {
+    cardStyles = {
+      card: styles.cardBottom
+    }
+  } else {
+      cardStyles = {
+        card: styles.card
+      }
+    }
+  
   return (
     <Link href={props.link}>
       <div
-        className={styles.card}
+        className={cardStyles.card}
         style={{
           backgroundImage: `url(${props.svg})`,
           flexGrow: props.relativeSize,

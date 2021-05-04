@@ -54,7 +54,7 @@ export default function Demographics() {
           title="Hometown and Birth Years"
           graph={
             <>
-            <BarGraph datatype="Hometown" width = {600} height ={500} />
+            <BarGraph datatype="Hometown" width = {500} height ={500} />
             <DoughnutChart datatype="Year Born" width = {20} height ={20}  />
             </>}
           onTop={true}
@@ -78,13 +78,18 @@ export default function Demographics() {
         ></Segment>
 
         <div className={styles.cardContainer}>
-          <h3>Check out the next section</h3>
-          <div className={styles.card} style={{maxWidth: '470px'}}>
+          <div className={styles.card}>
             <Card 
-                title={"Academics"}
+                title={<>
+                      Next:
+                      <br />
+                      Academics
+                      </>
+                }
                 link={"/profile/academics#content"}
                 svg={"/cards/academics.svg"}
                 relativeSize={1}
+                bottomSect={true}
             />
           </div>
         </div>

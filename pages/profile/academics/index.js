@@ -173,13 +173,18 @@ export default function Academics() {
           lowest percentage of lectures attended at around 45%.
         </Segment>
       <div className={styles.cardContainer}>
-      <h3>Check out the next section</h3>
-      <div className={styles.card} style={{maxWidth: '370px'}}>
+      <div className={styles.card}>
         <Card 
-            title={"Co-op"}
+             title={<>
+              Next:
+              <br />
+              Co-op
+              </>
+        }
             link={"/profile/co-op#content"}
             svg={"/cards/co-op.svg"}
-            relativeSize={2}
+            relativeSize={1}
+            bottomSect={true}
         />
       </div>
 

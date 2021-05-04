@@ -123,13 +123,17 @@ export default function Lifestyle() {
           onTop={true}
         ></Segment>
         <div className={styles.cardContainer}>
-          <h3>Check out the next section</h3>
-          <div className={styles.card} style={{maxWidth: '340px'}}>
+          <div className={styles.card}>
             <Card 
-                title={"Igor"}
+                title={<>
+                      Next:
+                      <br />
+                      Igor
+                      </>}
                 link={"/profile/igor#content"}
                 svg={"/cards/igor.svg"}
                 relativeSize={1}
+                bottomSect={true}
             />
           </div>
          </div>
