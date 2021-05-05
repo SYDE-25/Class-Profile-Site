@@ -88,3 +88,13 @@
     }
   }
 }
+
+@media (max-width: 500px) {
+  .graph {
+    min-width: 100%;
+  }
+  
+  .graphOnTop {
+    min-width: 100%;
+  }
+}

@@ -22,11 +22,22 @@ export default function Igor() {
           <div className={styles.igorFlexVertical}>
             <p>
             Dr. Igor Ivkovic was a Systems Design Engineering professor who taught us during our 1A term. 
+            <br></br>
+            <br></br>
             Affectionately known as Igor by his students, he was known for being incredibly sympathetic and kind. 
             His passion was teaching, and he dedicated his life to his family and students. 
+            <br></br>
+            <br></br>
+
             His office hours were never ending, with him always being available to answer questions, or just talk. 
+            <br></br>
+            <br></br>
+
             On the 27th of November 2020, Dr. Igor Ivkovic tragically passed away at the age of 43. 
             Igor was a kind soul with a heart of gold who changed the lives of everyone he touched, and he will be dearly missed.
+            <br></br>
+            <br></br>
+
             </p>
             <h5>
               Kindness is an ember that glows deep inside us
