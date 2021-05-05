@@ -96,10 +96,10 @@ export default function BarGraph(props) {
                   },
                   ticks: {
                     fontColor: '#ffffff',
-                    userCallback: function(tick) {
-                      if(tick.length > 9){
+                    userCallback: function(tick, index, values) {
+                      if(tick.length > 9 && values.length >= 4){
                        return tick.split(" ");
-                      }else{
+                      } else{
                         return tick
                       }
                     },
