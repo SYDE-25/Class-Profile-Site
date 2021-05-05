@@ -67,7 +67,7 @@ export default function StackedBar(props) {
         data: data.val[i],
         backgroundColor: data.color[i],
         //borderColor: 'black',
-        borderWidth: 0.2,
+        borderWidth: 1,
         sum: data.val[i].reduce((a, b) => a + b, 0),
       };
       datasets.push(add_data);

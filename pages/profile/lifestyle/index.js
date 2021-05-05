@@ -32,7 +32,7 @@ export default function Lifestyle() {
 
         <Segment
           title={'Location'}
-          graph={<BarGraph datatype="Hometown vs Living On Campus" width = {1000} height ={550} />}
+          graph={<BarGraph datatype="Hometown vs Living On Campus" width = {770} height ={550} />}
           onTop={true}
         >
           The majority of people who lived on campus were Torontonians. Due to
@@ -84,7 +84,7 @@ export default function Lifestyle() {
 
         <Segment
           title={'Substance Use'}
-          graph={<BarGraph datatype="Drugs"  width = {1000} height ={550} />}
+          graph={<BarGraph datatype="Drugs"  width = {950} height ={550} />}
           onTop={true}
         ></Segment>
 

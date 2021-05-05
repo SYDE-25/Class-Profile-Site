@@ -63,7 +63,7 @@ export default function Demographics() {
           title="Hometown and Birth Years"
           graph={
             <>
-            <BarGraph datatype="Hometown" width = {700} height ={500} />
+            <BarGraph datatype="Hometown" width={600} height ={500}/>
             <DoughnutChart datatype="Year Born" />
             </>}
           onTop={true}
@@ -71,7 +71,7 @@ export default function Demographics() {
 
         <Segment
           title="Political Alignment"
-          graph={<BarGraph datatype="Political Alignment" width = {800} height ={550} />}
+          graph={<BarGraph datatype="Political Alignment"  width={800} height ={500}/>}
           onTop={true}
         ></Segment>
 
