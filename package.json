@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "chartjs-chart-box-and-violin-plot": "^2.4.0",
+    "chartjs-subtitle": "^0.2.0",
     "firebase": "^8.3.1",
     "next": "^10.2.0",
     "react": "17.0.1",

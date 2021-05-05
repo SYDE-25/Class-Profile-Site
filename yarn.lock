@@ -711,7 +711,7 @@ chalk@4.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chart.js@^2.8.0:
+chart.js@^2.7.2, chart.js@^2.8.0:
   version "2.9.4"
   resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-2.9.4.tgz#0827f9563faffb2dc5c06562f8eb10337d5b9684"
   integrity sha512-B07aAzxcrikjAPyV+01j7BmOpxtQETxTSlQ26BEYJ+3iUkbNKaOJ/nDbT6JjyqYxseM0ON12COHYdU2cTIjC7A==
@@ -741,6 +741,13 @@ chartjs-color@^2.1.0:
   dependencies:
     chartjs-color-string "^0.6.0"
     color-convert "^1.9.3"
+
+chartjs-subtitle@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/chartjs-subtitle/-/chartjs-subtitle-0.2.0.tgz#412eb88be40e370d8138de7d87766bdd6338cd2f"
+  integrity sha512-gmbDDz9nFgIQ5Fa7Ou737HGixbEePO7wJZnaFuz+bLWtxBzHUCc8MUQkPMoUEZvBXTrrXDHctSlk/9XEqvnbiA==
+  dependencies:
+    chart.js "^2.7.2"
 
 chokidar@3.5.1, "chokidar@>=2.0.0 <4.0.0":
   version "3.5.1"
