@@ -103,7 +103,7 @@ export default function SideBar(props) {
               callbacks: {
                 label: function (tooltipItem) {
                   var label = data.label[tooltipItem.datasetIndex];
-                  return label + ': ' + '%' + tooltipItem.value;
+                  return label + ': ' + tooltipItem.value + '%';
                 },
               },
             },
