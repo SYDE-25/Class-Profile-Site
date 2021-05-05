@@ -1,0 +1,46 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  max-width: 1200px;
+}
+
+.heading {
+  padding-right: 5rem;
+
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
+  width: 15rem;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+.pm {
+  color: #fcc7fb;
+}
+
+.dataSci {
+  color: #f6bf76;
+}
+
+.design {
+  color: #6ff6ba;
+}
+
+.webDev {
+  color: #93d6fa;
+}
+
+@media only screen and (max-width: 900px) {
+  .heading {
+    padding: 0;
+  }
+}

@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import styles from '../profile.module.scss';
 
 // Layout
-import NavigationCards from '../../../components/navigation/cards';
+import NavigationCards, { Card } from "../../../components/navigation/cards";
 import { Content, Header } from '../../../components/layout/layout';
 import Segment from '../../../components/layout/segment/segment';
 
@@ -28,11 +28,12 @@ export default function Lifestyle() {
 
       <Content className={styles.lifestyle}>
         <h1>Lifestyle</h1>
+        <h4>How has SYDE managed during the 1A term? How much have they experienced? Have they experimented with drugs?</h4>
 
         <Segment
           title={'Location'}
-          graph={<BarGraph datatype="Hometown vs Living On Campus" />}
-          onTop={false}
+          graph={<BarGraph datatype="Hometown vs Living On Campus" width = {770} height ={550} />}
+          onTop={true}
         >
           The majority of people who lived on campus were Torontonians. Due to
           the pandemic, most of the class (about 75%) stayed home.
@@ -83,13 +84,13 @@ export default function Lifestyle() {
 
         <Segment
           title={'Substance Use'}
-          graph={<BarGraph datatype="Drugs" />}
+          graph={<BarGraph datatype="Drugs"  width = {950} height ={550} />}
           onTop={true}
         ></Segment>
 
         <Segment
           title={'Drug Use Compared to 1A Average'}
-          graph={<BoxPlot datatype="Drug Usage vs 1A Average" />}
+          graph={<BoxPlot datatype="Drug Usage vs 1A Average" /> }
           onTop={false}
         >
           According to the mean average of those who used and did not use drugs,
@@ -121,6 +122,21 @@ export default function Lifestyle() {
           }
           onTop={true}
         ></Segment>
+        <div className={styles.cardContainer}>
+          <div className={styles.card}>
+            <Card 
+                title={<>
+                      Next:
+                      <br />
+                      Igor
+                      </>}
+                link={"/profile/igor#content"}
+                svg={"/cards/igor.svg"}
+                relativeSize={1}
+                bottomSect={true}
+            />
+          </div>
+         </div>
       </Content>
     </>
   );

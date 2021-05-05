@@ -3,9 +3,9 @@ import dynamic from 'next/dynamic';
 import styles from '../profile.module.scss';
 
 // Layout
-import { Content, Header } from '../../../components/layout/layout';
-import NavigationCards from '../../../components/navigation/cards';
-import Segment from '../../../components/layout/segment/segment';
+import { Content, Header } from "../../../components/layout/layout";
+import NavigationCards, { Card } from "../../../components/navigation/cards";
+import Segment from "../../../components/layout/segment/segment";
 
 //graphing
 const BarGraph = dynamic(() => import('../../../components/charts/barGraph'));
@@ -37,6 +37,9 @@ export default function Academics() {
 
       <Content className={styles.academics}>
         <h1>Academics</h1>
+        <h4>
+          How has SYDE's grades faired between their admission averages and their first term? What did they think of each 1A course? What were their backups?
+        </h4>
 
         <Segment
           title="1A Average"
@@ -65,7 +68,7 @@ export default function Academics() {
 
         <Segment
           title="Backup University"
-          graph={<BarGraph datatype="Backup" />}
+          graph={<BarGraph datatype="Backup"  width = {800} height ={500} />}
           onTop={true}
         ></Segment>
 
@@ -91,13 +94,13 @@ export default function Academics() {
 
         <Segment
           title="1A Average vs High School Program"
-          graph={<BoxPlot datatype="1A Class Average vs HS Program" />}
+          graph={<BoxPlot datatype="1A Class Average vs HS Program"  width = {800} height ={500} />}
           onTop={true}
         ></Segment>
 
         <Segment
           title="Average Dropoff"
-          graph={<HistogramCount datatype="Admission Average Drop Off" />}
+          graph={<HistogramCount datatype="Admission Average Drop Off"/>}
           onTop={false}
         >
           Academic drop-off is calculated by: 1A average - admission average.
@@ -112,7 +115,7 @@ export default function Academics() {
 
         <Segment
           title="Course Usefulness vs Difficulty"
-          graph={<ScatterPlot datatype="Course Usefulness vs Difficulty" />}
+          graph={<ScatterPlot datatype="Course Usefulness vs Difficulty"/>}
           onTop={false}
         >
           Usefulness and difficulty have a 0.27 spearman correlation
@@ -131,7 +134,7 @@ export default function Academics() {
         </Segment>
         <Segment
           title="Course Average vs Difficulty"
-          graph={<ScatterPlot datatype="Course Average vs Difficulty" />}
+          graph={<ScatterPlot datatype="Course Average vs Difficulty"/>}
           onTop={false}
         >
           The easiest course on average was SYDE 101 (Communications in Systems
@@ -149,7 +152,7 @@ export default function Academics() {
         <Segment
           title="Course Difficulty vs Percentage of Lectures Attended"
           graph={
-            <ScatterPlot datatype="Time Spent in Course vs Course Difficulty" />
+            <ScatterPlot datatype="Time Spent in Course vs Course Difficulty" width = {800} height ={500}/>
           }
           onTop={true}
         ></Segment>
@@ -169,7 +172,24 @@ export default function Academics() {
           attended at around 80%, and SYDE 161 (Introduction to Design) had the
           lowest percentage of lectures attended at around 45%.
         </Segment>
-      </Content>
+      <div className={styles.cardContainer}>
+      <div className={styles.card}>
+        <Card 
+             title={<>
+              Next:
+              <br />
+              Co-op
+              </>
+        }
+            link={"/profile/co-op#content"}
+            svg={"/cards/co-op.svg"}
+            relativeSize={1}
+            bottomSect={true}
+        />
+      </div>
+
+    </div>
+    </Content>
     </>
   );
 }

@@ -3,9 +3,9 @@ import dynamic from 'next/dynamic';
 import styles from '../profile.module.scss';
 
 // Layout
-import { Content, Header } from '../../../components/layout/layout';
-import NavigationCards from '../../../components/navigation/cards';
-import Segment from '../../../components/layout/segment/segment';
+import { Content, Header } from "../../../components/layout/layout";
+import NavigationCards, { Card } from "../../../components/navigation/cards";
+import Segment from "../../../components/layout/segment/segment";
 
 // Graphs
 const BoxPlot = dynamic(() => import('../../../components/charts/boxPlot'));
@@ -33,6 +33,9 @@ export default function Coop() {
 
       <Content className={styles.coop}>
         <h1>Co-op</h1>
+        <h4>
+          As of the end of SYDE 2025's first work term, SYDE had an employment rate of 99.1%. What type of jobs did they get? How much were they paid? How was how much they were paid correlated with anything?
+        </h4>
         <Segment
           title="Co-op Round vs Type"
           graph={<StackedBar datatype="Coop Round vs Job Sector" />}
@@ -49,16 +52,21 @@ export default function Coop() {
         </Segment>
 
         <Segment
-          title="Favourite Programming Languages vs Pay"
-          graph={<DoughnutChart datatype="Favourite Programming Language" />}
-          onTop={false}
+          title="Programming Languages"
+          graph={
+          <>
+          <DoughnutChart datatype="Favourite Programming Language" /> {' '}
+          <BoxPlot datatype= "Favourite Programming Language vs Pay" />
+          </>
+        }
+          onTop={true}
         >
           People who liked Python had the highest median hourly pay.
         </Segment>
 
         <Segment
-          title="People With Parents in STEM vs Co-op Offer Round"
-          graph={<MultiBar datatype="Parents STEM vs Coop Round" />}
+          title="Parents in STEM vs Co-op Offer Round"
+          graph={<MultiBar datatype="Parents STEM vs Coop Round" width={700} height={500} />}
           onTop={false}
         >
           The majority of people without parents working in a STEM position
@@ -91,9 +99,14 @@ export default function Coop() {
         </Segment>
 
         <Segment
-          title="Co-op Pay vs Round"
-          graph={<BoxPlot datatype="Coop Round vs Pay" />}
-          onTop={false}
+          title="Co-op Pay"
+          graph={
+            <>
+            <BoxPlot datatype="Coop Round vs Pay"  width={400} height={450} /> {' '}
+            <BoxPlot datatype="Coop Sector vs Pay"  width={520} height={500} />
+            </>
+          }
+          onTop={true}
         >
           The average engineering coop salary for 1A students is $18.50/h [6].
           The SYDE 1A average coop salary was slightly higher, with students
@@ -101,20 +114,32 @@ export default function Coop() {
         </Segment>
 
         <Segment
-          title="Co-op Sector vs Pay"
-          graph={<BoxPlot datatype="Coop Sector vs Pay" />}
-          onTop={true}
-        ></Segment>
-
-        <Segment
           title="Software Co-op vs SYDE 121 Grade"
           graph={<BoxPlot datatype="SYDE 121 Average vs Software Coop" />}
-          onTop={true}
+          onTop={false}
         >
           The median SYDE 121 (Digital Computation) grade for people who had a
           software coop was 97% compared to 92% for those who did not have a
           software coop.
         </Segment>
+        <div className={styles.cardContainer}>
+          <div className={styles.card}>
+            <Card 
+                 title={<>
+                  Next:
+                  <br />
+                  Lifestyle
+                  </>
+            }
+                link={"/profile/lifestyle#content"}
+                svg={"/cards/lifestyle.svg"}
+                relativeSize={1}
+                bottomSect={true}
+            />
+          </div>
+
+        </div>
+
       </Content>
     </>
   );

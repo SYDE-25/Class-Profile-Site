@@ -49,7 +49,6 @@ export default function Scatterplot(props) {
             }
 
             if (snapshot.data().xLimit.enums !== null) {
-              console.log(props.datatype);
               data.allow = true;
               for (
                 var i = 0;
@@ -189,10 +188,10 @@ export default function Scatterplot(props) {
                   afterTickToLabelConversion: function (q) {
                     if (data.allow) {
                       for (var tick in q.ticks) {
-                        console.log(q.ticks.length);
                         if (q.ticks.length == 9) {
                           if (data.x_enums[tick] !== '') {
                             q.ticks[tick] = data.x_enums[tick];
+                            q.ticks[tick] = q.ticks[tick].split(" ")
                           }
                         } else {
                           if (tick % 2 == 0) {
@@ -205,6 +204,8 @@ export default function Scatterplot(props) {
                   ticks: {
                     fontColor: '#ffffff',
                     maxTicksLimit: 9,
+                    maxRotation: 0,
+                    minRotation: 0,
                     min: parseInt(data.xmin),
                     max: parseInt(data.xmax),
                   },
@@ -226,7 +227,6 @@ export default function Scatterplot(props) {
                   afterTickToLabelConversion: function (q) {
                     if (data.allow) {
                       for (var tick in q.ticks) {
-                        console.log(q.ticks.length);
                         if (q.ticks.length == 9) {
                           if (data.y_enums[tick] !== '') {
                             q.ticks[tick] = data.y_enums[tick];
