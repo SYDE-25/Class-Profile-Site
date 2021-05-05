@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { db } from '../../firebaseConfig';
-import { Scatter } from 'react-chartjs-2';
+import { useState, useEffect } from "react";
+import { db } from "../../firebaseConfig";
+import { Scatter } from "react-chartjs-2";
 
 export default function Scatterplot(props) {
   const [data, setData] = useState({
@@ -10,16 +10,16 @@ export default function Scatterplot(props) {
     y_enums: [],
     x_enums1: [],
     y_enums1: [],
-    title: '',
-    xAxis: '',
-    yAxis: '',
+    title: "",
+    xAxis: "",
+    yAxis: "",
   });
 
   const [id, setId] = useState(0);
 
   useEffect(() => {
     if (id <= 0) {
-      db.collection('1A Data')
+      db.collection("1A Data")
         .doc(props.datatype)
         .onSnapshot(
           async (snapshot) => {
@@ -31,11 +31,11 @@ export default function Scatterplot(props) {
               y_enums: [],
               x_enums1: [],
               y_enums1: [],
-              title: '',
-              xmax: '',
-              xmin: '',
-              ymin: '',
-              ymax: '',
+              title: "",
+              xmax: "",
+              xmin: "",
+              ymin: "",
+              ymax: "",
               allow: false,
             };
 
@@ -57,7 +57,7 @@ export default function Scatterplot(props) {
               ) {
                 data.x_enums.push(snapshot.data().xLimit.enums[i].label);
                 data.x_enums1.push(snapshot.data().xLimit.enums[i].label);
-                data.x_enums.push('');
+                data.x_enums.push("");
               }
             }
 
@@ -70,7 +70,7 @@ export default function Scatterplot(props) {
               ) {
                 data.y_enums.push(snapshot.data().yLimit.enums[i].label);
                 data.y_enums1.push(snapshot.data().yLimit.enums[i].label);
-                data.y_enums.push('');
+                data.y_enums.push("");
               }
             }
 
@@ -85,7 +85,7 @@ export default function Scatterplot(props) {
             setData(data);
           },
           (err) => {
-            console.log('Error fetching firebase snapshot! ' + err);
+            console.log("Error fetching firebase snapshot! " + err);
           }
         );
     }
@@ -102,15 +102,16 @@ export default function Scatterplot(props) {
           backgroundColor: data.color[i],
           borderColor: data.color[i],
           hoverBorderWidth: 2,
+          pointRadius: 5,
         };
         datasets.push(add_data);
       }
     } else {
       datasets.push({
-        label: 'Student',
+        label: "Student",
         data: data.val,
-        backgroundColor: '#7582ca',
-        hoverBorderColor: '#ffffff',
+        backgroundColor: "#7582ca",
+        hoverBorderColor: "#ffffff",
       });
     }
     return datasets;
@@ -118,7 +119,7 @@ export default function Scatterplot(props) {
 
   return (
     <div>
-      <div className="chart">
+      <div className='chart'>
         <Scatter
           data={{
             labels: data.x_enums,
@@ -136,19 +137,19 @@ export default function Scatterplot(props) {
                   if (label !== null) {
                     return (
                       label +
-                      ': (' +
+                      ": (" +
                       tooltipItem.xLabel +
-                      ', ' +
+                      ", " +
                       tooltipItem.yLabel +
-                      ')'
+                      ")"
                     );
                   } else {
                     return (
-                      ': (' +
+                      ": (" +
                       tooltipItem.xLabel +
-                      ', ' +
+                      ", " +
                       tooltipItem.yLabel +
-                      ')'
+                      ")"
                     );
                   }
                 },
@@ -156,42 +157,42 @@ export default function Scatterplot(props) {
             },
             legend: {
               display: true,
-              position: 'right',
+              position: "right",
               labels: {
                 usePointStyle: true,
                 boxWidth: 8,
                 padding: 8,
                 fontSize: 12,
-                fontColor: '#a0a0a0',
+                fontColor: "#a0a0a0",
               },
             },
             title: {
               display: true,
               text: data.title,
               fontSize: 15,
-              fontColor: '#ffffff',
+              fontColor: "#ffffff",
             },
             scales: {
               xAxes: [
                 {
                   gridLines: {
-                    zeroLineColor: '#fff',
-                    color: 'rgba(255, 255, 255, 0.1)',
+                    zeroLineColor: "#fff",
+                    color: "rgba(255, 255, 255, 0.1)",
                     lineWidth: 1.5,
                   },
                   scaleLabel: {
                     display: true,
                     labelString: data.xAxis,
                     fontSize: 15,
-                    fontColor: '#ffffff',
+                    fontColor: "#ffffff",
                   },
                   afterTickToLabelConversion: function (q) {
                     if (data.allow) {
                       for (var tick in q.ticks) {
                         if (q.ticks.length == 9) {
-                          if (data.x_enums[tick] !== '') {
+                          if (data.x_enums[tick] !== "") {
                             q.ticks[tick] = data.x_enums[tick];
-                            q.ticks[tick] = q.ticks[tick].split(" ")
+                            q.ticks[tick] = q.ticks[tick].split(" ");
                           }
                         } else {
                           if (tick % 2 == 0) {
@@ -202,7 +203,7 @@ export default function Scatterplot(props) {
                     }
                   },
                   ticks: {
-                    fontColor: '#ffffff',
+                    fontColor: "#ffffff",
                     maxTicksLimit: 9,
                     maxRotation: 0,
                     minRotation: 0,
@@ -214,21 +215,21 @@ export default function Scatterplot(props) {
               yAxes: [
                 {
                   gridLines: {
-                    zeroLineColor: '#fff',
-                    color: 'rgba(255, 255, 255, 0.1)',
+                    zeroLineColor: "#fff",
+                    color: "rgba(255, 255, 255, 0.1)",
                     lineWidth: 1.5,
                   },
                   scaleLabel: {
                     display: true,
                     labelString: data.yAxis,
                     fontSize: 15,
-                    fontColor: '#ffffff',
+                    fontColor: "#ffffff",
                   },
                   afterTickToLabelConversion: function (q) {
                     if (data.allow) {
                       for (var tick in q.ticks) {
                         if (q.ticks.length == 9) {
-                          if (data.y_enums[tick] !== '') {
+                          if (data.y_enums[tick] !== "") {
                             q.ticks[tick] = data.y_enums[tick];
                           }
                         } else {
@@ -241,7 +242,7 @@ export default function Scatterplot(props) {
                   },
 
                   ticks: {
-                    fontColor: '#ffffff',
+                    fontColor: "#ffffff",
                     maxTicksLimit: 9,
                     min: parseInt(data.ymin),
                     max: parseInt(data.ymax),
@@ -250,8 +251,8 @@ export default function Scatterplot(props) {
               ],
             },
           }}
-          height={props.height ? props.height : '100%'}
-          width={props.width ? props.width : '100%'}
+          height={props.height ? props.height : "100%"}
+          width={props.width ? props.width : "100%"}
         />
       </div>
     </div>
