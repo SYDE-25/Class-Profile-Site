@@ -1,7 +1,32 @@
 import Link from "next/link";
 import styles from "./cards.module.scss";
-
+import { useState, useEffect } from "react";
+import { db } from "../../firebaseConfig";
 export default function NavigationCards(props) {
+  const [url, seturl] = useState("");
+  const [id, setId] = useState(0);
+
+  useEffect(() => {
+    if (id <= 0) {
+      db.collection("1A Data")
+        .doc("Data Sci Report Link")
+        .onSnapshot(
+          async (snapshot) => {
+            let data = {
+              url: "",
+            };
+            data.url = await snapshot.data().url;
+            console.log(data.url);
+            setId(id + 1);
+            seturl(data.url);
+            console.log(url);
+          },
+          (err) => {
+            console.log("Error fetching firebase snapshot! " + err);
+          }
+        );
+    }
+  });
   return (
     <div className={styles.cardsContainer}>
       {props.title != undefined && <h1>{props.title}</h1>}
@@ -40,10 +65,7 @@ export default function NavigationCards(props) {
         />
       </div>
       <div className={styles.report}>
-        <a
-          href='https://drive.google.com/file/d/1e8-1GQMDNVpHXEQtbEMvnS2UIG1qZ_HV/view?usp=sharing'
-          target='_blank'
-        >
+        <a href={url} target='_blank'>
           <h4>
             Data Science report here (Includes References) <span>{">"}</span>
           </h4>
