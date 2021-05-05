@@ -12,30 +12,30 @@ export default function About() {
       <div className={styles.content}>
         <div className={styles.heading}>
           <h2>About Systems Design Engineering </h2>
-        Systems Design Engineering is a unique interdisciplinary engineering
-        program at the University of Waterloo that explores problem solving
-        through a systems-thinking methodology. Our class, the class of 2025,
-        has had a first term experience unlike any other as all of our courses
-        were taught online due to the pandemic. We hope that this class profile
-        will reflect some of the different perspectives that our class may hold,
-        and that you as the user will take something away from exploring the
-        site.
-        <br/>
-        <br/>
-        <h2>Preface</h2>
-        The objective of this website was to better understand the histories of
-        the students in the systems design engineering (SYDE) class of 2025, as
-        well as understanding the personalities of the students. This was also
-        an opportunity to display and test our skills in design, data science,
-        frontend development, and team collaboration. X students in our first year class
-        responded to this survey, which includes over X questions. The data from
-        each question is displayed throughout the website.
-        <br/>
-        <br/>
-        <h2>Credits</h2>
-        Names are listed alphabetically and not in order of who contributed the
-        most.
-      </div>
+          Systems Design Engineering is a unique interdisciplinary engineering
+          program at the University of Waterloo that explores problem solving
+          through a systems-thinking methodology. Our class, the class of 2025,
+          has had a first term experience unlike any other as all of our courses
+          were taught online due to the pandemic. We hope that this class
+          profile will reflect some of the different perspectives that our class
+          may hold, and that you as the user will take something away from
+          exploring the site.
+          <br />
+          <br />
+          <h2>Preface</h2>
+          The objective of this website was to better understand the histories
+          of the students in the systems design engineering (SYDE) class of
+          2025, as well as understanding the personalities of the students. This
+          was also an opportunity to display and test our skills in design, data
+          science, frontend development, and team collaboration. 94 students in
+          our first year class responded to this survey. The data from each
+          question is displayed throughout the website.
+          <br />
+          <br />
+          <h2>Credits</h2>
+          Names are listed alphabetically and not in order of who contributed
+          the most.
+        </div>
 
         <div className={styles.row}>
           <div className={styles.column}>
