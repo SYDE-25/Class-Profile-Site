@@ -1,6 +1,7 @@
 import { useState, useEffect, Component, createRef } from 'react';
 import { db } from '../../firebaseConfig';
 import 'chartjs-chart-box-and-violin-plot/build/Chart.BoxPlot.js';
+import 'chartjs-subtitle'
 
 class BoxPlotChart extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class BoxPlotChart extends Component {
     this.myChart.data.datasets[0].backgroundColor = this.props.data.color;
     this.myChart.data.datasets[0].outlierColor = this.props.data.color;
     this.myChart.options.title.text = this.props.data.title;
+    this.myChart.options.plugins.chartJsPluginSubtitle.text = 'number of respondents:' + this.props.data.n;
     this.myChart.options.scales.xAxes[0].scaleLabel.labelString = this.props.data.xAxis;
     this.myChart.options.scales.yAxes[0].scaleLabel.labelString = this.props.data.yAxis;
     this.myChart.options.scales.yAxes[0].ticks.min = this.props.data.ymin;
@@ -32,6 +34,14 @@ class BoxPlotChart extends Component {
           text: this.props.data.title,
           fontColor: '#ffffff',
           fontSize: 15,
+          padding: 14,
+        },
+        plugins: {
+          chartJsPluginSubtitle: {
+          display: true, 
+          fontSize: 13,
+          text: 'number of respondents:' + this.props.data.n, 
+         }
         },
         scales: {
           xAxes: [
@@ -136,6 +146,7 @@ export default function BoxPlot(props) {
               yAxes: '',
               ymin: '',
               ymax: '',
+              n: '',
             };
             snapshot.data().x.values.forEach((element) => {
               for (var i = 0; i < element.plotValues.length; i++) {
@@ -152,6 +163,7 @@ export default function BoxPlot(props) {
             data.yAxis = snapshot.data().y.label;
             data.ymin = snapshot.data().yLimit.min;
             data.ymax = snapshot.data().yLimit.max;
+            data.n = snapshot.data().n;
             setId(id + 1);
             setData(data);
           },

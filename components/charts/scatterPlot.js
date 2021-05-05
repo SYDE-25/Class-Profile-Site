@@ -36,6 +36,7 @@ export default function Scatterplot(props) {
               xmin: "",
               ymin: "",
               ymax: "",
+              n: "",
               allow: false,
             };
 
@@ -81,6 +82,7 @@ export default function Scatterplot(props) {
             data.xmax = snapshot.data().xLimit.max;
             data.ymin = snapshot.data().yLimit.min;
             data.ymax = snapshot.data().yLimit.max;
+            data.n = snapshot.data().n;
             setId(id + 1);
             setData(data);
           },
@@ -171,6 +173,14 @@ export default function Scatterplot(props) {
               text: data.title,
               fontSize: 15,
               fontColor: "#ffffff",
+              padding: 14,
+            },
+            plugins: {
+              chartJsPluginSubtitle: {
+              display: true, 
+              fontSize: 13,
+              text: 'number of respondents:' + data.n, 
+             }
             },
             scales: {
               xAxes: [

@@ -24,6 +24,7 @@ const HistogramPercent = (props) => {
               title: '',
               xAxes: '',
               yAxes: '',
+              n: '',
             };
 
             let values = [];
@@ -44,6 +45,7 @@ const HistogramPercent = (props) => {
             data.xAxis = allData.x.label;
             data.yAxis = allData.y.label;
             data.color = allData.x.color;
+            data.n = allData.n;
             setId(id + 1);
             setData(data);
           },
@@ -87,8 +89,15 @@ const HistogramPercent = (props) => {
               text: data.title,
               fontColor: '#ffffff',
               fontSize: 15,
+              padding: 14,
             },
-
+            plugins: {
+              chartJsPluginSubtitle: {
+              display: true, 
+              fontSize: 13,
+              text: 'number of respondents:' + data.n, 
+             }
+            },
             scales: {
               xAxes: [
                 {
@@ -158,6 +167,7 @@ const HistogramCount = (props) => {
               title: '',
               xAxes: '',
               yAxes: '',
+              n: '',
             };
 
             let values = [];
@@ -208,6 +218,7 @@ const HistogramCount = (props) => {
             data.xAxis = allData.x.label;
             data.yAxis = allData.y.label;
             data.color = allData.x.color;
+            data.n = allData.n;
             setId(id + 1);
             setData(data);
           },
@@ -248,6 +259,14 @@ const HistogramCount = (props) => {
               text: data.title,
               fontColor: '#ffffff',
               fontSize: 15,
+              padding: 14,
+            },
+            plugins: {
+              chartJsPluginSubtitle: {
+              display: true, 
+              fontSize: 13,
+              text: 'number of respondents:' + data.n, 
+             }
             },
 
             scales: {

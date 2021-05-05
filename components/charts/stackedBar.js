@@ -27,6 +27,7 @@ export default function StackedBar(props) {
               title: '',
               xAxes: '',
               yAxes: '',
+              n: '',
             };
             await snapshot.data().x.bars.forEach((element) => {
               data.label.push(element.legendIndex);
@@ -48,6 +49,7 @@ export default function StackedBar(props) {
             data.title = snapshot.data().title;
             data.xAxis = snapshot.data().x.label;
             data.yAxis = snapshot.data().y.label;
+            data.n = snapshot.data().n;
             setId(id + 1);
             setData(data);
           },
@@ -124,6 +126,14 @@ export default function StackedBar(props) {
               text: data.title,
               fontColor: '#ffffff',
               fontSize: 15,
+              padding: 14,
+            },
+            plugins: {
+              chartJsPluginSubtitle: {
+              display: true, 
+              fontSize: 13,
+              text: 'number of respondents:' + data.n, 
+             }
             },
             scales: {
               xAxes: [
