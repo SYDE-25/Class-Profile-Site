@@ -20,10 +20,6 @@
   h3 {
     color: #68989f;
   }
-
-  h4 {
-    color: #68989f;
-  }
 }
 
 .academics {
@@ -39,9 +35,6 @@
     color: #d3947f;
   }
 
-  h4 {
-    color: #d3947f;
-  }
   a {
     color: #b46044;
   }
@@ -59,10 +52,6 @@
   h3 {
     color: #7582ca;
   }
-
-  h4 {
-    color: #7582ca;
-  }
 }
 
 .lifestyle {
@@ -75,10 +64,6 @@
   }
 
   h3 {
-    color: #edafb9;
-  }
-
-  h4 {
     color: #edafb9;
   }
 }
@@ -96,12 +81,8 @@
     color: #909aa1;
   }
 
-  h4 {
-    color: #909aa1;
-  }
-
-  p{
-    margin:0;
+  p {
+    margin: 0;
   }
 }
 
@@ -111,42 +92,41 @@
 */
 
 @media only screen and (max-width: 900px) {
-  .igorFlexVertical{
-    display:flex;
-    flex-direction:column;
-    margin-right:20px;
+  .igorFlexVertical {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
   }
-  
-  .igorPicture{
+
+  .igorPicture {
     border: 5px solid #555;
-    border-radius:20px;
-    height:500px;
+    border-radius: 20px;
+    height: 500px;
   }
 }
 
 @media only screen and (min-width: 901px) {
-  .igorFlexHorizontal{
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
+  .igorFlexHorizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
-  
-  .igorFlexVertical{
-    display:flex;
-    flex-direction:column;
-    margin-right:20px;
+
+  .igorFlexVertical {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
   }
-  
-  .igorPicture{
+
+  .igorPicture {
     border: 5px solid #555;
-    border-radius:20px;
-    height:500px;
+    border-radius: 20px;
+    height: 500px;
   }
 }
 
-
 .cardContainer {
-  display:flex;
+  display: flex;
   width: 100%;
   height: 100%;
   justify-content: flex-end;
