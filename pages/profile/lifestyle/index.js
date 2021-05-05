@@ -32,8 +32,8 @@ export default function Lifestyle() {
 
         <Segment
           title={'Location'}
-          graph={<BarGraph datatype="Hometown vs Living On Campus" />}
-          onTop={false}
+          graph={<BarGraph datatype="Hometown vs Living On Campus" width = {770} height ={550} />}
+          onTop={true}
         >
           The majority of people who lived on campus were Torontonians. Due to
           the pandemic, most of the class (about 75%) stayed home.
@@ -84,13 +84,13 @@ export default function Lifestyle() {
 
         <Segment
           title={'Substance Use'}
-          graph={<BarGraph datatype="Drugs" />}
+          graph={<BarGraph datatype="Drugs"  width = {950} height ={550} />}
           onTop={true}
         ></Segment>
 
         <Segment
           title={'Drug Use Compared to 1A Average'}
-          graph={<BoxPlot datatype="Drug Usage vs 1A Average" />}
+          graph={<BoxPlot datatype="Drug Usage vs 1A Average" /> }
           onTop={false}
         >
           According to the mean average of those who used and did not use drugs,

@@ -102,8 +102,8 @@ export default function Coop() {
           title="Co-op Pay"
           graph={
             <>
-            <BoxPlot datatype="Coop Round vs Pay" />
-            <BoxPlot datatype="Coop Sector vs Pay" />
+            <BoxPlot datatype="Coop Round vs Pay"  width={400} height={450} /> {' '}
+            <BoxPlot datatype="Coop Sector vs Pay"  width={520} height={500} />
             </>
           }
           onTop={true}
@@ -116,7 +116,7 @@ export default function Coop() {
         <Segment
           title="Software Co-op vs SYDE 121 Grade"
           graph={<BoxPlot datatype="SYDE 121 Average vs Software Coop" />}
-          onTop={true}
+          onTop={false}
         >
           The median SYDE 121 (Digital Computation) grade for people who had a
           software coop was 97% compared to 92% for those who did not have a
