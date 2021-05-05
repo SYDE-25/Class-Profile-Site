@@ -40,7 +40,10 @@ export default function NavigationCards(props) {
         />
       </div>
       <div className={styles.report}>
-        <a href="/1a/data_sci_report.pdf" target="_blank">
+        <a
+          href='https://drive.google.com/file/d/1e8-1GQMDNVpHXEQtbEMvnS2UIG1qZ_HV/view?usp=sharing'
+          target='_blank'
+        >
           <h4>
             Data Science report here (Includes References) <span>{">"}</span>
           </h4>
