@@ -1,6 +1,6 @@
-import { Header, Content } from "../../components/layout/layout";
-import Head from "next/head";
-import styles from "./about.module.scss";
+import { Header, Content } from '../../components/layout/layout';
+import Head from 'next/head';
+import styles from './about.module.scss';
 
 export default function About() {
   return (
@@ -21,15 +21,20 @@ export default function About() {
           may hold, and that you as the user will take something away from
           exploring the site.
           <br />
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+            <img src="/assets/insert-pic.png" />
+          </a>
           <br />
           <h2>Preface</h2>
           The objective of this website was to better understand the histories
-          of the students in the systems design engineering (SYDE) class of
+          of the students in the Systems Design Engineering (SYDE) class of
           2025, as well as understanding the personalities of the students. This
           was also an opportunity to display and test our skills in design, data
           science, frontend development, and team collaboration. 94 students in
           our first year class responded to this survey. The data from each
-          question is displayed throughout the website.
+          question is displayed throughout the website. This is an iterative
+          project that we are committed to working on for the entirety of our
+          degree, so we look forward to seeing how it progresses over time!
           <br />
           <br />
           <h2>Credits</h2>
@@ -39,35 +44,85 @@ export default function About() {
 
         <div className={styles.row}>
           <div className={styles.column}>
-            <h3 className={styles.pm}>PM </h3>
-            <p> Joseph Lamonica</p>
-            <p>Sean Ashley</p>
-            <p> Shivam Sharma </p>
+            <h3 className={styles.pm}>PM</h3>
+            <a href="https://josephlamonica.me/" target="_blank">
+              {' '}
+              Joseph Lamonica
+            </a>
+            <a href="https://www.linkedin.com/in/sean-ashley/" target="_blank">
+              Sean Ashley
+            </a>
+            <a href="https://shivamsh.me/" target="_blank">
+              {' '}
+              Shivam Sharma{' '}
+            </a>
           </div>
 
           <div className={styles.column}>
-            <h3 className={styles.dataSci}>Data Sci </h3>
-            <p>Alan Zhang </p>
-            <p> Nicolas Palmar </p>
-            <p>Nirmal Hegde </p>
-            <p> Sean Ashley </p>
+            <h3 className={styles.dataSci}>Data Science</h3>
+            <a href="https://www.linkedin.com/in/alan-zhang1/" target="_blank">
+              Alan Zhang{' '}
+            </a>
+            <a
+              href="https://www.linkedin.com/in/nicolas-palmar/"
+              target="_blank"
+            >
+              {' '}
+              Nicolas Palmar{' '}
+            </a>
+            <a href="https://nirmalhegde.me" target="_blank">
+              Nirmal Hegde{' '}
+            </a>
+            <a href="https://www.linkedin.com/in/sean-ashley/" target="_blank">
+              {' '}
+              Sean Ashley{' '}
+            </a>
           </div>
 
           <div className={styles.column}>
-            <h3 className={styles.design}>Design </h3>
-            <p> Ebrahim Yaakoub Agha </p>
-            <p> Evan Wong </p>
-            <p> Joseph Lamonica </p>
-            <p> Shivam Sharma </p>
+            <h3 className={styles.design}>Design</h3>
+            <a href="https://github.com/ebrahim02-ag" target="_blank">
+              {' '}
+              Ebrahim Yaakoub Agha{' '}
+            </a>
+            <a href="https://github.com/eevanwong" target="_blank">
+              {' '}
+              Evan Wong{' '}
+            </a>
+            <a href="https://josephlamonica.me/" target="_blank">
+              {' '}
+              Joseph Lamonica{' '}
+            </a>
+            <a href="https://shivamsh.me/" target="_blank">
+              {' '}
+              Shivam Sharma{' '}
+            </a>
           </div>
 
           <div className={styles.column}>
-            <h3 className={styles.webDev}>Web Dev </h3>
-            <p> Ebrahim Yaakoub Agha </p>
-            <p>Evan Wong </p>
-            <p> Hannah Hepburn </p>
-            <p> Parmin Patel </p>
-            <p> Shivam Sharma </p>
+            <h3 className={styles.webDev}>Web Dev</h3>
+            <a href="https://github.com/ebrahim02-ag" target="_blank">
+              {' '}
+              Ebrahim Yaakoub Agha{' '}
+            </a>
+            <a href="https://github.com/eevanwong" target="_blank">
+              Evan Wong{' '}
+            </a>
+            <a
+              href="https://www.linkedin.com/in/hannah-hepburn/"
+              target="_blank"
+            >
+              {' '}
+              Hannah Hepburn{' '}
+            </a>
+            <a href="https://parminpatel.me/" target="_blank">
+              {' '}
+              Parmin Patel{' '}
+            </a>
+            <a href="https://shivamsh.me/" target="_blank">
+              {' '}
+              Shivam Sharma{' '}
+            </a>
           </div>
         </div>
       </div>

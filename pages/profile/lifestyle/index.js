@@ -36,7 +36,7 @@ export default function Lifestyle() {
           onTop={true}
         >
           The majority of people who lived on campus were Torontonians. Due to
-          the pandemic, most of the class (about 75%) stayed home.
+          the pandemic, most of the class (75%) stayed home, the distribution of the remaining students is shown below.
         </Segment>
 
         <Segment
@@ -65,7 +65,7 @@ export default function Lifestyle() {
           onTop={false}
         >
           Note: This was a fully online school term - yes, it was possible to go
-          outside 0 days/week.
+          outside 0 days/week (maybe we should go outsyde more often).
         </Segment>
 
         <Segment
@@ -121,7 +121,7 @@ export default function Lifestyle() {
             </>
           }
           onTop={true}
-        ></Segment>
+        >lol</Segment>
         <div className={styles.cardContainer}>
           <div className={styles.card}>
             <Card 
