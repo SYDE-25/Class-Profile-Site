@@ -38,6 +38,11 @@ export default function About() {
           <h2>Credits</h2>
           Names are listed alphabetically and not in order of who contributed
           the most.
+          <br />
+          <br />
+          <a href="https://github.com/SYDE-25/Class-Profile-Site" target="_blank">
+          Check out the GitHub repo here {'>'}
+          </a>
         </div>
 
         <div className={styles.row}>
