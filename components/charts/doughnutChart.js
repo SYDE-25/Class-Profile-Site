@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { db } from '../../firebaseConfig';
 import { Doughnut } from 'react-chartjs-2';
+import 'chartjs-subtitle'
 
 export default function DoughnutChart(props) {
   const [data, setData] = useState({
@@ -22,6 +23,7 @@ export default function DoughnutChart(props) {
               label: [],
               color: [],
               title: '',
+              n: '',
             };
 
             await snapshot.data().x.forEach((element) => {
@@ -30,6 +32,7 @@ export default function DoughnutChart(props) {
               data.color.push(element.color);
             });
             data.title = snapshot.data().title;
+            data.n = snapshot.data().n;
             setId(id + 1);
             setData(data);
           },
@@ -80,7 +83,6 @@ export default function DoughnutChart(props) {
             ],
           }}
           options={{
-            cutoutPercentage: 70,
             responsive: true,
             maintainAspectRatio: true,
             legend: {
@@ -100,6 +102,14 @@ export default function DoughnutChart(props) {
               fontSize: 15,
               fontColor: '#ffffff',
               fontSize: '14',
+              padding: 14,
+            },
+            plugins: {
+              chartJsPluginSubtitle: {
+              display: true, 
+              fontSize: 13,
+              text: 'number of respondents:' + data.n, 
+             }
             },
           }}
           height={props.height ? props.height : '100%'}

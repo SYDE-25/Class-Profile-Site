@@ -18,10 +18,17 @@
   .description {
     margin-top: 1rem;
   
-    z-index: -1;
+    z-index: 100;
   
     font-weight: 400;
     letter-spacing: 0.1em;
+
+    .link {
+      z-index: 1000;
+
+      color: #fcc7fb;
+      font-weight: 600;
+    }
   }
 }
 
