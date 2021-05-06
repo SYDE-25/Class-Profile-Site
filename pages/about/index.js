@@ -21,9 +21,7 @@ export default function About() {
           may hold, and that you as the user will take something away from
           exploring the site.
           <br />
-          <a href="https://www.youtube.com/watch?v=Za3wssEphYw">
             <img src="/assets/insert-pic.png" />
-          </a>
           <br />
           <h2>Preface</h2>
           The objective of this website was to better understand the histories
