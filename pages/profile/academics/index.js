@@ -82,8 +82,9 @@ export default function Academics() {
           graph={<BoxPlot datatype="Admission Average vs 1A Average" />}
           onTop={false}
         >
-          The Pearson Correlation Coefficient indicated that there is a small
-          association between admission average and 1A average.
+          The is a weak positive relationship between
+          admission average and 1A average 
+          (The higher the admission average, the higher the 1A Average)
         </Segment>
 
         <Segment
@@ -154,8 +155,7 @@ export default function Academics() {
           graph={<ScatterPlot datatype="Course Average vs Time Spent" />}
           onTop={false}
         >
-          The Spearman
-          Correlation Coefficient for number of lectures attended, and difficulty, indicating a moderate positive relationship
+          Lectures attended and difficulty, have a moderate positive relationship
           (The higher the difficulty of the course, the more lectures that were
           attended.
           <br />

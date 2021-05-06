@@ -21,7 +21,7 @@ export default function About() {
           may hold, and that you as the user will take something away from
           exploring the site.
           <br />
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+          <a href="https://www.youtube.com/watch?v=Za3wssEphYw">
             <img src="/assets/insert-pic.png" />
           </a>
           <br />
@@ -118,6 +118,9 @@ export default function About() {
             <a href="https://parminpatel.me/" target="_blank">
               {' '}
               Parmin Patel{' '}
+            </a>
+            <a href="https://www.linkedin.com/in/sean-ashley/" target="_blank">
+              Sean Ashley
             </a>
             <a href="https://shivamsh.me/" target="_blank">
               {' '}
