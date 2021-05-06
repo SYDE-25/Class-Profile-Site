@@ -177,7 +177,7 @@ export default function Academics() {
               Co-op
               </>
         }
-            link={"/profile/co-op#content"}
+            link={"/profile/co-op"}
             svg={"/cards/co-op.svg"}
             relativeSize={1}
             bottomSect={true}
