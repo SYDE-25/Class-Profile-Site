@@ -102,12 +102,6 @@ export default function SideBar(props) {
             maintainAspectRatio: true,
             tooltips: {
               enabled: true,
-              callbacks: {
-                label: function (tooltipItem) {
-                  var label = data.label[tooltipItem.datasetIndex];
-                  return label + ': ' + tooltipItem.value + '%';
-                },
-              },
             },
             layout: {
               padding: -5,
