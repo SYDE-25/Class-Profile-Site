@@ -40,8 +40,7 @@ export default function Demographics() {
             >
           There is about an equal representation of both females and males in
           SYDE 2025, with slightly more males than females. This contrasts to
-          the SYDE 2024 Cohort, which had a greater amount of females than males
-          [1].
+          the SYDE 2024 Cohort, which had a greater amount of females than males.
         </Segment>
 
 
@@ -55,8 +54,8 @@ export default function Demographics() {
           </>}
           onTop={true}
         >
-          The majority of the SYDE 2025 cohort is Asian or Cauccasian, similar
-          to past class profiles [1][2].
+          The majority of the SYDE 2025 cohort is Asian or Caucasian, similar
+          to past class profiles.
         </Segment>
 
         <Segment

@@ -42,7 +42,7 @@ export default function NavigationCards(props) {
       <div className={styles.report}>
         <a href="/1a/data_sci_report.pdf" target="_blank">
           <h4>
-            Data Science report here (Includes References) <span>{">"}</span>
+            Read the Data Science Report<span>{">"}</span>
           </h4>
         </a>
       </div>

@@ -42,13 +42,13 @@ export default function Coop() {
           onTop={false}
         >
           Most of the cohort have been employed in the software industry, like
-          previous cohorts [1][2].
+          previous cohorts.
           <br />
           <b>Note</b>: The number of unhired people has decreased since this
-          survey was taken, with currently one person being unemployed [5].
+          survey was taken, with currently one person being unemployed.
           <br />
           Software development (including QA) was the most popular sector for
-          our cohort in every round, similar to the SYDE 2024 Cohort [1].
+          our cohort in every round, similar to the SYDE 2024 Cohort.
         </Segment>
 
         <Segment
@@ -108,7 +108,7 @@ export default function Coop() {
           }
           onTop={true}
         >
-          The average engineering coop salary for 1A students is $18.50/h [6].
+          The average engineering coop salary for 1A students is $18.50/h.
           The SYDE 1A average coop salary was slightly higher, with students
           getting paid an average of $19.11/h.
         </Segment>
