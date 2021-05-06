@@ -100,9 +100,6 @@ export default function SideBar(props) {
           options={{
             responsive: true,
             maintainAspectRatio: true,
-            tooltips: {
-              enabled: true,
-            },
             layout: {
               padding: -5,
             },
