@@ -51,12 +51,7 @@ export default function Academics() {
           <br />
           <br />
           To keep inline with these efforts, the same histogram was created with
-          the data from those who answered the class profile survey (class
-          profile histogram above, histogram from{' '}
-          <a href="https://engug.uwaterloo.ca/results">
-            https://engug.uwaterloo.ca/results
-          </a>{' '}
-          below).
+          the data from those who answered the class profile survey.
           <br />
           <br />
           Evidently, the class profile data has a higher frequency of averages
@@ -78,7 +73,7 @@ export default function Academics() {
           onTop={false}
         >
           The admission average was in the mid 90s - slightly higher than the
-          “high 80s to low 90s” [3] currently on the admissions website. Lots of
+          “high 80s to low 90s” currently on the admissions website. Lots of
           smarties in SYDE!
         </Segment>
 
@@ -87,9 +82,8 @@ export default function Academics() {
           graph={<BoxPlot datatype="Admission Average vs 1A Average" />}
           onTop={false}
         >
-          The Pearson Correlation Coefficient between admission average and 1A
-          average was about 0.16. This would indicate that there is a small
-          association [4] between admission average and 1A average.
+          The Pearson Correlation Coefficient indicated that there is a small
+          association between admission average and 1A average.
         </Segment>
 
         <Segment
@@ -106,8 +100,7 @@ export default function Academics() {
           Academic drop-off is calculated by: 1A average - admission average.
           <br />
           <br />
-          The median drop-off was 5.6%. Last year, the median drop-off was 15.9%
-          [1].
+          The median drop-off was 5.6%. Last year, the median drop-off was 15.9%.
           <br />
           <br />
           Note: The Fall 2020 term took place online.
@@ -118,8 +111,7 @@ export default function Academics() {
           graph={<ScatterPlot datatype="Course Usefulness vs Difficulty"/>}
           onTop={false}
         >
-          Usefulness and difficulty have a 0.27 spearman correlation
-          coefficient, indicating a moderate positive relationship (The harder
+          Usefulness and difficulty have a moderate positive relationship (The harder
           it is, the more useful it is).
           <br />
           <br />
@@ -144,7 +136,7 @@ export default function Academics() {
           <br />
           The hardest course was SYDE 111 (Fundamental Engineering Math 1) on
           average, which also had the lowest average (85.2%). Course average and
-          difficulty have a -0.32 spearman correlation coefficient, indicating a
+          difficulty showcased a
           moderate negative relationship (The higher the average, the easier the
           course was).
         </Segment>
@@ -162,8 +154,8 @@ export default function Academics() {
           graph={<ScatterPlot datatype="Course Average vs Time Spent" />}
           onTop={false}
         >
-          Number of lectures attended, and difficulty have a 0.20 spearman
-          correlation coefficient, indicating a moderate positive relationship
+          The Spearman
+          Correlation Coefficient for number of lectures attended, and difficulty, indicating a moderate positive relationship
           (The higher the difficulty of the course, the more lectures that were
           attended.
           <br />

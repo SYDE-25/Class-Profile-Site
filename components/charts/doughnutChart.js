@@ -83,7 +83,6 @@ export default function DoughnutChart(props) {
             ],
           }}
           options={{
-            cutoutPercentage: 70,
             responsive: true,
             maintainAspectRatio: true,
             legend: {
