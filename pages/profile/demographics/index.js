@@ -99,7 +99,7 @@ export default function Demographics() {
                       Academics
                       </>
                 }
-                link={"/profile/academics#content"}
+                link={"/profile/academics"}
                 svg={"/cards/academics.svg"}
                 relativeSize={1}
                 bottomSect={true}

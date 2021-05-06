@@ -136,7 +136,7 @@ export default function Coop() {
                   Lifestyle
                   </>
             }
-                link={"/profile/lifestyle#content"}
+                link={"/profile/lifestyle"}
                 svg={"/cards/lifestyle.svg"}
                 relativeSize={1}
                 bottomSect={true}
