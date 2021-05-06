@@ -1,24 +1,23 @@
-## Getting Started
+# Class-Profile1A-Website
+Website for the SYDE 2025 1A Class Profile.
 
-First, run the development server:
+## Table of Contents
+- [SYDE2025-1A-Class-Profile-](#syde2025-1a-class-profile-)
+  * [About The Project](#about-the-project)
+    + [Purpose](#purpose)
+    + [Languages, Tools and Libraries](#languages-tools-and-libraries)
+  * [License](#license)
+  * [Contact](#contact)
 
-```bash
-yarn dev
-```
+## About The Project
+The SYDE class profile, was created to give an insight to the SYDE 2025 cohort's 1A term, similar to reports created
+by previous cohorts. We wanted to go a step above and create a website that would document not just our 1A term, but future terms as well.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the site by modifying `pages`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-Check out more [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Languages, Tools and Libraries
+* **[JavaScript](https://www.javascript.com/)**
+* **[React.js](https://reactjs.org/)**
+* **[Next.js](https://nextjs.org/)**
+* **[Chart.js](https://www.chartjs.org/)**
+* **[Firebase](https://firebase.google.com/)**
+* **[Three.js](https://threejs.org/)**
+* **[Vercel](https://vercel.com)**

@@ -21,9 +21,7 @@ export default function About() {
           may hold, and that you as the user will take something away from
           exploring the site.
           <br />
-          <a href="https://www.youtube.com/watch?v=Za3wssEphYw">
             <img src="/assets/insert-pic.png" />
-          </a>
           <br />
           <h2>Preface</h2>
           The objective of this website was to better understand the histories
@@ -46,85 +44,70 @@ export default function About() {
           <div className={styles.column}>
             <h3 className={styles.pm}>PM</h3>
             <a href="https://josephlamonica.me/" target="_blank">
-              {' '}
               Joseph Lamonica
             </a>
             <a href="https://www.linkedin.com/in/sean-ashley/" target="_blank">
               Sean Ashley
             </a>
             <a href="https://shivamsh.me/" target="_blank">
-              {' '}
-              Shivam Sharma{' '}
+              Shivam Sharma
             </a>
           </div>
 
           <div className={styles.column}>
             <h3 className={styles.dataSci}>Data Science</h3>
             <a href="https://www.linkedin.com/in/alan-zhang1/" target="_blank">
-              Alan Zhang{' '}
+              Alan Zhang
             </a>
             <a
               href="https://www.linkedin.com/in/nicolas-palmar/"
               target="_blank"
             >
-              {' '}
-              Nicolas Palmar{' '}
+              Nicolas Palmar
             </a>
             <a href="https://nirmalhegde.me" target="_blank">
-              Nirmal Hegde{' '}
+              Nirmal Hegde
             </a>
             <a href="https://www.linkedin.com/in/sean-ashley/" target="_blank">
-              {' '}
-              Sean Ashley{' '}
+              Sean Ashley
             </a>
           </div>
 
           <div className={styles.column}>
             <h3 className={styles.design}>Design</h3>
             <a href="https://github.com/ebrahim02-ag" target="_blank">
-              {' '}
-              Ebrahim Yaakoub Agha{' '}
+              Ebrahim Yaakoub Agha
             </a>
             <a href="https://github.com/eevanwong" target="_blank">
-              {' '}
-              Evan Wong{' '}
+              Evan Wong
             </a>
             <a href="https://josephlamonica.me/" target="_blank">
-              {' '}
-              Joseph Lamonica{' '}
+              Joseph Lamonica
             </a>
             <a href="https://shivamsh.me/" target="_blank">
-              {' '}
-              Shivam Sharma{' '}
+              Shivam Sharma
             </a>
           </div>
 
           <div className={styles.column}>
             <h3 className={styles.webDev}>Web Dev</h3>
             <a href="https://github.com/ebrahim02-ag" target="_blank">
-              {' '}
-              Ebrahim Yaakoub Agha{' '}
+              Ebrahim Yaakoub Agha
             </a>
             <a href="https://github.com/eevanwong" target="_blank">
-              Evan Wong{' '}
+              Evan Wong
             </a>
             <a
               href="https://www.linkedin.com/in/hannah-hepburn/"
               target="_blank"
             >
-              {' '}
-              Hannah Hepburn{' '}
+              Hannah Hepburn
             </a>
             <a href="https://parminpatel.me/" target="_blank">
-              {' '}
-              Parmin Patel{' '}
-            </a>
-            <a href="https://www.linkedin.com/in/sean-ashley/" target="_blank">
-              Sean Ashley
+              Parmin Patel
             </a>
             <a href="https://shivamsh.me/" target="_blank">
-              {' '}
-              Shivam Sharma{' '}
+              Shivam Sharma
             </a>
           </div>
         </div>
