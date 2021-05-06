@@ -1,11 +1,16 @@
 import Head from 'next/head';
 import styles from '../profile.module.scss';
+import { useEffect } from 'react';
 
 // Layout
 import { Content, Header } from '../../../components/layout/layout';
 import NavigationCards from '../../../components/navigation/cards';
 
 export default function Igor() {
+  useEffect(() => {
+    window.scrollTo(0, document.querySelector("#content").offsetTop);
+  })
+
   return (
     <>
       <Head>

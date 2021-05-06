@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import styles from '../profile.module.scss';
+import { useEffect } from 'react';
 
 // Layout
 import { Content, Header } from "../../../components/layout/layout";
@@ -21,6 +22,10 @@ const StackedBar = dynamic(() =>
 );
 
 export default function Coop() {
+  useEffect(() => {
+    window.scrollTo(0, document.querySelector("#content").offsetTop);
+  })
+  
   return (
     <>
       <Head>

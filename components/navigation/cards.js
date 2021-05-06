@@ -8,13 +8,13 @@ export default function NavigationCards(props) {
       <div className={styles.row}>
         <Card
           title={"Demographics"}
-          link={"/profile/demographics#content"}
+          link={"/profile/demographics"}
           svg={"/cards/demographics.svg"}
           relativeSize={2}
         />
         <Card
           title={"Academics"}
-          link={"/profile/academics#content"}
+          link={"/profile/academics"}
           svg={"/cards/academics.svg"}
           relativeWidth={3}
         />
@@ -22,19 +22,19 @@ export default function NavigationCards(props) {
       <div className={styles.row}>
         <Card
           title={"Co-op"}
-          link={"/profile/co-op#content"}
+          link={"/profile/co-op"}
           svg={"/cards/co-op.svg"}
           relativeSize={2}
         />
         <Card
           title={"Lifestyle"}
-          link={"/profile/lifestyle#content"}
+          link={"/profile/lifestyle"}
           svg={"/cards/lifestyle.svg"}
           relativeSize={3}
         />
         <Card
           title={"Igor"}
-          link={"/profile/igor#content"}
+          link={"/profile/igor"}
           svg={"/cards/igor.svg"}
           relativeSize={2}
         />
