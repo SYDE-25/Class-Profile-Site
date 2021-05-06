@@ -135,7 +135,7 @@ export default function Lifestyle() {
                       <br />
                       Igor
                       </>}
-                link={"/profile/igor#content"}
+                link={"/profile/igor"}
                 svg={"/cards/igor.svg"}
                 relativeSize={1}
                 bottomSect={true}
