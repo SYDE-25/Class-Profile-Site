@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import styles from '../profile.module.scss';
+import { useEffect } from 'react';
 
 // Layout
 import NavigationCards, { Card } from "../../../components/navigation/cards";
@@ -16,6 +17,10 @@ const DoughnutChart = dynamic(() =>
 const BarGraph = dynamic(() => import('../../../components/charts/barGraph'));
 
 export default function Lifestyle() {
+  useEffect(() => {
+    window.scrollTo(0, document.querySelector("#content").offsetTop);
+  })
+
   return (
     <>
       <Head>
